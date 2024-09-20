@@ -45,6 +45,7 @@ export const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 10px;
+
   position: relative;
 `;
 
