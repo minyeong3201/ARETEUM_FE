@@ -82,10 +82,24 @@ class BoothDetailView(APIView):
     
 # 부스 검색   
 class SearchBoothView(generics.ListAPIView):
-    queryset = Booth.objects.all()
     serializer_class = SearchBoothSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['name']
+
+    def get_queryset(self):
+        queryset = Booth.objects.all()
+        search_term = self.request.query_params.get('search', None)
+        if search_term:
+            queryset = queryset.filter(name__icontains=search_term)
+        return queryset
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return Response({
+            'count': queryset.count(),
+            'results': serializer.data
+        }, status=status.HTTP_200_OK)
     
 # 솜톡
 class SomTalkViewSet(ModelViewSet):
