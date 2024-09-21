@@ -28,7 +28,7 @@ const Talk = () => {
       if (response.status === 200) {
         setChatMessages((prevMessages) => [
           ...prevMessages,
-          { id: response.data.id, comment: response.data.comment }, // 서버에서 돌아온 댓글을 추가
+          { comment: response.data.comment }, // 서버에서 돌아온 댓글을 추가
         ]);
         setComment(""); // 입력 필드 초기화
       }
