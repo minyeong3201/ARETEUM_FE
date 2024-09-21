@@ -55,19 +55,19 @@ export default function Main() {
     <>
       <div className="container">
         <div className="main-logo">
-          <img
-            src={`${process.env.PUBLIC_URL}/images/Main/Main-logo.svg`}
+          <object
+            data={`${process.env.PUBLIC_URL}/images/Main/Main-logo.svg`}
             alt="logo"
           />
         </div>
         <div>
-          <img
-            src={`${process.env.PUBLIC_URL}/images/Main/Main-bg.svg`}
+          <object
+            data={`${process.env.PUBLIC_URL}/images/Main/Main-bg.svg`}
             alt="Main-bg"
             className="main-bg"
           />
-          <motion.img
-            src={`${process.env.PUBLIC_URL}/images/Main/Main-star.svg`}
+          <motion.object
+            data={`${process.env.PUBLIC_URL}/images/Main/Main-star.svg`}
             alt="main-star"
             className="main-star"
             initial={{ opacity: 0 }}
@@ -82,7 +82,7 @@ export default function Main() {
         </div>
         <div className="menu">
           <div className="timetable">
-            <motion.img
+            <motion.object
               initial="initial"
               animate="animate"
               transition={{
@@ -93,20 +93,20 @@ export default function Main() {
               }}
               variants={floatingVariants1}
               onClick={() => GoTimeTable()}
-              src={`${process.env.PUBLIC_URL}/images/Main/Timetable-illur.svg`}
+              data={`${process.env.PUBLIC_URL}/images/Main/Timetable-illur.svg`}
               alt="illur"
               className="timetable-illur c-po"
             />
-            <motion.img
+            <motion.object
               whileHover="hover"
               variants={btnHoverVariants}
               onClick={() => GoTimeTable()}
-              src={`${process.env.PUBLIC_URL}/images/Main/Timetable-btn.svg`}
+              data={`${process.env.PUBLIC_URL}/images/Main/Timetable-btn.svg`}
               alt="btn"
               className="timetable-btn c-po"
             />
-            <motion.img
-              src={`${process.env.PUBLIC_URL}/images/Main/Timetable-som.svg`}
+            <motion.object
+              data={`${process.env.PUBLIC_URL}/images/Main/Timetable-som.svg`}
               alt="som"
               className="timetable-som"
               initial={{ rotate: 0 }}
@@ -120,7 +120,7 @@ export default function Main() {
             />
           </div>
           <div className="booth">
-            <motion.img
+            <motion.object
               initial="initial"
               animate="animate"
               transition={{
@@ -131,20 +131,20 @@ export default function Main() {
               }}
               variants={floatingVariants2}
               onClick={() => GoBooth()}
-              src={`${process.env.PUBLIC_URL}/images/Main/Booth-illur.svg`}
+              data={`${process.env.PUBLIC_URL}/images/Main/Booth-illur.svg`}
               alt="illur"
               className="booth-illur c-po"
             />
-            <motion.img
+            <motion.object
               whileHover="hover"
               variants={btnHoverVariants}
               onClick={() => GoBooth()}
-              src={`${process.env.PUBLIC_URL}/images/Main/Booth-btn.svg`}
+              data={`${process.env.PUBLIC_URL}/images/Main/Booth-btn.svg`}
               alt="btn"
               className="booth-btn c-po"
             />
-            <motion.img
-              src={`${process.env.PUBLIC_URL}/images/Main/Booth-som.svg`}
+            <motion.object
+              data={`${process.env.PUBLIC_URL}/images/Main/Booth-som.svg`}
               alt="som"
               className="booth-som"
               initial={{ rotate: 0, x: 0 }}
@@ -158,7 +158,7 @@ export default function Main() {
             />
           </div>
           <div className="intro">
-            <motion.img
+            <motion.object
               initial="initial"
               animate="animate"
               transition={{
@@ -168,20 +168,20 @@ export default function Main() {
               }}
               variants={floatingVariants3}
               onClick={() => GoIntro()}
-              src={`${process.env.PUBLIC_URL}/images/Main/Intro-illur.svg`}
+              data={`${process.env.PUBLIC_URL}/images/Main/Intro-illur.svg`}
               alt="illur"
               className="intro-illur c-po"
             />
-            <motion.img
+            <motion.object
               whileHover="hover"
               variants={btnHoverVariants}
               onClick={() => GoIntro()}
-              src={`${process.env.PUBLIC_URL}/images/Main/Intro-btn.svg`}
+              data={`${process.env.PUBLIC_URL}/images/Main/Intro-btn.svg`}
               alt="btn"
               className="intro-btn c-po"
             />
-            <motion.img
-              src={`${process.env.PUBLIC_URL}/images/Main/Intro-som.svg`}
+            <motion.object
+              data={`${process.env.PUBLIC_URL}/images/Main/Intro-som.svg`}
               alt="som"
               className="intro-som"
               initial={{ y: 0 }}
@@ -196,7 +196,7 @@ export default function Main() {
             />
           </div>
           <div className="talk">
-            <motion.img
+            <motion.object
               initial="initial"
               animate="animate"
               transition={{
@@ -207,20 +207,20 @@ export default function Main() {
               }}
               variants={floatingVariants4}
               onClick={() => GoTalk()}
-              src={`${process.env.PUBLIC_URL}/images/Main/Talk-illur.svg`}
+              data={`${process.env.PUBLIC_URL}/images/Main/Talk-illur.svg`}
               alt="illur"
               className="talk-illur c-po"
             />
-            <motion.img
+            <motion.object
               whileHover="hover"
               variants={btnHoverVariants}
               onClick={() => GoTalk()}
-              src={`${process.env.PUBLIC_URL}/images/Main/Talk-btn.svg`}
+              data={`${process.env.PUBLIC_URL}/images/Main/Talk-btn.svg`}
               alt="btn"
               className="talk-btn c-po"
             />
-            <motion.img
-              src={`${process.env.PUBLIC_URL}/images/Main/Talk-som.svg`}
+            <motion.object
+              data={`${process.env.PUBLIC_URL}/images/Main/Talk-som.svg`}
               alt="som"
               className="talk-som"
               initial={{ rotate: 0 }}
@@ -234,7 +234,7 @@ export default function Main() {
             />
           </div>
           <div className="people">
-            <motion.img
+            <motion.object
               initial="initial"
               animate="animate"
               transition={{
@@ -245,19 +245,19 @@ export default function Main() {
               }}
               variants={floatingVariants5}
               onClick={() => GoPeople()}
-              src={`${process.env.PUBLIC_URL}/images/Main/People-illur.svg`}
+              data={`${process.env.PUBLIC_URL}/images/Main/People-illur.svg`}
               alt="illur"
               className="people-illur c-po"
             />
-            <motion.img
+            <motion.object
               whileHover="hover"
               variants={btnHoverVariants}
               onClick={() => GoPeople()}
-              src={`${process.env.PUBLIC_URL}/images/Main/People-btn.svg`}
+              data={`${process.env.PUBLIC_URL}/images/Main/People-btn.svg`}
               alt="btn"
               className="people-btn c-po"
             />
-            <motion.img
+            <motion.object
               initial="initial"
               animate="animate"
               transition={{
@@ -268,7 +268,7 @@ export default function Main() {
               }}
               initial={{ y: 0 }}
               animate={{ y: [0, -10, 0] }}
-              src={`${process.env.PUBLIC_URL}/images/Main/People-som.svg`}
+              data={`${process.env.PUBLIC_URL}/images/Main/People-som.svg`}
               alt="som"
               className="people-som"
             />
