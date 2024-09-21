@@ -37,6 +37,8 @@ export const Header = styled.header`
 `;
 
 export const Back = styled.div`
+  margin-top: 20px;
+  margin-left: 10px;
   cursor: pointer;
   width: 24px;
   height: 24px;
@@ -44,6 +46,7 @@ export const Back = styled.div`
 `;
 
 export const Title = styled.div`
+  margin-top: 20px;
   color: #fff;
   font-family: "Pretendard Variable";
   font-size: 20px;
