@@ -7,6 +7,9 @@ export const Container = styled.div`
   height: 852px;
   margin-top: 0px;
   background: linear-gradient(180deg, #0c2456 0%, #0a759f 100%);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   min-height: 100vh;
 `;
 
@@ -126,6 +129,7 @@ export const Comment = styled.div`
   align-items: center;
   text-align: center;
   position: absolute;
+  margin: 0 auto; /* 중앙 배치 */
   top: 9px;
   padding: 5px 10px;
 
@@ -162,6 +166,7 @@ export const Footer = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed; /* 화면 하단에 고정 */
   padding: 20px;
   bottom: 0;
   position: absolute;
