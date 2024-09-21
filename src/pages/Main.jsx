@@ -147,8 +147,8 @@ export default function Main() {
               src={`${process.env.PUBLIC_URL}/images/Main/Booth-som.svg`}
               alt="som"
               className="booth-som"
-              initial={{ rotate: 0 }}
-              animate={{ rotate: [0, 5, -5, 0] }}
+              initial={{ rotate: 0, x: 0 }}
+              animate={{ rotate: [0, 0, 0, 0], x: [0, 20, 0, 0] }}
               transition={{
                 duration: 3,
                 repeat: Infinity,
@@ -219,10 +219,18 @@ export default function Main() {
               alt="btn"
               className="talk-btn c-po"
             />
-            <img
+            <motion.img
               src={`${process.env.PUBLIC_URL}/images/Main/Talk-som.svg`}
               alt="som"
               className="talk-som"
+              initial={{ rotate: 0 }}
+              animate={{ rotate: [0, -5, 5, 0] }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "easeInOut",
+              }}
             />
           </div>
           <div className="people">
@@ -249,7 +257,17 @@ export default function Main() {
               alt="btn"
               className="people-btn c-po"
             />
-            <img
+            <motion.img
+              initial="initial"
+              animate="animate"
+              transition={{
+                ease: "easeInOut",
+                duration: 2,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+              initial={{ y: 0 }}
+              animate={{ y: [0, -10, 0] }}
               src={`${process.env.PUBLIC_URL}/images/Main/People-som.svg`}
               alt="som"
               className="people-som"

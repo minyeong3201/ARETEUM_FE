@@ -147,3 +147,15 @@
   bottom: 0;
   flex-direction: column;
 }
+@media (min-width: 393px) {
+  body {
+    /*background-color: #0c2557; */
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    width: 393px;
+    min-height: 100vh;
+  }
+}
