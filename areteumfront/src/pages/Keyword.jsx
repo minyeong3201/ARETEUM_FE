@@ -180,7 +180,6 @@ const Keyword = () => {
           </K.Keywordd>
         </K.Box2>
       </K.Box>
-
       <K.Box3>
         <K.Box2>
           {["체험", "주점", "마켓"].map((category, index) => (
