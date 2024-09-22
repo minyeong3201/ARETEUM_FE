@@ -19,10 +19,11 @@ class Booth(models.Model):
         ('체험', '체험'),
         ('주점', '주점'),
         ('마켓', '마켓'),
+        ('체험+마켓', '체험+마켓')
     ]
     category = models.CharField(verbose_name='카테고리', max_length=10, choices=CATEGORIES)
 
-    introduction = models.CharField(verbose_name='부스소개', max_length=300, blank=True, null=True)
+    introduction = models.TextField(verbose_name='부스소개', blank=True, null=True)
     image = models.ImageField(verbose_name='사진', upload_to='booth-image', blank=True, null=True)
 
     def __str__(self):
@@ -38,7 +39,7 @@ class MenuGroup(models.Model):
         return f'{self.booth.name} > {self.name}'
     
 class Food(models.Model):
-    name = models.CharField(verbose_name='음식명', max_length=50)
+    name = models.TextField(verbose_name='음식명', max_length=50)
     price = models.PositiveIntegerField(verbose_name='가격', blank=True, null=True)
     menu_group = models.ForeignKey(MenuGroup, related_name='inner_food', on_delete=models.CASCADE, verbose_name='해당 메뉴그룹')
 

@@ -16,7 +16,11 @@ class BoothDay1ListView(APIView):
         # 카테고리 선택됐을 시 
         selected_category = request.GET.get('category', None)
         if selected_category is not None:
-            booths = booths.filter(category=selected_category)
+            q = Q(category=selected_category)
+            if (selected_category == '체험' or selected_category == '마켓'):
+                q |= Q(category='체험+마켓')
+            booths = booths.filter(q)
+            
 
         booths_count = booths.count()
         booths_list = Day1BoothSerializer(booths, many=True, context={'request':request})
@@ -35,7 +39,10 @@ class BoothDay2ListView(APIView):
         # 카테고리 선택됐을 시 
         selected_category = request.GET.get('category', None)
         if selected_category is not None:
-            booths = booths.filter(category=selected_category)
+            q = Q(category=selected_category)
+            if (selected_category == '체험' or selected_category == '마켓'):
+                q |= Q(category='체험+마켓')
+            booths = booths.filter(q)
 
         booths_count = booths.count()
         booths_list = Day2BoothSerializer(booths, many=True, context={'request':request})

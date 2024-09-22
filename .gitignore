@@ -1,6 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,django,python,virtualenv
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,django,python,virtualenv
 
+booth_crawler.py
+booth_data.xlsx
+~$booth_data.xlsx
+
 ### Django ###
 *.log
 *.pot
