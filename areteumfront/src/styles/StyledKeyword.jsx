@@ -131,36 +131,18 @@ export const SmallBox5 = styled.div`
   width: 90px;
 `;
 
-/*
-export const SmallBox5 = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  margin-top: -20px;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  width: 64px;
-  height: 64px;
-  flex-shrink: 0;
-  border-radius: 90px;
-  text-align: center;
-  background: ${(props) => (props.isClicked ? "#fffba6" : "#fff")};
-  transition: all 0.1s ease;
-  box-shadow: ${(props) =>
-    props.isClicked ? "0 0 25px 3px rgba(255, 255, 255, 1)" : "none"};
-`;
-*/
-
 export const SmallBox6 = styled.div`
   position: relative;
+  color: #0D2557;
   display: flex;
   flex-direction: column;
   margin-top: -20px;
+  margin-right: -8px;
+  right: 8px;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  width: 100px;
+  width: 106px;
   height: 29px;
   flex-shrink: 0;
   border-radius: 90px;
@@ -173,15 +155,30 @@ export const SmallBox6 = styled.div`
     props.isClicked ? "0 0 15px 3px rgba(120, 120, 120, 1)" : "none"};
 `;
 
+export const ResultCount = styled.div`
+  position: relative;
+  display: flex;
+  background: none;
+  margin-left: 24px;
+  margin-top: -5px;
+  flex-shrink: 0;
+  color: #FFF;
+  font-family: "Pretendard Variable";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+`;
+
 export const List = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: 30px;
-  margin-left: 4px;
-  height: 450px;
+  margin-top: 20px;
+  margin-left: 3px;
+  height: 460px;
   background: none;
 `;
 
@@ -191,8 +188,8 @@ export const List2 = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: -10px;
-  height: 400px;
+  margin-top: 5px;
+  height: 500px;
   width: 393px;
   overflow-x: auto;
   scrollbar-width: none;
@@ -217,7 +214,7 @@ export const Bname = styled.div`
   height: 105px;
   width: 200px;
   margin-left: -90px;
-  padding-top: 20px;
+  padding-top: 18px;
   flex-shrink: 0;
   background: none;
   color: var(--, #0c2557);
@@ -238,7 +235,7 @@ export const Time = styled.div`
   width: 112.129px;
   background: none;
   margin-left: -176px;
-  margin-top: 65px;
+  margin-top: 60px;
   flex-shrink: 0;
   color: var(--, #0c2557);
   font-family: "Pretendard Variable";
@@ -251,7 +248,7 @@ export const Time = styled.div`
 export const Blocation = styled.div`
   position: absolute;
   display: flex;
-  top: 25px;
+  top: 24px;
   left: 230px;
   width: 80.422px;
   height: 18px;
@@ -274,7 +271,27 @@ export const Btime = styled.div`
   position: absolute;
   display: flex;
   width: 90px;
-  top: 65px;
+  top: 60px;
+  left: 223px;
+  background: none;
+  display: flex;
+  color: var(--, #0c2557);
+  text-align: right;
+  font-family: Pretendard;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-align: right;
+`;
+
+export const Btime2 = styled.div`
+  position: absolute;
+  display: flex;
+  width: 90px;
+  top: 75px;
   left: 223px;
   background: none;
   display: flex;

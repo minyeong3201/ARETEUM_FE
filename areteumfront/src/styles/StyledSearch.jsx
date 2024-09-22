@@ -75,6 +75,17 @@ export const Footer = styled.footer`
   position: absolute;
 `;
 
+export const NoResult = styled.footer`
+  width: 393px;
+  height: 290px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  top: 0px;
+  position: absolute;
+`;
+
 export const InputBlank = styled.div`
   display: flex;
   align-items: center;
@@ -91,7 +102,7 @@ export const InputBlank = styled.div`
     border: none;
     outline: none;
     width: 273px;
-    margin-left: 10px;
+    margin-left: 3px;
     color: #000;
     font-family: "Gothic A1";
     font-size: 15px;
@@ -101,15 +112,30 @@ export const InputBlank = styled.div`
   }
 `;
 
+export const ResultCount = styled.div`
+  position: relative;
+  display: flex;
+  background: none;
+  margin-left: 24px;
+  margin-top: 20px;
+  flex-shrink: 0;
+  color: #FFF;
+  font-family: "Pretendard Variable";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+`;
+
 export const List = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: 30px;
+  margin-top: 0px;
   margin-left: 3px;
-  height: 450px;
+  height: 460px;
   background: none;
 `;
 
@@ -119,7 +145,7 @@ export const List2 = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: 10px;
+  margin-top: -10px;
   height: 500px;
   width: 393px;
   overflow-x: auto;
@@ -145,7 +171,7 @@ export const Bname = styled.div`
   height: 105px;
   width: 200px;
   margin-left: -90px;
-  padding-top: 20px;
+  padding-top: 18px;
   flex-shrink: 0;
   background: none;
   color: var(--, #0c2557);
@@ -166,7 +192,7 @@ export const Time = styled.div`
   width: 112.129px;
   background: none;
   margin-left: -176px;
-  margin-top: 65px;
+  margin-top: 60px;
   flex-shrink: 0;
   color: var(--, #0c2557);
   font-family: "Pretendard Variable";
@@ -179,7 +205,7 @@ export const Time = styled.div`
 export const Blocation = styled.div`
   position: absolute;
   display: flex;
-  top: 25px;
+  top: 24px;
   left: 230px;
   width: 80.422px;
   height: 18px;
@@ -202,7 +228,27 @@ export const Btime = styled.div`
   position: absolute;
   display: flex;
   width: 90px;
-  top: 65px;
+  top: 60px;
+  left: 223px;
+  background: none;
+  display: flex;
+  color: var(--, #0c2557);
+  text-align: right;
+  font-family: Pretendard;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-align: right;
+`;
+
+export const Btime2 = styled.div`
+  position: absolute;
+  display: flex;
+  width: 90px;
+  top: 75px;
   left: 223px;
   background: none;
   display: flex;
@@ -230,4 +276,3 @@ export const SmallBox4 = styled.div`
   align-items: center;
   text-align: center;
 `;
-
