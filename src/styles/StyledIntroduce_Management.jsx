@@ -15,7 +15,7 @@ export const Container = styled.div`
 
 export const Background = styled.div`
   position: relative; /* 상대 위치 설정으로 자연스럽게 배치 */
-  margin-top: -875px; /* Header의 높이만큼 띄워줍니다. */
+  margin-top: -885px; /* Header의 높이만큼 띄워줍니다. */
   width: 491px;
   height: 909px;
   flex-shrink: 0;
@@ -96,7 +96,7 @@ export const Menu = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-left: 63px;
+    margin-left: 55px;
   }
 
   #choice3 {
@@ -107,7 +107,7 @@ export const Menu = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-left: 75px;
+    margin-left: 78px;
   }
 `;
 
@@ -115,7 +115,7 @@ export const Menu = styled.div`
 export const UnderBar = styled.div`
   width: 100px;
   height: 1px;
-  margin-left: 175px;
+  margin-left: 174px;
   margin-top: -11px;
 `;
 
@@ -199,7 +199,7 @@ export const Insta = styled.div`
   width: 150px;
   height: 14px;
   margin-top: 25px;
-  margin-left: 205px;
+  margin-left: 220px;
   #text2 {
     color: #f6d1b1;
     font-family: "Pretendard Variable";
@@ -435,9 +435,9 @@ export const PosterName = styled.div`
   width: 160px;
   height: 40px;
   flex-shrink: 0;
-  margin-left: 100px;
-  margin-top: 60px;
-  img {
+  margin-left: 95px;
+  margin-top: 65px;
+  .PosterName {
     width: 200px;
     height: 45px;
   }

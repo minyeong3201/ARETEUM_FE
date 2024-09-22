@@ -52,17 +52,15 @@ const Introduce_Management = () => {
         <div id="text">동덕여자대학교 2024</div>
       </I.UniversityName>
       <I.Areteum>
-        <img
-          src={`${process.env.PUBLIC_URL}/images/ARETEUMText.svg`}
-          alt="areteum"
+        <object
+          data="/images/ARETEUMText.svg"
+          alt="poster"
+          className="areteum"
         />
       </I.Areteum>
       <I.LogoBack></I.LogoBack>
       <I.Logo>
-        <img
-          src={`${process.env.PUBLIC_URL}/images/ManagementLogo.svg`}
-          alt="logo"
-        />
+        <object data="/images/ManagementLogo.svg" alt="logo" className="logo" />
       </I.Logo>
       <I.Insta>
         <div id="text2">instagram</div>
@@ -101,9 +99,10 @@ const Introduce_Management = () => {
         <div id="text21">기 국원으로 활동하고 있습니다.</div>
       </I.Content>
       <I.PosterName>
-        <img
-          src={`${process.env.PUBLIC_URL}/images/PosterName.svg`}
-          alt="name"
+        <object
+          data="/images/PosterName.svg"
+          alt="poster"
+          className="PosterName"
         />
       </I.PosterName>
       <I.Background>
@@ -113,7 +112,7 @@ const Introduce_Management = () => {
         />
       </I.Background>
       <I.Footer>
-        <img src={`${process.env.PUBLIC_URL}/images/Footer.svg`} alt="footer" />
+        <object data="/images/Footer.svg" alt="poster" className="Footer" />
       </I.Footer>
     </I.Container>
   );
