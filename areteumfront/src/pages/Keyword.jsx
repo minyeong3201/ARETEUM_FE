@@ -58,7 +58,7 @@ const Keyword = () => {
   useEffect(() => {
     // 첫 화면에서 Date 1 데이터 디폴트
     fetchBoothData("http://127.0.0.1:8000/booth-day1/", category);
-  }, []); 
+  }, []);
 
   useEffect(() => {
     if ((isDate1Clicked || isDate2Clicked) && category) {
@@ -100,9 +100,59 @@ const Keyword = () => {
         />
       </K.Background>
       <object
-        data={`${process.env.PUBLIC_URL}/images/Som.svg`}
-        alt="Som"
-        style={{ position: "absolute", top: "370px", left: "60px" }}
+        data={`${process.env.PUBLIC_URL}/images/C.svg`}
+        alt="LCloud"
+        style={{ position: "absolute", top: "105px", left: "0px" }}
+      />
+      <object
+        data={`${process.env.PUBLIC_URL}/images/F.svg`}
+        alt="RCluod"
+        style={{ position: "absolute", top: "230px", right: "0px" }}
+      />
+      <object
+        data={`${process.env.PUBLIC_URL}/images/G.svg`}
+        alt="PBouble"
+        style={{ position: "absolute", top: "280px", left: "-35px" }}
+      />
+      <object
+        data={`${process.env.PUBLIC_URL}/images/E.svg`}
+        alt="R1Star"
+        style={{ position: "absolute", top: "80px", right: "43px" }}
+      />
+      <object
+        data={`${process.env.PUBLIC_URL}/images/H.svg`}
+        alt="R2Star"
+        style={{ position: "absolute", top: "95px", right: "30px", width: "25px" }}
+      />
+      <object
+        data={`${process.env.PUBLIC_URL}/images/E.svg`}
+        alt="Up2Star"
+        style={{ position: "absolute", top: "110px", left: "30px", width: "40px" }}
+      />
+      <object
+        data={`${process.env.PUBLIC_URL}/images/E.svg`}
+        alt="Up1Star"
+        style={{ position: "absolute", top: "78px", left: "-5px", width: "70px" }}
+      />
+      <object
+        data={`${process.env.PUBLIC_URL}/images/E.svg`}
+        alt="Under3Star"
+        style={{ position: "absolute", top: "300px", left: "0px" }}
+      />
+      <object
+        data={`${process.env.PUBLIC_URL}/images/E.svg`}
+        alt="Under2Star"
+        style={{ position: "absolute", top: "285px", right: "80px" }}
+      />
+      <object
+        data={`${process.env.PUBLIC_URL}/images/E.svg`}
+        alt="Under1Star"
+        style={{ position: "absolute", top: "260px", right: "50px", width: "50px" }}
+      />
+      <object
+        data={`${process.env.PUBLIC_URL}/images/A.svg`}
+        alt="YBouble"
+        style={{ position: "absolute", top: "90px", right: "-30px", width: "70px" }}
       />
       <K.Box>
         <K.Box2>

@@ -14,7 +14,7 @@ export const Container = styled.div`
 
 export const Background = styled.div`
   position: absolute; /* 상대 위치 설정으로 자연스럽게 배치 */
-  margin-top: 200px;
+  margin-top: 250px;
   margin-left: 20px;
   flex-shrink: 0;
   z-index: 0; /* 다른 요소들 뒤에 배치 */
@@ -235,13 +235,13 @@ export const Time = styled.div`
   width: 112.129px;
   background: none;
   margin-left: -176px;
-  margin-top: 60px;
+  margin-top: 67px;
   flex-shrink: 0;
   color: var(--, #0c2557);
   font-family: "Pretendard Variable";
   font-size: 13px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: normal;
 `;
 
@@ -271,7 +271,7 @@ export const Btime = styled.div`
   position: absolute;
   display: flex;
   width: 90px;
-  top: 60px;
+  top: 67px;
   left: 223px;
   background: none;
   display: flex;
@@ -291,7 +291,7 @@ export const Btime2 = styled.div`
   position: absolute;
   display: flex;
   width: 90px;
-  top: 75px;
+  top: 82px;
   left: 223px;
   background: none;
   display: flex;

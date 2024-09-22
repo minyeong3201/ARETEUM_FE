@@ -68,7 +68,11 @@ const Search = () => {
           style={{ position: "absolute", top: "370px", left: "60px" }}
         />
       ) : null}
-
+        <object
+            data={`${process.env.PUBLIC_URL}/images/E.svg`}
+            alt="E"
+            style={{ position: "absolute", top: "200px", right: "20px" }}
+        />
       <S.InputBlank>
         <input
           type="text"
