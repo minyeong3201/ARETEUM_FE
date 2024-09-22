@@ -10,6 +10,7 @@ export const Container = styled.div`
   min-height: 100vh;
   padding: 0; /* 불필요한 패딩 제거 */
   box-sizing: border-box; /* 패딩이 width에 포함되도록 설정 */
+  overflow: hidden;
 `;
 
 export const Background = styled.div`

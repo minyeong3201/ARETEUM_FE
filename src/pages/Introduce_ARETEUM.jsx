@@ -113,7 +113,7 @@ const Introduce_ARETEUM = () => {
       </I.PosterName2>
       <I.Background>
         <img
-          src={`${process.env.PUBLIC_URL}/images/ARETEUMBack.svg`}
+          src={`${process.env.PUBLIC_URL}/images/ARETEUMBack2.svg`}
           alt="background"
         />
       </I.Background>
