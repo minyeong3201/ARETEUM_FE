@@ -135,8 +135,7 @@ const Search = () => {
                 <S.Btime>{item.timeDay1 || ""}</S.Btime>
                 {item.timeDay2 ? (
                   <S.Btime2
-                    style={{ marginTop: item.timeDay1 ? "0" : "-15px" }}
-                  >
+                    style={{ marginTop: item.timeDay1 ? "0" : "-15px" }}>
                     {item.timeDay2}
                   </S.Btime2>
                 ) : null}
