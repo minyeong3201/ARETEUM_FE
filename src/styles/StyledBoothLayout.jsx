@@ -13,7 +13,7 @@ export const Container = styled.div`
 `;
 
 export const Background = styled.div`
-  position: relative; /* 상대 위치 설정으로 자연스럽게 배치 */
+  position: absolute; /* 상대 위치 설정으로 자연스럽게 배치 */
   //   margin-top: 70px; /* Header의 높이만큼 띄워줍니다. */
   width: 393px;
   height: 737px;
@@ -59,6 +59,7 @@ export const Title = styled.div`
   transform: translateX(-50%);
 `;
 
+export const Wrap = styled.div``;
 export const Footer = styled.footer`
   width: 393px;
   height: 290px;

@@ -14,7 +14,7 @@ const TimeTable = () => {
   const [isClicked1002, setIsClicked1002] = useState(false);
   // 배경 이미지 상태 관리
   const [backgroundImage, setBackgroundImage] = useState(
-    `${process.env.PUBLIC_URL}/images/TTBack.svg`
+    `${process.env.PUBLIC_URL}/images/TimeTable/TTBack.svg`
   );
   // 애니메이션 트리거 상태 관리
   const [animateBooths, setAnimateBooths] = useState(false);
@@ -47,7 +47,7 @@ const TimeTable = () => {
     setIsClicked1001(true);
     setIsClicked1002(false);
     setBoothTop("370px");
-    setBackgroundImage(`${process.env.PUBLIC_URL}/images/TTBack.svg`);
+    setBackgroundImage(`${process.env.PUBLIC_URL}/images/TimeTable/TTBack.svg`);
     setCenterHeight("370px");
     setFooterPaddingTop("30px");
     setSomSomTop("550px");
@@ -59,7 +59,9 @@ const TimeTable = () => {
     setIsClicked1001(false);
     setIsClicked1002(true);
     setBoothTop("409px");
-    setBackgroundImage(`${process.env.PUBLIC_URL}/images/TTBack.svg`);
+    setBackgroundImage(
+      `${process.env.PUBLIC_URL}/images/TimeTable/TT1002Back.svg`
+    );
     setCenterHeight("420px");
     setFooterPaddingTop("140px");
     setSomSomTop("600px");
@@ -142,7 +144,7 @@ const TimeTable = () => {
         <TT.Date>
           <img
             id="1001"
-            src={`${process.env.PUBLIC_URL}/images/${
+            src={`${process.env.PUBLIC_URL}/images/TimeTable/${
               isClicked1001 ? "Clicked1001.svg" : "unClicked1001.svg"
             }`}
             alt="1001"
@@ -151,7 +153,7 @@ const TimeTable = () => {
           />
           <img
             id="1002"
-            src={`${process.env.PUBLIC_URL}/images/${
+            src={`${process.env.PUBLIC_URL}/images/TimeTable/${
               isClicked1002 ? "Clicked1002.svg" : "unClicked1002.svg"
             }`}
             alt="1002"
@@ -187,7 +189,7 @@ const TimeTable = () => {
                           <img
                             id="arrow"
                             type={booth.type}
-                            src={`${process.env.PUBLIC_URL}/images/${
+                            src={`${process.env.PUBLIC_URL}/images/TimeTable/${
                               booth.type === "부스"
                                 ? "boothArrow.svg"
                                 : "performanceArrow.svg"
@@ -200,7 +202,7 @@ const TimeTable = () => {
                           <img
                             id="arrow"
                             type={booth.type}
-                            src={`${process.env.PUBLIC_URL}/images/${
+                            src={`${process.env.PUBLIC_URL}/images/TimeTable/${
                               booth.type === "부스"
                                 ? "boothArrow.svg"
                                 : "performanceArrow.svg"
@@ -224,7 +226,7 @@ const TimeTable = () => {
         <TT.SomSom style={{ top: somSomTop }}>
           <object
             id="somsom"
-            data={`${process.env.PUBLIC_URL}/images/SomSom.svg`}
+            data={`${process.env.PUBLIC_URL}/images/TimeTable/SomSom.svg`}
             alt="somsom"
           />
         </TT.SomSom>

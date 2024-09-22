@@ -23,13 +23,17 @@ const BoothLayout = () => {
         <BL.Title>부스배치도</BL.Title>
       </BL.Header>
       <BL.Background>
-        <img
-          src={`${process.env.PUBLIC_URL}/images/BLBack.svg`}
+        <object
+          data={`${process.env.PUBLIC_URL}/images/BoothLayout/BLBack.svg`}
           alt="background"
         />
       </BL.Background>
+      <BL.Wrap></BL.Wrap>
       <BL.Footer>
-        <img src={`${process.env.PUBLIC_URL}/images/Footer.svg`} alt="footer" />
+        <object
+          data={`${process.env.PUBLIC_URL}/images/Footer.svg`}
+          alt="footer"
+        />
       </BL.Footer>
     </BL.Container>
   );
