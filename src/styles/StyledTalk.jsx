@@ -12,6 +12,7 @@ export const Container = styled.div`
   justify-content: center;
   text-align: center;
   min-height: 100vh;
+  overflow-y: hidden;
 `;
 
 export const Background = styled.div`
@@ -47,7 +48,7 @@ export const Talk = styled.div`
   position: relative;
   bottom: 65%;
   z-index: 3; /* Som보다 위에 배치 */
-  height: 35%;
+  height: 33%;
   border: none;
   border-radius: 10px;
   overflow-y: auto; /* 스크롤 */
@@ -95,7 +96,6 @@ export const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-
   position: relative;
 `;
 
