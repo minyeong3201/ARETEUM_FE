@@ -10,6 +10,8 @@ import BoothLayout from "./pages/BoothLayout";
 import Main from "./pages/Main";
 import GeneralBooth from "./pages/GeneralBooth";
 import FoodBooth from "./pages/FoodBooth";
+import Keyword from "./pages/Keyword";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           path="/introduce_management"
           element={<Introduce_Management />}
         />
+        <Route path="/keyword" element={<Keyword />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/introduce_lion" element={<Introduce_Lion />} />
         <Route path="/timetable" element={<TimeTable />} />
         <Route path="/boothlayout" element={<BoothLayout />} />
