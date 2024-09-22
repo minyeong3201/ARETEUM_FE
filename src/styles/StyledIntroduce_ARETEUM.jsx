@@ -10,12 +10,13 @@ export const Container = styled.div`
   min-height: 100vh;
   padding: 0; /* 불필요한 패딩 제거 */
   box-sizing: border-box; /* 패딩이 width에 포함되도록 설정 */
+  overflow: hidden;
 `;
 
 export const Background = styled.div`
   position: relative; /* 상대 위치 설정으로 자연스럽게 배치 */
   margin-top: -985px; /* Header의 높이만큼 띄워줍니다. */
-  width: 410px;
+  width: 393px;
   height: 1041px;
   flex-shrink: 0;
   z-index: 0; /* 다른 요소들 뒤에 배치 */

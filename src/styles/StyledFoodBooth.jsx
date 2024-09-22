@@ -4,7 +4,7 @@ export const Container = styled.div`
   position: relative;
   margin: 0 auto;
   width: 393px;
-  height: 1279px;
+  height: 1129px;
   margin-top: 0px;
   background: linear-gradient(180deg, #0c2456 0%, #0a759f 100%);
   min-height: 100vh;
@@ -13,7 +13,7 @@ export const Container = styled.div`
 `;
 
 export const Background = styled.div`
-  position: relative; /* 상대 위치 설정으로 자연스럽게 배치 */
+  position: absolute; /* 상대 위치 설정으로 자연스럽게 배치 */
   //   margin-top: 70px; /* Header의 높이만큼 띄워줍니다. */
   width: 393px;
   height: 737px;
@@ -21,8 +21,9 @@ export const Background = styled.div`
   z-index: 0; /* 다른 요소들 뒤에 배치 */
 
   img {
-    width: 100%;
-    height: 100%;
+    padding-top: 95px;
+    // width: 100%;
+    // height: 100%;
     object-fit: cover; /* 배경 이미지가 화면에 맞게 늘어나도록 설정 */
   }
 `;
@@ -37,6 +38,8 @@ export const Header = styled.header`
 `;
 
 export const Back = styled.div`
+  margin-top: 20px;
+  margin-left: 10px;
   cursor: pointer;
   width: 24px;
   height: 24px;
@@ -44,6 +47,7 @@ export const Back = styled.div`
 `;
 
 export const Title = styled.div`
+  margin-top: 20px;
   color: #fff;
   font-family: "Pretendard Variable";
   font-size: 20px;
@@ -76,7 +80,7 @@ export const BoothContainer = styled.div`
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   left: 50%;
   z-index: 1; /* Background보다 위에 배치 */
-  top: 33%;
+  top: 38%;
 `;
 
 // 상단 부스 카테고리 태그
@@ -90,7 +94,7 @@ export const BoothTag = styled.div`
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   left: 50%;
   z-index: 1; /* Background보다 위에 배치 */
-  top: 11%;
+  top: 14%;
   color: #0c2557;
   text-align: center;
   font-family: "Pretendard Variable";
@@ -106,7 +110,7 @@ export const BoothTitle = styled.div`
   position: absolute;
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   left: 50%;
-  top: 14%;
+  top: 17.5%;
   z-index: 1; /* 텍스트가 블러보다 위에 위치 */
   color: #0c2557;
   text-align: center;
@@ -123,7 +127,7 @@ export const BoothHost = styled.div`
   position: absolute;
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   left: 50%;
-  top: 16.2%;
+  top: 19.9%;
   z-index: 1; /* 텍스트가 블러보다 위에 위치 */
   color: #4e78b4;
   text-align: center;
@@ -141,7 +145,7 @@ export const BoothInfo = styled.div`
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   left: 26%;
   z-index: 1; /* Background보다 위에 배치 */
-  top: 20%;
+  top: 24.5%;
   color: #0c2557;
   font-family: "Pretendard Variable";
   font-size: 14px;
@@ -156,7 +160,7 @@ export const LocationIcon = styled.div`
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   left: 15.5%;
   z-index: 1; /* Background보다 위에 배치 */
-  top: 23%;
+  top: 27.5%;
   background-image: url("./images/LocationIcon.svg");
   width: 13.993px;
   height: 17px;
@@ -170,10 +174,10 @@ export const BoothLocation = styled.div`
   white-space: nowrap; /* 텍스트가 한 줄로 나오도록 설정 */
   left: 19.5%;
   z-index: 1; /* Background보다 위에 배치 */
-  top: 22.3%;
+  top: 26.9%;
   color: #4e78b4;
   font-family: "Pretendard Variable";
-  font-size: 14px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -185,7 +189,7 @@ export const ClockIcon = styled.div`
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   left: 15.5%;
   z-index: 1; /* Background보다 위에 배치 */
-  top: 25%;
+  top: 29.5%;
   background-image: url("./images/ClockIcon.svg");
   width: 14.587px;
   height: 14.587px;
@@ -197,22 +201,33 @@ export const BoothDate = styled.div`
   position: absolute;
   left: 19.5%;
   z-index: 1;
-  top: 24.3%;
+  top: 28.8%;
   color: #4e78b4;
-  font-family: "Pretendard Variable";
-  font-size: 14px;
+  font-family: 4 "Pretendard Variable";
+  font-size: 12px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 300;
   line-height: normal;
   text-align: left; /* 왼쪽 정렬 */
   white-space: nowrap; /* 텍스트가 한 줄로 나오도록 설정 */
+
+  .time {
+    color: #4e78b4;
+    font-family: 4 "Pretendard Variable";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: left; /* 왼쪽 정렬 */
+    white-space: nowrap; /* 텍스트가 한 줄로 나오도록 설정 */
+  }
 `;
 
 // 메뉴판
 export const FoodContainer = styled.div`
   position: absolute;
   left: 50%;
-  top: 29%;
+  top: 33.5%;
   z-index: 1;
   width: 303px;
   min-height: 197px;
@@ -266,7 +281,8 @@ export const FoodContainer = styled.div`
     font-style: normal;
     font-weight: 500;
     line-height: 20px;
-    padding-left: 10px;
+    padding-left: 15px;
+    text-indent: -7px;
   }
 
   .price {
@@ -278,7 +294,6 @@ export const FoodContainer = styled.div`
     font-weight: 800;
     line-height: 20px; /* 166.667% */
     padding-right: 10px;
-    margin-top: -22px;
   }
 `;
 
@@ -289,8 +304,10 @@ export const FooterTextLogo = styled.div`
   left: 50%;
   z-index: 1; /* Background보다 위에 배치 */
   top: 81%;
-  background-image: url("./images/FooterTextLogo.svg");
   width: 278.288px;
   height: 81.552px;
   flex-shrink: 0;
 `;
+
+// 연동 박스
+export const FoodBox = styled.div``;

@@ -1,13 +1,31 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as G from "../styles/StyledGeneralBooth";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const GeneralBooth = () => {
   const navigate = useNavigate();
+  const [content, setContent] = useState([]);
 
   const goback = () => {
     navigate(`/`);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `http://127.0.0.1:8000/booth-detail/9/`
+        );
+        setContent([response.data]); // 데이터 설정
+      } catch (error) {
+        console.error("데이터 가져오기 실패:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <G.Container>
@@ -22,29 +40,53 @@ const GeneralBooth = () => {
         </G.Back>
         <G.Title>부스 소개</G.Title>
       </G.Header>
-      <G.BoothContainer />
-      <G.BoothTag>체험</G.BoothTag>
-      <G.BoothTitle>달 골짜기 타로가게</G.BoothTitle>
-      <G.BoothImage>
-        <img
-          src={`${process.env.PUBLIC_URL}/images/DefaultBoothImage.svg`}
-          alt="booth image"
+      {content.map((e) => (
+        <G.BoothBox key={e.id}>
+          <G.BoothContainer />
+          <G.BoothTag>{e.category}</G.BoothTag>
+          <G.BoothTitle>{e.name}</G.BoothTitle>
+          <G.BoothImage>
+            <img src={e.image} alt="booth image" />
+          </G.BoothImage>
+          <G.BoothInfo>📣 부스 운영 정보</G.BoothInfo>
+          <G.LocationIcon />
+          <G.BoothLocation>{e.place}</G.BoothLocation>
+          <G.ClockIcon />
+          <G.BoothDate>
+            {e.date === "day1" ? (
+              <>
+                10/1 (화) <span className="time">{e.timeDay1}</span>
+              </>
+            ) : e.date === "day2" ? (
+              <>
+                10/2 (수) <span className="time">{e.timeDay2}</span>
+              </>
+            ) : e.date === "both" ? (
+              <>
+                10/1 (화) <span className="time">{e.timeDay1}</span>
+                <br />
+                10/2 (수) <span className="time">{e.timeDay2}</span>
+              </>
+            ) : (
+              e.date
+            )}
+          </G.BoothDate>
+
+          <G.BoothIntro>부스 소개</G.BoothIntro>
+          <G.BoothIntroContent>{e.introduction}</G.BoothIntroContent>
+        </G.BoothBox>
+      ))}
+      <G.FooterTextLogo>
+        <object
+          data={`${process.env.PUBLIC_URL}/images/FooterTextLogo.svg`}
+          alt="footer text logo"
         />
-      </G.BoothImage>
-      <G.BoothInfo>📣 부스 운영 정보</G.BoothInfo>
-      <G.LocationIcon />
-      <G.BoothLocation>운동장 구령대 앞</G.BoothLocation>
-      <G.ClockIcon />
-      <G.BoothDate>10월 1일 (화) 15:00 - 19:00</G.BoothDate>
-      <G.BoothIntro>부스 소개</G.BoothIntro>
-      <G.BoothIntroContent>
-        아무에게도 말하지 못한 고민이나 걱정거리가 있으신가요? 혹은 마음 속에
-        있는 두려움을 털어놓고 싶으신가요? 🔮 🌕 달 골짜기에 있는 타로 가게로
-        오세요! 🌕 🔮 비밀스러운 타로 가게에서 당신의 이야기를 들어드립니다!
-      </G.BoothIntroContent>
-      <G.FooterTextLogo />
+      </G.FooterTextLogo>
       <G.Footer>
-        <img src={`${process.env.PUBLIC_URL}/images/Footer.svg`} alt="footer" />
+        <object
+          data={`${process.env.PUBLIC_URL}/images/Footer.svg`}
+          alt="footer"
+        />
       </G.Footer>
     </G.Container>
   );
