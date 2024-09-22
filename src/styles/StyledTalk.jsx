@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { motion } from "framer-motion";
 
 export const Container = styled.div`
   position: relative;
@@ -44,18 +45,21 @@ export const Som = styled.div`
 
 export const Talk = styled.div`
   position: relative;
-  bottom: 85%;
+  bottom: 65%;
   z-index: 3; /* Som보다 위에 배치 */
-  height: 55%;
+  height: 35%;
   border: none;
   border-radius: 10px;
-  overflow: auto; /* 스크롤 */
+  overflow-y: auto; /* 스크롤 */
   display: flex;
+  margin: 10px;
   flex-direction: column;
   /* 스크롤바 스타일링 */
-  margin-right: 8px; /* 여백 추가 */
+
   &::-webkit-scrollbar {
     width: 8px; /* 스크롤바 너비 */
+    margin-right: 4px; /* 여백 추가 */
+    margin-left: 4px;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -68,15 +72,15 @@ export const Talk = styled.div`
   }
 `;
 
-export const TalkContent = styled.div`
+export const TalkContent = styled(motion.div)`
   display: inline-block;
-  padding: 10px 15px; /* 좌우 패딩 */
+  padding: 10px 15px;
   margin: 5px 0;
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(4px);
   border-radius: 30px;
-  box-sizing: border-box; /* 길이 계산 */
-  word-wrap: break-word; /* 긴 단어는 줄 바꿈 */
+  box-sizing: border-box;
+  word-wrap: break-word;
   color: #0c2557;
   font-family: "Pretendard Variable";
   font-size: 15px;

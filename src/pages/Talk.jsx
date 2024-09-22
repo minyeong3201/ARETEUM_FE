@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 import * as T from "../styles/StyledTalk";
 
 const Talk = () => {
@@ -8,6 +9,7 @@ const Talk = () => {
   const [comment, setComment] = useState("");
   const [messagePositions, setMessagePositions] = useState([]);
   const [chatMessages, setChatMessages] = useState([]);
+  const talkRef = useRef(null); // 스크롤을 조정할 참조
 
   const goback = () => {
     navigate(`/`);
@@ -73,6 +75,28 @@ const Talk = () => {
     setMessagePositions(positions); //최종 포지션 정해짐
   }, [chatMessages]); //처음 랜더링 됐을 때만 함수 작동
 
+  useEffect(() => {
+    // 메시지가 업데이트된 후 스크롤을 맨 아래로 이동
+    if (talkRef.current) {
+      talkRef.current.scrollTop = talkRef.current.scrollHeight;
+    }
+  }, [messagePositions]);
+
+  const floatingAnimation = (index) => {
+    const duration = Math.random() * 5 + 1;
+    return {
+      initial: { y: 0 },
+      animate: {
+        y: index % 2 === 0 ? [0, 5, 0] : [0, -5, 0],
+        transition: {
+          duration: duration,
+          ease: "easeInOut",
+          repeat: Infinity,
+        },
+      },
+    };
+  };
+
   return (
     <T.Container>
       <T.Header>
@@ -95,15 +119,18 @@ const Talk = () => {
       <T.Som>
         <img src={`${process.env.PUBLIC_URL}/images/Cotton.svg`} alt="솜솜" />
       </T.Som>
-      <T.Talk>
+      <T.Talk ref={talkRef}>
         {messagePositions.map((item, index) => (
           //데이터 맵핑
+
           <T.TalkContent
+            variants={floatingAnimation(index)}
+            initial={{ y: 0 }} // 초기 위치
+            animate="animate" // 애니메이션 시작
             key={index}
             style={{
               position: "absolute",
               ...item.position,
-              //절대로 포지션 지정
             }}
           >
             {item.message}
