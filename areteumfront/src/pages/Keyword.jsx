@@ -120,11 +120,6 @@ const Keyword = () => {
         style={{ position: "absolute", top: "80px", right: "43px" }}
       />
       <object
-        data={`${process.env.PUBLIC_URL}/images/H.svg`}
-        alt="R2Star"
-        style={{ position: "absolute", top: "95px", right: "30px", width: "25px" }}
-      />
-      <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
         alt="Up2Star"
         style={{ position: "absolute", top: "110px", left: "30px", width: "40px" }}

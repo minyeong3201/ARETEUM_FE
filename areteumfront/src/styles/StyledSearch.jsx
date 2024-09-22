@@ -14,7 +14,7 @@ export const Container = styled.div`
 
 export const Background = styled.div`
   position: absolute; /* 상대 위치 설정으로 자연스럽게 배치 */
-  margin-top: 200px;
+  margin-top: 225px;
   margin-left: 20px;
   flex-shrink: 0;
   z-index: 0; /* 다른 요소들 뒤에 배치 */
@@ -82,18 +82,20 @@ export const NoResult = styled.footer`
   justify-content: center;
   align-items: center;
   padding: 20px;
-  top: 0px;
+  top: 30px;
   position: absolute;
 `;
 
 export const InputBlank = styled.div`
   display: flex;
+  position: relative; 
   align-items: center;
   margin: 25px 28px;
   justify-content: center;
   width: 334px;
-  height: 56px;
+  height: 53px;
   flex-shrink: 0;
+  z-index: 1000;
   border-radius: 50px;
   background: #fff;
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.25);
@@ -117,7 +119,7 @@ export const ResultCount = styled.div`
   display: flex;
   background: none;
   margin-left: 24px;
-  margin-top: 20px;
+  margin-top: 25px;
   flex-shrink: 0;
   color: #FFF;
   font-family: "Pretendard Variable";
@@ -135,7 +137,7 @@ export const List = styled.div`
   align-items: flex-start;
   margin-top: 0px;
   margin-left: 3px;
-  height: 460px;
+  height: 600px;
   background: none;
 `;
 
@@ -145,8 +147,8 @@ export const List2 = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: -10px;
-  height: 500px;
+  margin-top: 0px;
+  height: 550px;
   width: 393px;
   overflow-x: auto;
   scrollbar-width: none;
