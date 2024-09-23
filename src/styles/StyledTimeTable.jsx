@@ -20,7 +20,7 @@ export const Container = styled.div`
   margin-top: 0px;
   background: linear-gradient(180deg, #0c2456 0%, #0a759f 100%);
   min-height: 100vh;
-  padding: 0; /* 불필요한 패딩 제거 */
+  padding: 0; /* 불필요한 패딩 제거 d*/
   box-sizing: border-box;
 `;
 
@@ -226,7 +226,9 @@ export const Booth = styled.div`
   }
   #info {
     ${({ type }) =>
-      type === "공연" ? ` margin-left:10px; margin-top:8px; width:160px;` : ``}
+      type === "공연"
+        ? ` margin-left:20px; margin-top:8px; width:170px; text-align:start;`
+        : ``}
     color: #fff;
     font-family: "Pretendard Variable";
     font-size: 12px;

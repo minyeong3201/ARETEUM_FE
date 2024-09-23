@@ -75,50 +75,50 @@ const TimeTable = () => {
   const boothData = [
     {
       name: "<달 골짜기 타로 가게>",
-      time: "15:00-19:00",
+      time: "15:00 - 19:00",
       info: "(사전 예약제)",
       type: "부스",
       date: "1001",
     },
     {
       name: "주점 부스 운영",
-      time: "16:00-22:00",
+      time: "16:00 - 22:00",
       info: "(일부 주점 12시부터 운영)",
       type: "부스",
       date: "1001",
     },
     {
       name: "버스킹 <솜솜어게인>",
-      time: "19:00-21:00",
+      time: "19:00 - 21:00",
       info: "",
       type: "공연",
       date: "1001",
     },
     {
       name: "<달 골짜기 타로 가게>",
-      time: "15:00-19:00",
+      time: "15:00 - 19:00",
       info: "(사전 예약제)",
       type: "부스",
       date: "1002",
     },
     {
       name: "주점 부스 운영",
-      time: "16:00-22:00",
+      time: "16:00 - 22:00",
       info: "(일부 주점 12시부터 운영)",
       type: "부스",
       date: "1002",
     },
     {
       name: "동아리 공연",
-      time: "19:00-21:00",
-      info: "- 17:30~17:50  한소리    \n- 18:00~18:10  뉴웨이브 \n- 18:10~18:20  아비드    \n- 18:25~18:55  얼사랑    \n- 19:00~19:30  엑스터시 \n- 19:40~20:10  소울엔지 ",
+      time: "19:00 - 21:00",
+      info: "- 17:30 ~ 17:50  한소리    \n- 18:00 ~ 18:10  뉴웨이브 \n- 18:10 ~ 18:20  아비드    \n- 18:25 ~ 18:55  얼사랑    \n- 19:00 ~ 19:30  엑스터시 \n- 19:40 ~ 20:10  소울엔지 ",
       type: "공연",
       date: "1002",
     },
     {
       name: "연예인 공연",
-      time: "19:00-21:00",
-      info: "  - 20:30~21:00  유다빈밴드\n   - 21:20~22:00   10CM        ",
+      time: "19:00 - 21:00",
+      info: "- 20:30 ~ 21:00  유다빈밴드\n- 21:20 ~ 22:00   10CM        ",
       type: "공연",
       date: "1002",
     },
@@ -131,9 +131,9 @@ const TimeTable = () => {
     <TT.Container style={{ height: backSize }}>
       <TT.Header>
         <TT.Back>
-          <object
+          <img
             id="back"
-            data={`${process.env.PUBLIC_URL}/images/Backbtn.svg`}
+            src={`${process.env.PUBLIC_URL}/images/Backbtn.svg`}
             alt="back"
             onClick={goback}
           />
@@ -236,9 +236,9 @@ const TimeTable = () => {
           />
         </TT.SomSom>
         <TT.TextBox>
-          <p id="title">12:00-22:00 상시 운영 부스</p>
+          <p id="title">12:00 - 22:00 상시 운영 부스</p>
           <p id="booth">
-            놀러와요 도담이네(~22시)
+            놀러와요 도담이네( ~ 22시)
             <br /> 오늘 밤은 여기 ‘로타’ / 불꽃피움
             <br />
             나란 돌쇠의 마님 환영회 / 화학과 주점
