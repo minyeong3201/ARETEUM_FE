@@ -1,6 +1,7 @@
 import { React, useEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as BL from "../styles/StyledBoothLayout";
+import boothData from "../data/BoothLayoutData";
 
 const BoothLayout = () => {
   const navigate = useNavigate();
@@ -122,8 +123,37 @@ const BoothLayout = () => {
       </BL.Buttons>
       <BL.BoothInfo>
         <BL.Box>
-          <BL.DAY1></BL.DAY1>
-          <BL.DAY1></BL.DAY1>
+          <BL.DAY1>
+            DAY 1
+            <BL.Booths>
+              <div id="one">
+                <div id="wrap">
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/BoothLayout/Number.svg`}
+                    alt="num"
+                  />
+                  <div id="num">1</div>
+                </div>
+                <div id="name">
+                  앗! 호신용품
+                  <br /> 타이어보다 싸다!!!
+                </div>
+              </div>
+            </BL.Booths>
+          </BL.DAY1>
+          <BL.DAY2>
+            DAY 2
+            <BL.Booths>
+              <div id="wrap">
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/BoothLayout/Number.svg`}
+                  alt="num"
+                />
+                <div id="num">1</div>
+              </div>
+              <div id="name">부스 이름</div>
+            </BL.Booths>
+          </BL.DAY2>
         </BL.Box>
       </BL.BoothInfo>
       <BL.Detail ref={detailRef} isVisible={isVisible}>

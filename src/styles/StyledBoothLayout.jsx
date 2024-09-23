@@ -80,6 +80,7 @@ export const Date = styled.div`
   margin-top: 16px;
   gap: 90px;
   img {
+    cursor: pointer;
   }
 `;
 export const BoothImg = styled.div`
@@ -101,6 +102,7 @@ export const Buttons = styled.div`
   margin-top: 18px;
 
   button {
+    cursor: pointer;
     width: 60px;
     height: 40px;
     flex-shrink: 0;
@@ -127,23 +129,113 @@ export const BoothInfo = styled.div`
 `;
 
 export const Box = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
   width: 334px;
-  height: 298px;
+  max-height: 298px;
+  overflow-y: auto;
   flex-shrink: 0;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.7);
 
   margin-top: 29px;
   margin-bottom: 30px;
+
+  padding-top: 17px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 17px;
+
+  /* 스크롤바 스타일 (선택사항) */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2); /* 스크롤바의 색상 */
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent; /* 스크롤 트랙 색상 */
+  }
 `;
-export const DAY1 = styled.div``;
-export const DAY2 = styled.div``;
+export const DAY1 = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  z-index: 2;
+
+  width: 135px;
+  gap: 10px;
+
+  color: #0c2557;
+  font-family: "Pretendard Variable";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
+export const DAY2 = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  z-index: 2;
+
+  width: 135px;
+  gap: 10px;
+
+  color: #0c2557;
+  font-family: "Pretendard Variable";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
+export const Booths = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  #one {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+  }
+  #wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  img {
+  }
+  #num {
+    position: absolute;
+    z-index: 4;
+    color: #fff;
+  }
+  #name {
+    color: #0c2557;
+    font-family: "Pretendard Variable";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.375px;
+  }
+`;
 export const Detail = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2;
+  cursor: pointer;
 
   div {
     display: flex;
