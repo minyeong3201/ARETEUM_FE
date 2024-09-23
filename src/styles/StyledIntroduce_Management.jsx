@@ -96,7 +96,7 @@ export const Menu = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-left: 55px;
+    margin-left: 63px;
   }
 
   #choice3 {
@@ -115,7 +115,7 @@ export const Menu = styled.div`
 export const UnderBar = styled.div`
   width: 100px;
   height: 1px;
-  margin-left: 174px;
+  margin-left: 176px;
   margin-top: -11px;
 `;
 
