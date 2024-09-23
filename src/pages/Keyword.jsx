@@ -12,6 +12,11 @@ const Keyword = () => {
   const [category, setCategory] = useState(null);
   const [totalResults, setTotalResults] = useState(0);
 
+  useEffect(() => {
+    // 컴포넌트가 마운트되면 상단으로 스크롤
+    window.scrollTo(0, 0);
+  }, []);
+
   const goback = () => {
     window.history.back();
   };
