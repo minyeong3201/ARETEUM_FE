@@ -32,8 +32,13 @@ const BoothLayout = () => {
         <BL.Date>
           <img
             id="1001"
-            src={`${process.env.PUBLIC_URL}/images/BoothLayout/unClicked1001.svg`}
+            src={`${process.env.PUBLIC_URL}/images/BoothLayout/Clicked1001.svg`}
             alt="1001"
+          />
+          <img
+            id="1002"
+            src={`${process.env.PUBLIC_URL}/images/BoothLayout/unClicked1002.svg`}
+            alt="1002"
           />
         </BL.Date>
       </BL.Wrap>

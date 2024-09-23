@@ -59,8 +59,15 @@ export const Title = styled.div`
   transform: translateX(-50%);
 `;
 
-export const Wrap = styled.div``;
+export const Wrap = styled.div`
+  position: relation;
+  diplay: flex;
+  justify-content: center;
+  align-items: center;
+`;
 export const Date = styled.div`
+  diplay: flex;
+  justify-content: center;
   img {
   }
 `;
