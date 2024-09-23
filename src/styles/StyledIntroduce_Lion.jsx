@@ -97,7 +97,7 @@ export const Menu = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-left: 63px;
+    margin-left: 55px;
   }
 
   #choice3 {
@@ -107,7 +107,7 @@ export const Menu = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-left: 75px;
+    margin-left: 78px;
   }
 `;
 
@@ -211,7 +211,7 @@ export const Insta = styled.div`
   width: 150px;
   height: 14px;
   margin-top: 6px;
-  margin-left: 180px;
+  margin-left: 187px;
   #text2 {
     color: #f6d1b1;
     font-family: "Pretendard Variable";
@@ -231,6 +231,7 @@ export const Insta = styled.div`
     font-weight: 500;
     line-height: normal;
     margin-left: 3px;
+    z-index: 3;
   }
 `;
 

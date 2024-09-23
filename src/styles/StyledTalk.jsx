@@ -13,6 +13,7 @@ export const Container = styled.div`
   text-align: center;
   min-height: 100vh;
   overflow-y: hidden;
+  overflow-x: hidden;
 `;
 
 export const Background = styled.div`

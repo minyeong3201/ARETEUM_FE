@@ -17,6 +17,13 @@ const Introduce_ARETEUM = () => {
     navigate(`/Introduce_Lion`);
   };
 
+  const handlePageUrl = () => {
+    window.open(
+      "https://www.instagram.com/ddwu.festival?igsh=MWo3YnFnMTBweWF1ZA==",
+      "_blank"
+    );
+  };
+
   return (
     <I.Container>
       <I.Header>
@@ -41,31 +48,35 @@ const Introduce_ARETEUM = () => {
       </I.Menu>
       <I.UnderBar>
         <img
-          src={`${process.env.PUBLIC_URL}/images/UnderBar.svg`}
+          src={`${process.env.PUBLIC_URL}/images/Underbar.svg`}
           alt="underbar"
         />
       </I.UnderBar>
       <I.PosterName>
-        <img
-          src={`${process.env.PUBLIC_URL}/images/PosterName.svg`}
-          alt="name"
+        <object
+          data="/images/PosterName.svg"
+          alt="poster"
+          className="PosterName"
         />
       </I.PosterName>
       <I.UniversityName>
         <div id="text">동덕여자대학교 2024</div>
       </I.UniversityName>
       <I.Areteum>
-        <img
-          src={`${process.env.PUBLIC_URL}/images/ARETEUMText.svg`}
-          alt="areteum"
+        <object
+          data="/images/ARETEUMText.svg"
+          alt="poster"
+          className="areteum"
         />
       </I.Areteum>
       <I.Poster>
-        <img src={`${process.env.PUBLIC_URL}/images/Poster.svg`} alt="poster" />
+        <object data="/images/Poster.svg" alt="poster" className="poster" />
       </I.Poster>
       <I.Insta>
         <div id="text2">instagram</div>
-        <div id="text3">@ddwu.festival</div>
+        <div id="text3" onClick={() => handlePageUrl()}>
+          @ddwu.festival
+        </div>
       </I.Insta>
       <I.Content>
         <div id="text4">
@@ -100,28 +111,30 @@ const Introduce_ARETEUM = () => {
         </div>
       </I.Content2>
       <I.BackImage>
-        <img
-          src={`${process.env.PUBLIC_URL}/images/ARETEUMBackImg.svg`}
-          alt="backimg"
+        <object
+          data="/images/ARETEUMBackImg.svg"
+          alt="poster"
+          className="AreteumBack"
         />
       </I.BackImage>
       <I.PosterName2>
-        <img
-          src={`${process.env.PUBLIC_URL}/images/PosterName.svg`}
-          alt="name"
+        <object
+          data="/images/PosterName.svg"
+          alt="poster"
+          className="PosterName"
         />
       </I.PosterName2>
       <I.Background>
         <img
-          src={`${process.env.PUBLIC_URL}/images/ARETEUMBack2.svg`}
+          src={`${process.env.PUBLIC_URL}/images/ARETEUMBack.svg`}
           alt="background"
         />
       </I.Background>
       <I.Footer>
-        <img src={`${process.env.PUBLIC_URL}/images/Footer.svg`} alt="footer" />
+        <object data="/images/Footer.svg" alt="poster" className="Footer" />
       </I.Footer>
     </I.Container>
   );
 };
-
+// 페이지 끝
 export default Introduce_ARETEUM;

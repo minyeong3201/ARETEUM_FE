@@ -62,12 +62,12 @@ const Search = () => {
       <object
         data={`${process.env.PUBLIC_URL}/images/C.svg`}
         alt="LCloud"
-        style={{ position: "absolute", top: "120px", left: "-100px", width: "270px" }}
+        style={{ position: "absolute", top: "120px", left: "0px", width: "270px" }}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/G.svg`}
         alt="PBouble"
-        style={{ position: "absolute", top: "280px", left: "-35px" }}
+        style={{ position: "absolute", top: "280px", left: "0px" }}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
@@ -82,7 +82,7 @@ const Search = () => {
       <object
         data={`${process.env.PUBLIC_URL}/images/J.svg`}
         alt="OBouble"
-        style={{ position: "absolute", top: "570px", right: " -40px", width: "150px" }}
+        style={{ position: "absolute", top: "570px", right: " 0px", width: "150px" }}
       />
       {!searchPerformed || totalResults > 0 ? (  
         //검색 결과가 없을 때만 Som.svg를 숨기고, 그 외에는 항상 보여줌

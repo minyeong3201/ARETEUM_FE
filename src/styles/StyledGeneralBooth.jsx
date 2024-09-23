@@ -4,7 +4,7 @@ export const Container = styled.div`
   position: relative;
   margin: 0 auto;
   width: 393px;
-  height: 1279px;
+  height: 1129px;
   margin-top: 0px;
   background: linear-gradient(180deg, #0c2456 0%, #0a759f 100%);
   min-height: 100vh;
@@ -13,7 +13,7 @@ export const Container = styled.div`
 `;
 
 export const Background = styled.div`
-  position: relative; /* 상대 위치 설정으로 자연스럽게 배치 */
+  position: absolute; /* 상대 위치 설정으로 자연스럽게 배치 */
   //   margin-top: 70px; /* Header의 높이만큼 띄워줍니다. */
   width: 393px;
   height: 737px;
@@ -21,8 +21,9 @@ export const Background = styled.div`
   z-index: 0; /* 다른 요소들 뒤에 배치 */
 
   img {
-    width: 100%;
-    height: 100%;
+    padding-top: 95px;
+    // width: 100%;
+    // height: 100%;
     object-fit: cover; /* 배경 이미지가 화면에 맞게 늘어나도록 설정 */
   }
 `;
@@ -37,6 +38,8 @@ export const Header = styled.header`
 `;
 
 export const Back = styled.div`
+  margin-top: 20px;
+  margin-left: 10px;
   cursor: pointer;
   width: 24px;
   height: 24px;
@@ -44,6 +47,7 @@ export const Back = styled.div`
 `;
 
 export const Title = styled.div`
+  margin-top: 20px;
   color: #fff;
   font-family: "Pretendard Variable";
   font-size: 20px;
@@ -76,7 +80,7 @@ export const BoothContainer = styled.div`
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   left: 50%;
   z-index: 1; /* Background보다 위에 배치 */
-  top: 33%;
+  top: 38%;
 `;
 
 // 상단 부스 카테고리 태그
@@ -90,7 +94,7 @@ export const BoothTag = styled.div`
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   left: 50%;
   z-index: 1; /* Background보다 위에 배치 */
-  top: 11%;
+  top: 14%;
   color: #0c2557;
   text-align: center;
   font-family: "Pretendard Variable";
@@ -106,7 +110,7 @@ export const BoothTitle = styled.div`
   position: absolute;
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   left: 50%;
-  top: 14%;
+  top: 17.5%;
   z-index: 1; /* 텍스트가 블러보다 위에 위치 */
   color: #0c2557;
   text-align: center;
@@ -143,7 +147,12 @@ export const BoothImage = styled.div`
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   left: 50%;
   z-index: 1; /* Background보다 위에 배치 */
-  top: 25%;
+  top: 29.5%;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 // 부스 운영 정보
@@ -152,7 +161,7 @@ export const BoothInfo = styled.div`
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   left: 24%;
   z-index: 1; /* Background보다 위에 배치 */
-  top: 37%;
+  top: 42%;
   color: #0c2557;
   font-family: "Pretendard Variable";
   font-size: 14px;
@@ -167,8 +176,8 @@ export const LocationIcon = styled.div`
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   left: 13.5%;
   z-index: 1; /* Background보다 위에 배치 */
-  top: 40%;
-  background-image: url("./images/LocationIcon.svg");
+  top: 45%;
+  background-image: url("/images/LocationIcon.svg");
   width: 13.993px;
   height: 17px;
   flex-shrink: 0;
@@ -181,10 +190,10 @@ export const BoothLocation = styled.div`
   white-space: nowrap; /* 텍스트가 한 줄로 나오도록 설정 */
   left: 17.5%;
   z-index: 1; /* Background보다 위에 배치 */
-  top: 39.3%;
-  color: #0c2557;
+  top: 44.4%;
+  color: #4e78b4;
   font-family: "Pretendard Variable";
-  font-size: 14px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -196,8 +205,8 @@ export const ClockIcon = styled.div`
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   left: 13.5%;
   z-index: 1; /* Background보다 위에 배치 */
-  top: 42%;
-  background-image: url("./images/ClockIcon.svg");
+  top: 47%;
+  background-image: url("/images/ClockIcon.svg");
   width: 14.587px;
   height: 14.587px;
   flex-shrink: 0;
@@ -208,15 +217,26 @@ export const BoothDate = styled.div`
   position: absolute;
   left: 17.5%;
   z-index: 1;
-  top: 41.3%;
-  color: #0c2557;
-  font-family: "Pretendard Variable";
-  font-size: 14px;
+  top: 46.3%;
+  color: #4e78b4;
+  font-family: 4 "Pretendard Variable";
+  font-size: 12px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 300;
   line-height: normal;
   text-align: left; /* 왼쪽 정렬 */
   white-space: nowrap; /* 텍스트가 한 줄로 나오도록 설정 */
+
+  .time {
+    color: #4e78b4;
+    font-family: 4 "Pretendard Variable";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: left; /* 왼쪽 정렬 */
+    white-space: nowrap; /* 텍스트가 한 줄로 나오도록 설정 */
+  }
 `;
 
 // 부스 소개 안내문구
@@ -224,7 +244,7 @@ export const BoothIntro = styled.div`
   position: absolute;
   left: 18.5%;
   transform: translateX(-50%); /* 요소 자체는 중앙에 배치 */
-  top: 47%;
+  top: 52%;
   z-index: 1; /* Background보다 위에 배치 */
   color: #0c2557;
   font-family: "Pretendard Variable";
@@ -240,7 +260,7 @@ export const BoothIntroContent = styled.div`
   position: absolute;
   left: 50%;
   transform: translateX(-50%); /* 요소 자체는 중앙에 배치 */
-  top: 49%;
+  top: 54%;
   z-index: 1; /* Background보다 위에 배치 */
   color: #0c2557;
   font-family: "Pretendard Variable";
@@ -261,8 +281,10 @@ export const FooterTextLogo = styled.div`
   left: 50%;
   z-index: 1; /* Background보다 위에 배치 */
   top: 81%;
-  background-image: url("./images/FooterTextLogo.svg");
   width: 278.288px;
   height: 81.552px;
   flex-shrink: 0;
 `;
+
+// 맵핑 박스
+export const BoothBox = styled.div``;

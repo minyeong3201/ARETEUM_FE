@@ -18,6 +18,13 @@ const Introduce_Lion = () => {
     navigate(`/Introduce_ARETEUM`);
   };
 
+  const handlePageUrl = () => {
+    window.open(
+      "https://www.instagram.com/dongduk_likelion?igsh=MWdyMHgzcmJxbHgweA==",
+      "_blank"
+    );
+  };
+
   return (
     <I.Container>
       <I.Header>
@@ -76,7 +83,9 @@ const Introduce_Lion = () => {
       </I.LionPicture>
       <I.Insta>
         <div id="text2">instagram</div>
-        <div id="text3">@dongduk_likelion</div>
+        <div id="text3" onClick={() => handlePageUrl()}>
+          @dongduk_likelion
+        </div>
       </I.Insta>
       <I.Content>
         <div id="text4">연합동아리</div>
@@ -352,7 +361,7 @@ const Introduce_Lion = () => {
         />
       </I.Background>
       <I.Footer>
-        <img src={`${process.env.PUBLIC_URL}/images/Footer.svg`} alt="footer" />
+        <object data="/images/Footer.svg" alt="poster" className="Footer" />
       </I.Footer>
     </I.Container>
   );
