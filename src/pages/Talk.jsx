@@ -162,6 +162,7 @@ const Talk = () => {
               }
               onInput={(e) => e.target.setCustomValidity("")}
               required
+              maxLength={44} // 최대 44자까지 입력 가능
             />
             <button type="submit">
               <img
