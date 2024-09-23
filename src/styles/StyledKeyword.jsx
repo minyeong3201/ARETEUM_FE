@@ -133,7 +133,7 @@ export const SmallBox5 = styled.div`
 
 export const SmallBox6 = styled.div`
   position: relative;
-  color: #0D2557;
+  color: #0d2557;
   display: flex;
   flex-direction: column;
   margin-top: -20px;
@@ -142,10 +142,10 @@ export const SmallBox6 = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  width: 106px;
-  height: 29px;
+  width: 76.354px;
+  height: 34px;
   flex-shrink: 0;
-  border-radius: 90px;
+  border-radius: 30px;
   text-align: center;
   background: ${(props) => (props.isClicked ? "#FFF4B9" : "#fff")};
   transition: all 0.1s ease;
@@ -162,7 +162,7 @@ export const ResultCount = styled.div`
   margin-left: 24px;
   margin-top: -5px;
   flex-shrink: 0;
-  color: #FFF;
+  color: #fff;
   font-family: "Pretendard Variable";
   font-size: 13px;
   font-style: normal;

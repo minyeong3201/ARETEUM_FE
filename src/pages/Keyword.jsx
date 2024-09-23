@@ -112,7 +112,7 @@ const Keyword = () => {
       <object
         data={`${process.env.PUBLIC_URL}/images/G.svg`}
         alt="PBouble"
-        style={{ position: "absolute", top: "280px", left: "0px" }}
+        style={{ position: "absolute", top: "170px", left: "0px"}}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
@@ -182,7 +182,7 @@ const Keyword = () => {
       </K.Box>
       <K.Box3>
         <K.Box2>
-          {["체험", "주점", "마켓"].map((category, index) => (
+          {["체험", "마켓", "한잔하솜", "푸드트럭"].map((category, index) => (
             <K.Keywordd key={index}>
               <K.SmallBox6
                 onClick={() => handleCategoryBoxClick(index, category)}
