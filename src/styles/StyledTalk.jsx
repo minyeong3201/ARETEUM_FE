@@ -142,10 +142,14 @@ export const Comment = styled.div`
   top: 9px;
   padding: 5px 10px;
 
+  left: 50%;
+  transform: translateX(-50%); /* 화면 중앙으로 정렬 */
+
   input {
     flex: 1;
     border: none;
     padding: 10px;
+    width: 300px;
     color: #5a5a5a;
     font-family: "Pretendard Variable";
     font-size: 18px;
@@ -165,7 +169,12 @@ export const Comment = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 10px; /* 이미지와 입력칸 사이 여백 추가 */
+    // margin-left: 10px; /* 이미지와 입력칸 사이 여백 추가 */
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
   }
 `;
 
