@@ -111,13 +111,16 @@ const Talk = () => {
         <T.Title>솜톡</T.Title>
       </T.Header>
       <T.Background>
-        <img
-          src={`${process.env.PUBLIC_URL}/images/TalkBack.svg`}
+        <object
+          data={`${process.env.PUBLIC_URL}/images/TalkBack.svg`}
           alt="background"
         />
       </T.Background>
       <T.Som>
-        <img src={`${process.env.PUBLIC_URL}/images/Cotton.svg`} alt="솜솜" />
+        <object
+          data={`${process.env.PUBLIC_URL}/images/Cotton.svg`}
+          alt="솜솜"
+        />
       </T.Som>
       <T.Talk ref={talkRef}>
         {messagePositions.map((item, index) => (
@@ -139,8 +142,8 @@ const Talk = () => {
       </T.Talk>
       <form onSubmit={handleSubmit}>
         <T.Footer>
-          <img
-            src={`${process.env.PUBLIC_URL}/images/Footer.svg`}
+          <object
+            data={`${process.env.PUBLIC_URL}/images/Footer.svg`}
             alt="footer"
           />
           <T.Comment>
