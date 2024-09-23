@@ -17,6 +17,13 @@ const Introduce_Management = () => {
     navigate(`/Introduce_Lion`);
   };
 
+  const handlePageUrl = () => {
+    window.open(
+      "https://www.instagram.com/ddwu.festival?igsh=MWo3YnFnMTBweWF1ZA==",
+      "_blank"
+    );
+  };
+
   return (
     <I.Container>
       <I.Header>
@@ -58,13 +65,21 @@ const Introduce_Management = () => {
           className="areteum"
         />
       </I.Areteum>
-      <I.LogoBack></I.LogoBack>
       <I.Logo>
-        <object data="/images/ManagementLogo.svg" alt="logo" className="logo" />
+        <div className="clickable-wrapper">
+          <object
+            data="/images/FestivalLogo.svg"
+            alt="logo"
+            className="object-container"
+            style={{ pointerEvents: "none" }}
+          />
+        </div>{" "}
       </I.Logo>
       <I.Insta>
         <div id="text2">instagram</div>
-        <div id="text3">@ddwu.festival</div>
+        <div id="text3" onClick={() => handlePageUrl()}>
+          @ddwu.festival
+        </div>
       </I.Insta>
       <I.Content>
         <div id="text4">축제운영위원회</div>

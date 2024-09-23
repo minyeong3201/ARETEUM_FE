@@ -17,6 +17,13 @@ const Introduce_ARETEUM = () => {
     navigate(`/Introduce_Lion`);
   };
 
+  const handlePageUrl = () => {
+    window.open(
+      "https://www.instagram.com/ddwu.festival?igsh=MWo3YnFnMTBweWF1ZA==",
+      "_blank"
+    );
+  };
+
   return (
     <I.Container>
       <I.Header>
@@ -67,7 +74,9 @@ const Introduce_ARETEUM = () => {
       </I.Poster>
       <I.Insta>
         <div id="text2">instagram</div>
-        <div id="text3">@ddwu.festival</div>
+        <div id="text3" onClick={() => handlePageUrl()}>
+          @ddwu.festival
+        </div>
       </I.Insta>
       <I.Content>
         <div id="text4">

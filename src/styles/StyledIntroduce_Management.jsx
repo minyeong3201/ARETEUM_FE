@@ -19,7 +19,7 @@ export const Background = styled.div`
   width: 491px;
   height: 909px;
   flex-shrink: 0;
-  z-index: 0; /* 다른 요소들 뒤에 배치 */
+  z-index: 1; /* 다른 요소들 뒤에 배치 */
   margin-left: -25px;
 
   img {
@@ -165,27 +165,14 @@ export const Areteum = styled.div`
   }
 `;
 
-// 로고 배경
-export const LogoBack = styled.div`
-  width: 336.569px;
-  height: 320.446px;
-  flex-shrink: 0;
-  border-radius: 21.162px;
-  background: #fff;
-  margin-top: 27px;
-  margin-left: 30px;
-  z-index: 99px;
-`;
-
 // 축운위 로고
 export const Logo = styled.div`
-  margin-top: -305px;
-  margin-left: 35px;
-  z-index: 99px;
-  #img {
-    z-index: 99px;
-    width: 306.438px;
-    height: 267.038px;
+  margin-top: 10px;
+  margin-left: 30px;
+
+  object {
+    width: 337px;
+    height: 320px;
     flex-shrink: 0;
     border-radius: 21.162px;
     box-shadow: 0px 1.094px 10.944px 0px rgba(255, 255, 255, 0.13);
@@ -198,8 +185,9 @@ export const Insta = styled.div`
   flex-direction: row;
   width: 150px;
   height: 14px;
-  margin-top: 25px;
-  margin-left: 220px;
+  margin-top: 10px;
+  margin-left: 205px;
+
   #text2 {
     color: #f6d1b1;
     font-family: "Pretendard Variable";
@@ -207,9 +195,11 @@ export const Insta = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    z-index: 5px;
   }
 
   #text3 {
+    cursor: pointer;
     color: #fff;
     text-align: center;
     font-family: "Pretendard Variable";
@@ -218,6 +208,7 @@ export const Insta = styled.div`
     font-weight: 500;
     line-height: normal;
     margin-left: 3px;
+    z-index: 99;
   }
 `;
 
@@ -436,7 +427,7 @@ export const PosterName = styled.div`
   height: 40px;
   flex-shrink: 0;
   margin-left: 95px;
-  margin-top: 65px;
+  margin-top: 85px;
   .PosterName {
     width: 200px;
     height: 45px;
