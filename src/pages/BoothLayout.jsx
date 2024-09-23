@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as BL from "../styles/StyledBoothLayout";
 
@@ -8,6 +8,11 @@ const BoothLayout = () => {
   const goback = () => {
     window.history.back();
   };
+
+  useEffect(() => {
+    // 컴포넌트가 마운트되면 상단으로 스크롤
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <BL.Container>

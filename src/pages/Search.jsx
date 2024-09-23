@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as S from "../styles/StyledSearch";
@@ -21,6 +21,11 @@ const Search = () => {
       "Content-Type": "application/json",
     },
   });
+
+  useEffect(() => {
+    // 컴포넌트가 마운트되면 상단으로 스크롤
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleSearch = async () => {
     setSearchPerformed(true);

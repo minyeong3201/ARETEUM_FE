@@ -1,10 +1,15 @@
 import "../styles/StyledMain.css";
-
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export default function Main() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // 컴포넌트가 마운트되면 상단으로 스크롤
+    window.scrollTo(0, 0);
+  }, []);
 
   function GoTimeTable() {
     navigate("/timetable");
