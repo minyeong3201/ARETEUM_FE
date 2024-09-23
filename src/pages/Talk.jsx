@@ -169,16 +169,16 @@ const Talk = () => {
               required
               maxLength={44} // 최대 44자까지 입력 가능
             />
+            <p>
+              <span>{inputCount}</span>
+              <span>/44</span>
+            </p>
             <button type="submit">
               <img
                 src={`${process.env.PUBLIC_URL}/images/Sendbtn.svg`}
                 alt="보내기"
               />
             </button>
-            <p>
-              <span>{inputCount}</span>
-              <span>/44</span>
-            </p>
           </T.Comment>
         </T.Footer>
       </form>
