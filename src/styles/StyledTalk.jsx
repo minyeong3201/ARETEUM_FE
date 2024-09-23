@@ -149,7 +149,7 @@ export const Comment = styled.div`
     flex: 1;
     border: none;
     padding: 10px;
-    width: 300px;
+    width: 250px;
     color: #5a5a5a;
     font-family: "Pretendard Variable";
     font-size: 18px;
@@ -157,6 +157,16 @@ export const Comment = styled.div`
     font-weight: 400;
     line-height: normal;
     outline: none;
+  }
+
+  p {
+    color: #5a5a5a;
+    font-family: "Pretendard Variable";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.45px;
   }
 
   button {
@@ -169,7 +179,7 @@ export const Comment = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    // margin-left: 10px; /* 이미지와 입력칸 사이 여백 추가 */
+    margin-left: 10px; /* 이미지와 입력칸 사이 여백 추가 */
   }
 
   img {
