@@ -6,7 +6,7 @@ const Introduce_Management = () => {
   const navigate = useNavigate();
 
   const goback = () => {
-    navigate(`/`);
+    window.history.back();
   };
 
   const goIntroduce_ARETEUM = () => {

@@ -12,7 +12,7 @@ const Talk = () => {
   const talkRef = useRef(null); // 스크롤을 조정할 참조
 
   const goback = () => {
-    navigate(`/`);
+    window.history.back();
   };
   const handleSubmit = async (event) => {
     // event.preventDefault(); // 페이지 새로고침 방지

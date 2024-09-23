@@ -8,7 +8,7 @@ const FoodBooth = () => {
   const [boothData, setBoothData] = useState(null); // 부스 데이터를 저장할 state
 
   const goback = () => {
-    navigate(`/`);
+    window.history.back();
   };
 
   useEffect(() => {
