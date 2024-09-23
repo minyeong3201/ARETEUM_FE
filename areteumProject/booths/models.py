@@ -19,7 +19,7 @@ class Booth(models.Model):
         ('체험', '체험'),
         ('주점', '주점'),
         ('마켓', '마켓'),
-        ('체험+마켓', '체험+마켓')
+        ('체험+마켓', '체험+마켓'),
     ]
     category = models.CharField(verbose_name='카테고리', max_length=10, choices=CATEGORIES)
 
