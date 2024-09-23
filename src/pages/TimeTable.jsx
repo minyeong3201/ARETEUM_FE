@@ -27,6 +27,7 @@ const TimeTable = () => {
   const [boothTop, setBoothTop] = useState("370px");
   // Center height 상태 관리
   const [centerHeight, setCenterHeight] = useState("370px");
+  const [backSize, setBackSize] = useState("974px");
   // Footer padding-top과 SomSom top 상태 관리
   const [footerPaddingTop, setFooterPaddingTop] = useState("30px");
   const [somSomTop, setSomSomTop] = useState("550px");
@@ -52,20 +53,22 @@ const TimeTable = () => {
     setFooterPaddingTop("30px");
     setSomSomTop("550px");
     triggerAnimation(); // 애니메이션 트리거
+    setBackSize("974px");
   };
 
   const handleClick1002 = () => {
     setActiveDate("1002");
     setIsClicked1001(false);
     setIsClicked1002(true);
-    setBoothTop("409px");
+    setBoothTop("515px");
     setBackgroundImage(
       `${process.env.PUBLIC_URL}/images/TimeTable/TT1002Back.svg`
     );
-    setCenterHeight("420px");
-    setFooterPaddingTop("140px");
-    setSomSomTop("600px");
+    setCenterHeight("640px");
+    setFooterPaddingTop("500px");
+    setSomSomTop("820px");
     triggerAnimation(); // 애니메이션 트리거
+    setBackSize("1254px");
   };
 
   // 부스 데이터
@@ -108,14 +111,14 @@ const TimeTable = () => {
     {
       name: "동아리 공연",
       time: "19:00-21:00",
-      info: "",
+      info: "- 17:30~17:50  한소리    \n- 18:00~18:10  뉴웨이브 \n- 18:10~18:20  아비드    \n- 18:25~18:55  얼사랑    \n- 19:00~19:30  엑스터시 \n- 19:40~20:10  소울엔지 ",
       type: "공연",
       date: "1002",
     },
     {
       name: "연예인 공연",
       time: "19:00-21:00",
-      info: "",
+      info: "  - 20:30~21:00  유다빈밴드\n   - 21:20~22:00   10CM        ",
       type: "공연",
       date: "1002",
     },
@@ -125,12 +128,12 @@ const TimeTable = () => {
   const filteredBooths = boothData.filter((booth) => booth.date === activeDate);
 
   return (
-    <TT.Container>
+    <TT.Container style={{ height: backSize }}>
       <TT.Header>
         <TT.Back>
-          <img
+          <object
             id="back"
-            src={`${process.env.PUBLIC_URL}/images/Backbtn.svg`}
+            data={`${process.env.PUBLIC_URL}/images/Backbtn.svg`}
             alt="back"
             onClick={goback}
           />
@@ -181,7 +184,7 @@ const TimeTable = () => {
                   className={animateBooths ? "animate" : ""}
                   delay={`${index * 0.5}s`}
                 >
-                  <div id="wrap">
+                  <div id="wrap" type={booth.type}>
                     <div id="top" type={booth.type}>
                       {booth.type === "부스" ? (
                         <>
@@ -215,7 +218,9 @@ const TimeTable = () => {
                     </div>
                     <div id="bottom" type={booth.type}>
                       <p id="name">{booth.name}</p>
-                      <p id="info">{booth.info}</p>
+                      <p id="info" type={booth.type} date={booth.date}>
+                        {booth.info}
+                      </p>
                     </div>
                   </div>
                 </TT.Booth>

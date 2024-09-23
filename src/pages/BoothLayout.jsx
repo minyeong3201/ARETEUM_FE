@@ -28,7 +28,15 @@ const BoothLayout = () => {
           alt="background"
         />
       </BL.Background>
-      <BL.Wrap></BL.Wrap>
+      <BL.Wrap>
+        <BL.Date>
+          <img
+            id="1001"
+            src={`${process.env.PUBLIC_URL}/images/BoothLayout/unClicked1001.svg`}
+            alt="1001"
+          />
+        </BL.Date>
+      </BL.Wrap>
       <BL.Footer>
         <object
           data={`${process.env.PUBLIC_URL}/images/Footer.svg`}
