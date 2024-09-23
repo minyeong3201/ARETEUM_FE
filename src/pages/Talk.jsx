@@ -10,6 +10,7 @@ const Talk = () => {
   const [messagePositions, setMessagePositions] = useState([]);
   const [chatMessages, setChatMessages] = useState([]);
   const talkRef = useRef(null); // 스크롤을 조정할 참조
+  let [inputCount, setInputCount] = useState(0);
 
   const goback = () => {
     navigate(`/`);
@@ -96,6 +97,10 @@ const Talk = () => {
       },
     };
   };
+  const onInputHandler = (e) => {
+    setComment(e.target.value);
+    setInputCount(e.target.value.length);
+  };
 
   return (
     <T.Container>
@@ -148,7 +153,7 @@ const Talk = () => {
               value={comment}
               placeholder="내용을 입력하세요."
               type="text"
-              onChange={(event) => setComment(event.target.value)}
+              onChange={onInputHandler}
               required
             />
             <button type="submit">
@@ -157,6 +162,10 @@ const Talk = () => {
                 alt="보내기"
               />
             </button>
+            <p>
+              <span>{inputCount}</span>
+              <span>/44</span>
+            </p>
           </T.Comment>
         </T.Footer>
       </form>
