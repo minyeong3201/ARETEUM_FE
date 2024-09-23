@@ -1,12 +1,17 @@
-import React from "react";
+import { React, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as I from "../styles/StyledIntroduce_ARETEUM";
 
 const Introduce_ARETEUM = () => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // 컴포넌트가 마운트되면 상단으로 스크롤
+    window.scrollTo(0, 0);
+  }, []);
+
   const goback = () => {
-    window.history.back();
+    navigate(`/`);
   };
 
   const goIntroduce_Management = () => {

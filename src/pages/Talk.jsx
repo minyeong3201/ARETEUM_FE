@@ -11,8 +11,13 @@ const Talk = () => {
   const [chatMessages, setChatMessages] = useState([]);
   const talkRef = useRef(null); // 스크롤을 조정할 참조
 
+  useEffect(() => {
+    // 컴포넌트가 마운트되면 상단으로 스크롤
+    window.scrollTo(0, 0);
+  }, []);
+
   const goback = () => {
-    window.history.back();
+    navigate(`/`);
   };
   const handleSubmit = async (event) => {
     // event.preventDefault(); // 페이지 새로고침 방지

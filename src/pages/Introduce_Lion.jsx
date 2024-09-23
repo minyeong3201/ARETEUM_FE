@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as I from "../styles/StyledIntroduce_Lion";
 import { Link } from "react-router-dom";
@@ -7,8 +7,13 @@ const Introduce_Lion = () => {
   const navigate = useNavigate();
 
   const goback = () => {
-    window.history.back();
+    navigate(`/`);
   };
+
+  useEffect(() => {
+    // 컴포넌트가 마운트되면 상단으로 스크롤
+    window.scrollTo(0, 0);
+  }, []);
 
   const goIntroduce_Management = () => {
     navigate(`/Introduce_Management`);

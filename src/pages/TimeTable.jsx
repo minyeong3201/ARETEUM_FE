@@ -9,6 +9,11 @@ const TimeTable = () => {
     window.history.back();
   };
 
+  useEffect(() => {
+    // 컴포넌트가 마운트되면 상단으로 스크롤
+    window.scrollTo(0, 0);
+  }, []);
+
   // 이미지 상태 관리
   const [isClicked1001, setIsClicked1001] = useState(true);
   const [isClicked1002, setIsClicked1002] = useState(false);
