@@ -12,8 +12,13 @@ const Keyword = () => {
   const [category, setCategory] = useState(null);
   const [totalResults, setTotalResults] = useState(0);
 
+  useEffect(() => {
+    // 컴포넌트가 마운트되면 상단으로 스크롤
+    window.scrollTo(0, 0);
+  }, []);
+
   const goback = () => {
-    navigate(`/`);
+    window.history.back();
   };
 
   const gosearch = () => {
@@ -112,7 +117,7 @@ const Keyword = () => {
       <object
         data={`${process.env.PUBLIC_URL}/images/G.svg`}
         alt="PBouble"
-        style={{ position: "absolute", top: "280px", left: "-35px" }}
+        style={{ position: "absolute", top: "280px", left: "0px" }}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
@@ -122,12 +127,22 @@ const Keyword = () => {
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
         alt="Up2Star"
-        style={{ position: "absolute", top: "110px", left: "30px", width: "40px" }}
+        style={{
+          position: "absolute",
+          top: "110px",
+          left: "30px",
+          width: "40px",
+        }}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
         alt="Up1Star"
-        style={{ position: "absolute", top: "78px", left: "-5px", width: "70px" }}
+        style={{
+          position: "absolute",
+          top: "78px",
+          left: "0px",
+          width: "70px",
+        }}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
@@ -142,12 +157,22 @@ const Keyword = () => {
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
         alt="Under1Star"
-        style={{ position: "absolute", top: "260px", right: "50px", width: "50px" }}
+        style={{
+          position: "absolute",
+          top: "260px",
+          right: "50px",
+          width: "50px",
+        }}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/A.svg`}
         alt="YBouble"
-        style={{ position: "absolute", top: "90px", right: "-30px", width: "70px" }}
+        style={{
+          position: "absolute",
+          top: "90px",
+          right: "0px",
+          width: "70px",
+        }}
       />
       <K.Box>
         <K.Box2>

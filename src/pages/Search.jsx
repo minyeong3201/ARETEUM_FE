@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as S from "../styles/StyledSearch";
@@ -7,13 +7,13 @@ const Search = () => {
   const navigate = useNavigate();
 
   const goback = () => {
-    navigate(-1);
+    window.history.back();
   };
 
   const [list2Items, setList2Items] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [totalResults, setTotalResults] = useState(0);
-  const [searchPerformed, setSearchPerformed] = useState(false); 
+  const [searchPerformed, setSearchPerformed] = useState(false);
 
   const axiosInstance = axios.create({
     baseURL: "http://127.0.0.1:8000/",
@@ -22,13 +22,18 @@ const Search = () => {
     },
   });
 
+  useEffect(() => {
+    // 컴포넌트가 마운트되면 상단으로 스크롤
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleSearch = async () => {
-    setSearchPerformed(true); 
+    setSearchPerformed(true);
     try {
       const response = await axiosInstance.get("/booth-search/", {
         params: { search: searchQuery },
       });
-      console.log("서버 응답:", response.data); 
+      console.log("서버 응답:", response.data);
       setList2Items(response.data.results); // results 배열로 설정
       setTotalResults(response.data.count); // 총 결과 수 설정
     } catch (error) {
@@ -62,12 +67,17 @@ const Search = () => {
       <object
         data={`${process.env.PUBLIC_URL}/images/C.svg`}
         alt="LCloud"
-        style={{ position: "absolute", top: "120px", left: "-100px", width: "270px" }}
+        style={{
+          position: "absolute",
+          top: "120px",
+          left: "0px",
+          width: "270px",
+        }}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/G.svg`}
         alt="PBouble"
-        style={{ position: "absolute", top: "280px", left: "-35px" }}
+        style={{ position: "absolute", top: "280px", left: "0px" }}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
@@ -82,9 +92,14 @@ const Search = () => {
       <object
         data={`${process.env.PUBLIC_URL}/images/J.svg`}
         alt="OBouble"
-        style={{ position: "absolute", top: "570px", right: " -40px", width: "150px" }}
+        style={{
+          position: "absolute",
+          top: "570px",
+          right: " 0px",
+          width: "150px",
+        }}
       />
-      {!searchPerformed || totalResults > 0 ? (  
+      {!searchPerformed || totalResults > 0 ? (
         //검색 결과가 없을 때만 Som.svg를 숨기고, 그 외에는 항상 보여줌
         <object
           data={`${process.env.PUBLIC_URL}/images/Som.svg`}
@@ -92,11 +107,11 @@ const Search = () => {
           style={{ position: "absolute", top: "370px", left: "60px" }}
         />
       ) : null}
-        <object
-            data={`${process.env.PUBLIC_URL}/images/E.svg`}
-            alt="E"
-            style={{ position: "absolute", top: "200px", right: "20px" }}
-        />
+      <object
+        data={`${process.env.PUBLIC_URL}/images/E.svg`}
+        alt="E"
+        style={{ position: "absolute", top: "200px", right: "20px" }}
+      />
       <S.InputBlank>
         <input
           type="text"

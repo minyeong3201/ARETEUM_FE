@@ -12,6 +12,11 @@ const Talk = () => {
   const talkRef = useRef(null); // 스크롤을 조정할 참조
   let [inputCount, setInputCount] = useState(0);
 
+  useEffect(() => {
+    // 컴포넌트가 마운트되면 상단으로 스크롤
+    window.scrollTo(0, 0);
+  }, []);
+
   const goback = () => {
     navigate(`/`);
   };
@@ -116,13 +121,16 @@ const Talk = () => {
         <T.Title>솜톡</T.Title>
       </T.Header>
       <T.Background>
-        <img
-          src={`${process.env.PUBLIC_URL}/images/TalkBack.svg`}
+        <object
+          data={`${process.env.PUBLIC_URL}/images/TalkBack.svg`}
           alt="background"
         />
       </T.Background>
       <T.Som>
-        <img src={`${process.env.PUBLIC_URL}/images/Cotton.svg`} alt="솜솜" />
+        <object
+          data={`${process.env.PUBLIC_URL}/images/Cotton.svg`}
+          alt="솜솜"
+        />
       </T.Som>
       <T.Talk ref={talkRef}>
         {messagePositions.map((item, index) => (
@@ -144,8 +152,8 @@ const Talk = () => {
       </T.Talk>
       <form onSubmit={handleSubmit}>
         <T.Footer>
-          <img
-            src={`${process.env.PUBLIC_URL}/images/Footer.svg`}
+          <object
+            data={`${process.env.PUBLIC_URL}/images/Footer.svg`}
             alt="footer"
           />
           <T.Comment>
@@ -154,7 +162,12 @@ const Talk = () => {
               placeholder="내용을 입력하세요."
               type="text"
               onChange={onInputHandler}
+              onInvalid={(e) =>
+                e.target.setCustomValidity("내용을 입력해주세요")
+              }
+              onInput={(e) => e.target.setCustomValidity("")}
               required
+              maxLength={44} // 최대 44자까지 입력 가능
             />
             <button type="submit">
               <img

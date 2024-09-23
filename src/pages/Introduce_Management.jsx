@@ -1,9 +1,15 @@
-import React from "react";
+import { React } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as I from "../styles/StyledIntroduce_Management";
+import { useEffect } from "react";
 
 const Introduce_Management = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // 컴포넌트가 마운트되면 상단으로 스크롤
+    window.scrollTo(0, 0);
+  }, []);
 
   const goback = () => {
     navigate(`/`);
@@ -15,6 +21,13 @@ const Introduce_Management = () => {
 
   const goIntroduce_Lion = () => {
     navigate(`/Introduce_Lion`);
+  };
+
+  const handlePageUrl = () => {
+    window.open(
+      "https://www.instagram.com/ddwu.festival?igsh=MWo3YnFnMTBweWF1ZA==",
+      "_blank"
+    );
   };
 
   return (
@@ -52,21 +65,27 @@ const Introduce_Management = () => {
         <div id="text">동덕여자대학교 2024</div>
       </I.UniversityName>
       <I.Areteum>
-        <img
-          src={`${process.env.PUBLIC_URL}/images/ARETEUMText.svg`}
-          alt="areteum"
+        <object
+          data="/images/ARETEUMText.svg"
+          alt="poster"
+          className="areteum"
         />
       </I.Areteum>
-      <I.LogoBack></I.LogoBack>
       <I.Logo>
-        <img
-          src={`${process.env.PUBLIC_URL}/images/ManagementLogo.svg`}
-          alt="logo"
-        />
+        <div className="clickable-wrapper">
+          <object
+            data="/images/FestivalLogo.svg"
+            alt="logo"
+            className="object-container"
+            style={{ pointerEvents: "none" }}
+          />
+        </div>{" "}
       </I.Logo>
       <I.Insta>
         <div id="text2">instagram</div>
-        <div id="text3">@ddwu.festival</div>
+        <div id="text3" onClick={() => handlePageUrl()}>
+          @ddwu.festival
+        </div>
       </I.Insta>
       <I.Content>
         <div id="text4">축제운영위원회</div>
@@ -101,9 +120,10 @@ const Introduce_Management = () => {
         <div id="text21">기 국원으로 활동하고 있습니다.</div>
       </I.Content>
       <I.PosterName>
-        <img
-          src={`${process.env.PUBLIC_URL}/images/PosterName.svg`}
-          alt="name"
+        <object
+          data="/images/PosterName.svg"
+          alt="poster"
+          className="PosterName"
         />
       </I.PosterName>
       <I.Background>
@@ -113,7 +133,7 @@ const Introduce_Management = () => {
         />
       </I.Background>
       <I.Footer>
-        <img src={`${process.env.PUBLIC_URL}/images/Footer.svg`} alt="footer" />
+        <object data="/images/Footer.svg" alt="poster" className="Footer" />
       </I.Footer>
     </I.Container>
   );

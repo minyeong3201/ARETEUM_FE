@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as BL from "../styles/StyledBoothLayout";
 
@@ -6,8 +6,13 @@ const BoothLayout = () => {
   const navigate = useNavigate();
 
   const goback = () => {
-    navigate(`/`);
+    window.history.back();
   };
+
+  useEffect(() => {
+    // 컴포넌트가 마운트되면 상단으로 스크롤
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <BL.Container>
@@ -28,7 +33,15 @@ const BoothLayout = () => {
           alt="background"
         />
       </BL.Background>
-      <BL.Wrap></BL.Wrap>
+      <BL.Wrap>
+        <BL.Date>
+          <img
+            id="1001"
+            src={`${process.env.PUBLIC_URL}/images/BoothLayout/unClicked1001.svg`}
+            alt="1001"
+          />
+        </BL.Date>
+      </BL.Wrap>
       <BL.Footer>
         <object
           data={`${process.env.PUBLIC_URL}/images/Footer.svg`}

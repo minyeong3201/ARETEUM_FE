@@ -1,25 +1,30 @@
 import "../styles/StyledMain.css";
-
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export default function Main() {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // 컴포넌트가 마운트되면 상단으로 스크롤
+    window.scrollTo(0, 0);
+  }, []);
+
   function GoTimeTable() {
     navigate("/timetable");
   }
   function GoBooth() {
-    navigate("/booth");
+    navigate("/boothlayout");
   }
   function GoIntro() {
-    navigate("/intro");
+    navigate("/keyword");
   }
   function GoTalk() {
     navigate("/talk");
   }
   function GoPeople() {
-    navigate("/people");
+    navigate("/introduce_areteum");
   }
 
   const floatingVariants1 = {
@@ -82,7 +87,7 @@ export default function Main() {
         </div>
         <div className="menu">
           <div className="timetable">
-            <motion.object
+            <motion.div
               initial="initial"
               animate="animate"
               transition={{
@@ -93,18 +98,30 @@ export default function Main() {
               }}
               variants={floatingVariants1}
               onClick={() => GoTimeTable()}
-              data={`${process.env.PUBLIC_URL}/images/Main/Timetable-illur.svg`}
-              alt="illur"
-              className="timetable-illur c-po"
-            />
-            <motion.object
+              className="clickable-wrapper timetable-illur"
+              style={{ position: "relative", zIndex: 10 }}
+            >
+              <object
+                data={`${process.env.PUBLIC_URL}/images/Main/Timetable-illur.svg`}
+                alt="illur"
+                className="object-container"
+                style={{ pointerEvents: "none" }}
+              />
+            </motion.div>
+            <motion.div
               whileHover="hover"
               variants={btnHoverVariants}
               onClick={() => GoTimeTable()}
-              data={`${process.env.PUBLIC_URL}/images/Main/Timetable-btn.svg`}
-              alt="btn"
-              className="timetable-btn c-po"
-            />
+              className="clickable-wrapper timetable-btn"
+              style={{ position: "relative", zIndex: 10 }}
+            >
+              <object
+                data={`${process.env.PUBLIC_URL}/images/Main/Timetable-btn.svg`}
+                alt="btn"
+                className="object-container"
+                style={{ pointerEvents: "none" }}
+              />
+            </motion.div>
             <motion.object
               data={`${process.env.PUBLIC_URL}/images/Main/Timetable-som.svg`}
               alt="som"
@@ -119,8 +136,9 @@ export default function Main() {
               }}
             />
           </div>
+          {/* Booth, Intro, Talk, People 부분도 같은 방식으로 적용 */}
           <div className="booth">
-            <motion.object
+            <motion.div
               initial="initial"
               animate="animate"
               transition={{
@@ -131,18 +149,30 @@ export default function Main() {
               }}
               variants={floatingVariants2}
               onClick={() => GoBooth()}
-              data={`${process.env.PUBLIC_URL}/images/Main/Booth-illur.svg`}
-              alt="illur"
-              className="booth-illur c-po"
-            />
-            <motion.object
+              className="clickable-wrapper booth-illur"
+              style={{ position: "relative", zIndex: 10 }}
+            >
+              <object
+                data={`${process.env.PUBLIC_URL}/images/Main/Booth-illur.svg`}
+                alt="illur"
+                className="object-container"
+                style={{ pointerEvents: "none" }}
+              />
+            </motion.div>
+            <motion.div
               whileHover="hover"
               variants={btnHoverVariants}
               onClick={() => GoBooth()}
-              data={`${process.env.PUBLIC_URL}/images/Main/Booth-btn.svg`}
-              alt="btn"
-              className="booth-btn c-po"
-            />
+              className="clickable-wrapper booth-btn"
+              style={{ position: "relative", zIndex: 10 }}
+            >
+              <object
+                data={`${process.env.PUBLIC_URL}/images/Main/Booth-btn.svg`}
+                alt="btn"
+                className="object-container"
+                style={{ pointerEvents: "none" }}
+              />
+            </motion.div>
             <motion.object
               data={`${process.env.PUBLIC_URL}/images/Main/Booth-som.svg`}
               alt="som"
@@ -158,7 +188,7 @@ export default function Main() {
             />
           </div>
           <div className="intro">
-            <motion.object
+            <motion.div
               initial="initial"
               animate="animate"
               transition={{
@@ -168,18 +198,30 @@ export default function Main() {
               }}
               variants={floatingVariants3}
               onClick={() => GoIntro()}
-              data={`${process.env.PUBLIC_URL}/images/Main/Intro-illur.svg`}
-              alt="illur"
-              className="intro-illur c-po"
-            />
-            <motion.object
+              className="clickable-wrapper intro-illur"
+              style={{ position: "relative", zIndex: 10 }}
+            >
+              <object
+                data={`${process.env.PUBLIC_URL}/images/Main/Intro-illur.svg`}
+                alt="illur"
+                className="object-container"
+                style={{ pointerEvents: "none" }}
+              />
+            </motion.div>
+            <motion.div
               whileHover="hover"
               variants={btnHoverVariants}
               onClick={() => GoIntro()}
-              data={`${process.env.PUBLIC_URL}/images/Main/Intro-btn.svg`}
-              alt="btn"
-              className="intro-btn c-po"
-            />
+              className="clickable-wrapper intro-btn"
+              style={{ position: "relative", zIndex: 10 }}
+            >
+              <object
+                data={`${process.env.PUBLIC_URL}/images/Main/Intro-btn.svg`}
+                alt="btn"
+                className="object-container"
+                style={{ pointerEvents: "none" }}
+              />
+            </motion.div>
             <motion.object
               data={`${process.env.PUBLIC_URL}/images/Main/Intro-som.svg`}
               alt="som"
@@ -195,8 +237,9 @@ export default function Main() {
               }}
             />
           </div>
+          {/* Talk와 People 부분도 같은 방식으로 적용 */}
           <div className="talk">
-            <motion.object
+            <motion.div
               initial="initial"
               animate="animate"
               transition={{
@@ -207,18 +250,30 @@ export default function Main() {
               }}
               variants={floatingVariants4}
               onClick={() => GoTalk()}
-              data={`${process.env.PUBLIC_URL}/images/Main/Talk-illur.svg`}
-              alt="illur"
-              className="talk-illur c-po"
-            />
-            <motion.object
+              className="clickable-wrapper talk-illur"
+              style={{ position: "relative", zIndex: 10 }}
+            >
+              <object
+                data={`${process.env.PUBLIC_URL}/images/Main/Talk-illur.svg`}
+                alt="illur"
+                className="object-container"
+                style={{ pointerEvents: "none" }}
+              />
+            </motion.div>
+            <motion.div
               whileHover="hover"
               variants={btnHoverVariants}
               onClick={() => GoTalk()}
-              data={`${process.env.PUBLIC_URL}/images/Main/Talk-btn.svg`}
-              alt="btn"
-              className="talk-btn c-po"
-            />
+              className="clickable-wrapper talk-btn"
+              style={{ position: "relative", zIndex: 10 }}
+            >
+              <object
+                data={`${process.env.PUBLIC_URL}/images/Main/Talk-btn.svg`}
+                alt="btn"
+                className="object-container"
+                style={{ pointerEvents: "none" }}
+              />
+            </motion.div>
             <motion.object
               data={`${process.env.PUBLIC_URL}/images/Main/Talk-som.svg`}
               alt="som"
@@ -234,7 +289,7 @@ export default function Main() {
             />
           </div>
           <div className="people">
-            <motion.object
+            <motion.div
               initial="initial"
               animate="animate"
               transition={{
@@ -245,18 +300,30 @@ export default function Main() {
               }}
               variants={floatingVariants5}
               onClick={() => GoPeople()}
-              data={`${process.env.PUBLIC_URL}/images/Main/People-illur.svg`}
-              alt="illur"
-              className="people-illur c-po"
-            />
-            <motion.object
+              className="clickable-wrapper people-illur"
+              style={{ position: "relative", zIndex: 10 }}
+            >
+              <object
+                data={`${process.env.PUBLIC_URL}/images/Main/People-illur.svg`}
+                alt="illur"
+                className="object-container"
+                style={{ pointerEvents: "none" }}
+              />
+            </motion.div>
+            <motion.div
               whileHover="hover"
               variants={btnHoverVariants}
               onClick={() => GoPeople()}
-              data={`${process.env.PUBLIC_URL}/images/Main/People-btn.svg`}
-              alt="btn"
-              className="people-btn c-po"
-            />
+              className="clickable-wrapper people-btn"
+              style={{ position: "relative", zIndex: 10 }}
+            >
+              <object
+                data={`${process.env.PUBLIC_URL}/images/Main/People-btn.svg`}
+                alt="btn"
+                className="object-container"
+                style={{ pointerEvents: "none" }}
+              />
+            </motion.div>
             <motion.object
               initial="initial"
               animate="animate"

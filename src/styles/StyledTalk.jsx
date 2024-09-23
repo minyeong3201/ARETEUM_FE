@@ -24,7 +24,7 @@ export const Background = styled.div`
   flex-shrink: 0;
   z-index: 0; /* 다른 요소들 뒤에 배치 */
 
-  img {
+  object {
     width: 100%;
     height: 100%;
     object-fit: cover; /* 배경 이미지가 화면에 맞게 늘어나도록 설정 */
@@ -38,7 +38,7 @@ export const Som = styled.div`
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   z-index: 1; /* Background보다 위에 배치 */
 
-  img {
+  object {
     width: 414px;
     height: 414px;
     flex-shrink: 0;
@@ -52,6 +52,9 @@ export const Talk = styled.div`
   height: 33%;
   border: none;
   border-radius: 10px;
+
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 95%, rgba(0, 0, 0, 0));
+
   overflow-y: auto; /* 스크롤 */
   display: flex;
   margin: 10px;
@@ -91,6 +94,7 @@ export const TalkContent = styled(motion.div)`
   line-height: normal;
   letter-spacing: -0.375px;
 `;
+
 export const Header = styled.header`
   height: 70px;
   display: flex;
@@ -138,10 +142,14 @@ export const Comment = styled.div`
   top: 9px;
   padding: 5px 10px;
 
+  left: 50%;
+  transform: translateX(-50%); /* 화면 중앙으로 정렬 */
+
   input {
     flex: 1;
     border: none;
     padding: 10px;
+    width: 300px;
     color: #5a5a5a;
     font-family: "Pretendard Variable";
     font-size: 18px;
@@ -161,7 +169,12 @@ export const Comment = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 10px; /* 이미지와 입력칸 사이 여백 추가 */
+    // margin-left: 10px; /* 이미지와 입력칸 사이 여백 추가 */
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
   }
 `;
 

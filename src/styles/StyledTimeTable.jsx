@@ -20,12 +20,11 @@ export const Container = styled.div`
   margin-top: 0px;
   background: linear-gradient(180deg, #0c2456 0%, #0a759f 100%);
   min-height: 100vh;
-  padding: 0; /* 불필요한 패딩 제거 */
+  padding: 0; /* 불필요한 패딩 제거 d*/
   box-sizing: border-box;
 `;
 
 export const Background = styled.div`
-  // position: relative; /* 상대 위치 설정으로 자연스럽게 배치 */
   position: absolute;
   margin-top: 55px; /* Header의 높이만큼 띄워줍니다. */
   width: 393px;
@@ -33,9 +32,9 @@ export const Background = styled.div`
   flex-shrink: 0;
   z-index: 0; /* 다른 요소들 뒤에 배치 */
 
-  img {
-    width: 100%;
-    height: 100%;
+  object {
+    //width: 100%;
+    //height: 100%;
     object-fit: cover; /* 배경 이미지가 화면에 맞게 늘어나도록 설정 */
   }
 `;
@@ -90,6 +89,7 @@ export const Date = styled.div`
   display: flex;
   margin-top: 85px;
   width: 226px;
+  white-spase: pre-wrap;
   justify-content: space-between;
   z-index: 1;
 
@@ -187,20 +187,24 @@ export const Booth = styled.div`
     gap: 7px;
     ${({ type }) =>
       type === "부스"
-        ? `justify-content: flex-end;`
+        ? `justify-content: flex-end;
+        margin-left:8.2px;`
         : `justify-content: flex-start;`}
   }
   #bottom {
     ${({ type }) =>
       type === "부스" ? `  margin-right: 20px;` : `margin-left: 20px;`}
+    display: flex;
+    flex-direction: column;
+    width: 150px;
   }
   #wrap {
     ${({ type }) =>
-      type === "부스" ? `  margin-right: 144px;` : `margin-left: 145px;`}
+      type === "부스" ? `  margin-right: 134px;` : `margin-left: 155px;`}
     display: flex;
     flex-direction: column;
-    text-align: center;
     gap: 4.5px;
+    text-align: center;
   }
   #time {
     color: #fff;
@@ -221,13 +225,17 @@ export const Booth = styled.div`
     letter-spacing: -0.35px;
   }
   #info {
+    ${({ type }) =>
+      type === "공연"
+        ? ` margin-left:20px; margin-top:8px; width:170px; text-align:start;`
+        : ``}
     color: #fff;
     font-family: "Pretendard Variable";
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
-    line-height: 16px;
-    letter-spacing: -0.3px;
+    line-height: 25px;
+    white-space: pre-wrap;
   }
 `;
 
@@ -268,12 +276,12 @@ export const TextBox = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    letter-spacing: -0.35px;
+    // letter-spacing: -0.35px;
   }
 `;
 export const Footer = styled.footer`
   width: 393px;
-  height: 290px;
+  // height: 290px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -60,6 +60,10 @@ export const Title = styled.div`
 `;
 
 export const Wrap = styled.div``;
+export const Date = styled.div`
+  img {
+  }
+`;
 export const Footer = styled.footer`
   width: 393px;
   height: 290px;

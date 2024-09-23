@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as I from "../styles/StyledIntroduce_Lion";
 import { Link } from "react-router-dom";
@@ -10,12 +10,24 @@ const Introduce_Lion = () => {
     navigate(`/`);
   };
 
+  useEffect(() => {
+    // 컴포넌트가 마운트되면 상단으로 스크롤
+    window.scrollTo(0, 0);
+  }, []);
+
   const goIntroduce_Management = () => {
     navigate(`/Introduce_Management`);
   };
 
   const goIntroduce_ARETEUM = () => {
     navigate(`/Introduce_ARETEUM`);
+  };
+
+  const handlePageUrl = () => {
+    window.open(
+      "https://www.instagram.com/dongduk_likelion?igsh=MWdyMHgzcmJxbHgweA==",
+      "_blank"
+    );
   };
 
   return (
@@ -76,7 +88,9 @@ const Introduce_Lion = () => {
       </I.LionPicture>
       <I.Insta>
         <div id="text2">instagram</div>
-        <div id="text3">@dongduk_likelion</div>
+        <div id="text3" onClick={() => handlePageUrl()}>
+          @dongduk_likelion
+        </div>
       </I.Insta>
       <I.Content>
         <div id="text4">연합동아리</div>
@@ -352,7 +366,7 @@ const Introduce_Lion = () => {
         />
       </I.Background>
       <I.Footer>
-        <img src={`${process.env.PUBLIC_URL}/images/Footer.svg`} alt="footer" />
+        <object data="/images/Footer.svg" alt="poster" className="Footer" />
       </I.Footer>
     </I.Container>
   );

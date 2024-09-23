@@ -10,12 +10,13 @@ export const Container = styled.div`
   min-height: 100vh;
   padding: 0; /* 불필요한 패딩 제거 */
   box-sizing: border-box; /* 패딩이 width에 포함되도록 설정 */
+  overflow: hidden;
 `;
 
 export const Background = styled.div`
   position: relative; /* 상대 위치 설정으로 자연스럽게 배치 */
   margin-top: -985px; /* Header의 높이만큼 띄워줍니다. */
-  width: 410px;
+  width: 393px;
   height: 1041px;
   flex-shrink: 0;
   z-index: 0; /* 다른 요소들 뒤에 배치 */
@@ -65,6 +66,7 @@ export const Menu = styled.div`
   width: 390px;
   height: 20px;
   margin-top: 46px;
+
   #choice1 {
     color: #f6d1b1;
     font-family: "Pretendard Variable";
@@ -83,7 +85,7 @@ export const Menu = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-left: 63px;
+    margin-left: 55px;
   }
 
   #choice3 {
@@ -94,7 +96,7 @@ export const Menu = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-left: 75px;
+    margin-left: 78px;
   }
 `;
 
@@ -102,17 +104,8 @@ export const Menu = styled.div`
 export const UnderBar = styled.div`
   width: 100px;
   height: 1px;
-
-  #img {
-    width: 80.004px;
-    height: 1px;
-    transform: rotate(-0.013deg);
-    flex-shrink: 0;
-    stroke-width: 1.5px;
-    stroke: #f6d1b1;
-  }
-  margin-left: 27px;
-  margin-top: -12px;
+  margin-left: 30px;
+  margin-top: -11px;
 `;
 
 // 저마다의빛
@@ -145,7 +138,7 @@ export const UniversityName = styled.div`
 export const Areteum = styled.div`
   margin-left: 215px;
   margin-top: -22px;
-  #img {
+  .areteum {
     width: 81px;
     height: 22.878px;
     flex-shrink: 0;
@@ -156,7 +149,7 @@ export const Areteum = styled.div`
 export const Poster = styled.div`
   margin-top: 24px;
   margin-left: 50px;
-  #img {
+  .Poster {
     width: 293.279px;
     height: 390.25px;
     flex-shrink: 0;
@@ -172,7 +165,8 @@ export const Insta = styled.div`
   width: 150px;
   height: 14px;
   margin-top: 5px;
-  margin-left: 190px;
+  margin-left: 200px;
+
   #text2 {
     color: #f6d1b1;
     font-family: "Pretendard Variable";
@@ -183,6 +177,7 @@ export const Insta = styled.div`
   }
 
   #text3 {
+    cursor: pointer;
     color: #fff;
     text-align: center;
     font-family: "Pretendard Variable";
@@ -191,6 +186,7 @@ export const Insta = styled.div`
     font-weight: 500;
     line-height: normal;
     margin-left: 3px;
+    z-index: 99;
   }
 `;
 
@@ -239,10 +235,10 @@ export const Content = styled.div`
 
 // 축제 설명2
 export const Content2 = styled.div`
-  width: 189px;
+  width: 200px;
   height: 44px;
   margin-top: 39px;
-  margin-left: 105px;
+  margin-left: 98px;
 
   #text7 {
     color: #f6d1b1;
@@ -266,7 +262,7 @@ export const BackImage = styled.div`
   margin-top: -130px;
   margin-left: -19px;
 
-  img {
+  .AreteumBack {
     width: 100%;
     height: 100%;
     object-fit: cover; /* 배경 이미지가 화면에 맞게 늘어나도록 설정 */
@@ -278,9 +274,9 @@ export const PosterName2 = styled.div`
   width: 160px;
   height: 40px;
   flex-shrink: 0;
-  margin-left: 100px;
+  margin-left: 96px;
   margin-top: 70px;
-  img {
+  .PosterName {
     width: 200px;
     height: 45px;
   }
