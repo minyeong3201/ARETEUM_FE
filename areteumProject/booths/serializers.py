@@ -8,6 +8,16 @@ class BoothSerializer(serializers.ModelSerializer):
         model = Booth 
         fields = '__all__'
 
+class FoodBoothSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Booth
+        fields = ['id', 'name', 'host', 'place', 'date', 'time_day1', 'time_day2', 'category']
+
+class FoodTruckSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Booth
+        fields = ['id', 'name', 'place', 'time_day1', 'category']
+
 class Day1BoothSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booth
@@ -27,13 +37,13 @@ class SearchBoothSerializer(serializers.ModelSerializer):
 class MenuGroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = MenuGroup
-        fields = '__all__'
+        fields = ['name', 'price']
         
-
 class FoodSerializer(serializers.ModelSerializer):
     class Meta:
         model = Food
-        fields = '__all__'
+        fields = ['name', 'price']
+      
         
 class SomTalkSerializer(serializers.ModelSerializer):    
     class Meta:

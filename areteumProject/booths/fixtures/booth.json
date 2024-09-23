@@ -1,0 +1,677 @@
+[
+{
+    "model": "booths.booth",
+    "pk": 1,
+    "fields": {
+        "name": "놀러와요 도담이네",
+        "host": "식품영양마케팅 동아리 도담도담",
+        "place": "운동장",
+        "date": "day1",
+        "time_day1": "12:00 - 22:00",
+        "time_day2": null,
+        "category": "한잔하솜",
+        "introduction": null,
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 2,
+    "fields": {
+        "name": "오늘 밤은 여기 '로타'",
+        "host": "중앙동사봉아리 태릉로타랙트",
+        "place": "운동장",
+        "date": "day1",
+        "time_day1": "16:00 - 22:00",
+        "time_day2": null,
+        "category": "한잔하솜",
+        "introduction": null,
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 3,
+    "fields": {
+        "name": "불꽃피움",
+        "host": "문화지식융합대학 학생회 피움",
+        "place": "운동장",
+        "date": "day2",
+        "time_day1": null,
+        "time_day2": "16:00 - 22:00",
+        "category": "한잔하솜",
+        "introduction": null,
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 4,
+    "fields": {
+        "name": "나란 돌쇠의 마님 환영회",
+        "host": "총학생회 나란",
+        "place": "운동장",
+        "date": "day1",
+        "time_day1": "16:00 - 22:00",
+        "time_day2": null,
+        "category": "한잔하솜",
+        "introduction": null,
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 5,
+    "fields": {
+        "name": "화학과 주점",
+        "host": "응용화학전공 학생회",
+        "place": "운동장",
+        "date": "day2",
+        "time_day1": null,
+        "time_day2": "16:00 - 22:00",
+        "category": "한잔하솜",
+        "introduction": null,
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 6,
+    "fields": {
+        "name": "밤하늘을 쏘다",
+        "host": "비전",
+        "place": "운동장",
+        "date": "day2",
+        "time_day1": null,
+        "time_day2": "16:00 - 22:00",
+        "category": "한잔하솜",
+        "introduction": null,
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 7,
+    "fields": {
+        "name": "국경 없는 바(BAR)",
+        "host": "AIESEC 아이섹",
+        "place": "운동장",
+        "date": "day1",
+        "time_day1": "16:00 - 22:00",
+        "time_day2": null,
+        "category": "한잔하솜",
+        "introduction": null,
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 8,
+    "fields": {
+        "name": "헤어지자고? 링크 주점 이제 시작인데?",
+        "host": "인문대학 학생회 LINK",
+        "place": "운동장",
+        "date": "day2",
+        "time_day1": null,
+        "time_day2": "16:00 - 22:00",
+        "category": "한잔하솜",
+        "introduction": null,
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 9,
+    "fields": {
+        "name": "교지편집위원회 목화",
+        "host": "교지편집위원회",
+        "place": "운동장",
+        "date": "both",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": "14:00 - 18:00",
+        "category": "체험/마켓",
+        "introduction": "솜솜이 솜솜에게 : 같은 학교를 다니는, 혹은 다녔던 학우들에게 릴레이 편지 작성하기 \n직접 제작한 뜨개 키링과 끈갈피 판매",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 10,
+    "fields": {
+        "name": "Éclatant(e) (에끌라또)",
+        "host": "육정연님 Éclatant(e) (에끌라또)",
+        "place": "운동장",
+        "date": "both",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": "14:00 - 18:00",
+        "category": "체험/마켓",
+        "introduction": "솜밤(립밤) 판매\n퀴즈, 립밤 블라인드 테스트, 게임, 구매/뽑기 이벤트 등 콘텐츠",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 11,
+    "fields": {
+        "name": "기독연합(YYAM, UBF)",
+        "host": "기독연합",
+        "place": "운동장",
+        "date": "both",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": "14:00 - 18:00",
+        "category": "체험",
+        "introduction": "동아리 홍보와 굿즈 나눔, 돌림판 이벤트를 통한 상품 추천",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 12,
+    "fields": {
+        "name": "앗! 호신용품 타이어보다 싸다!!!",
+        "host": "SIREN",
+        "place": "운동장",
+        "date": "both",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": "14:00 - 18:00",
+        "category": "체험/마켓",
+        "introduction": "쿠보탄 체험, 여성안전관련 설문조사, 호신용품 판매",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 13,
+    "fields": {
+        "name": "빛의 루루",
+        "host": "동아리 루루",
+        "place": "운동장",
+        "date": "both",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": "14:00 - 18:00",
+        "category": "체험/마켓",
+        "introduction": "자체 제작 굿즈(모루 인형) 판매\n페이스 페인팅 체험",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 14,
+    "fields": {
+        "name": "묘하다!",
+        "host": "개인(송채현)",
+        "place": "운동장",
+        "date": "day1",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": null,
+        "category": "체험/마켓",
+        "introduction": "동물 일러스트 굿즈(스티커/도자공예품) 판매",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 15,
+    "fields": {
+        "name": "스탠드",
+        "host": "자연정보과학대 학생회 '스탠드'",
+        "place": "운동장",
+        "date": "day1",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": null,
+        "category": "체험/마켓",
+        "introduction": "불꽃놀이가 펼쳐지는 놀이공원의 거리 음료 카페\n\"학생회를 이겨라(참참참, 넌센스)\" 게임 운영",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 16,
+    "fields": {
+        "name": "푸른자리",
+        "host": "푸른자리",
+        "place": "운동장",
+        "date": "both",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": "14:00 - 18:00",
+        "category": "체험/마켓",
+        "introduction": "푸른자리 부원들이 직접 촬영한 사진으로 만든 굿즈 판매\n푸른자리 포토부스 & 포토 콘테스트 진행",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 17,
+    "fields": {
+        "name": "엑스터시 정상영업합니다",
+        "host": "EXTASY",
+        "place": "운동장",
+        "date": "both",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": "14:00 - 18:00",
+        "category": "체험/마켓",
+        "introduction": "굿즈 판매 및 악기 체험\n즉석 합주 이벤트",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 18,
+    "fields": {
+        "name": "내 사주가 알고보니 로판 속 황녀님?!",
+        "host": "개인(용윤선)",
+        "place": "운동장",
+        "date": "both",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": "14:00 - 18:00",
+        "category": "체험/마켓",
+        "introduction": "내가 로판에 빙의한다면?'과 '내가 아이돌이라면?' \n두 가지 테마를 가지고 사주상담 및 빙의티켓 판매",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 19,
+    "fields": {
+        "name": "향기연구소",
+        "host": "화장품학전공 조향 동아리 이노센트",
+        "place": "운동장",
+        "date": "both",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": "14:00 - 18:00",
+        "category": "체험",
+        "introduction": "향료 시향, 원하는 향료 조합을 통한 사쉐 방향제 제작",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 20,
+    "fields": {
+        "name": "인권센터",
+        "host": "인권센터",
+        "place": "운동장",
+        "date": "day2",
+        "time_day1": null,
+        "time_day2": "14:00 - 18:00",
+        "category": "체험",
+        "introduction": "폭력예방교육&실태조사 홍보 및 즉석 심리검사 신청",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 21,
+    "fields": {
+        "name": "그림자를 비추는 사람들, 동덕극회",
+        "host": "동덕여자대학교 극예술연구회",
+        "place": "운동장",
+        "date": "day1",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": null,
+        "category": "체험/마켓",
+        "introduction": "대사 퀴츠, 릴레이 소설, 실루엣 퀴즈 및 음료 판매",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 22,
+    "fields": {
+        "name": "키치 앨리",
+        "host": "개인(김명선)",
+        "place": "운동장",
+        "date": "both",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": "14:00 - 18:00",
+        "category": "체험/마켓",
+        "introduction": "인형 만들기 및 폴라로이드 꾸미기",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 23,
+    "fields": {
+        "name": "김밥지옥",
+        "host": "개인(이지호)",
+        "place": "운동장",
+        "date": "day1",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": null,
+        "category": "체험/마켓",
+        "introduction": "김밥 그래픽이 들어간 굿즈 판매",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 24,
+    "fields": {
+        "name": "키라키라 (jewel)",
+        "host": "개인(박시윤)",
+        "place": "운동장",
+        "date": "day1",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": null,
+        "category": "체험/마켓",
+        "introduction": "DIY 비즈 반지, 팔찌, 목걸이, 키링 판매",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 25,
+    "fields": {
+        "name": "붕어빵 사진관",
+        "host": "붕어빵 사진 영상 동아리",
+        "place": "운동장",
+        "date": "day1",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": null,
+        "category": "체험/마켓",
+        "introduction": "동아리 부원이 찍은 학교 내 사진을 보고 장소 맞추기 게임\n부원들이 찍은 사진으로 제작된 엽서, 포스터 등 굿즈 판매",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 26,
+    "fields": {
+        "name": "목화지기 X 동그라미",
+        "host": "목화지기",
+        "place": "운동장",
+        "date": "day2",
+        "time_day1": null,
+        "time_day2": "14:00 - 18:00",
+        "category": "체험",
+        "introduction": "대왕 솜솜이와 함께 사진을 찍을 수 있는 현수막 포토존\n전구 등으로 꾸민 배경 앞에 영수증 사진기 촬영 체험",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 27,
+    "fields": {
+        "name": "에코 리필 스테이션 with 일상공감 X SK LOOKIE_MNM X 환경지기",
+        "host": "동덕여자대학교 보건관리학과 과동아리 환경지기",
+        "place": "운동장",
+        "date": "day2",
+        "time_day1": null,
+        "time_day2": "14:00 - 18:00",
+        "category": "체험/마켓",
+        "introduction": "리필스테이션 운영\n제로웨이스트 물품 체험(천연 수세미 만들기, 커피박 방향제 만들기 등) 및 판매",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 28,
+    "fields": {
+        "name": "동그라미X목화지기",
+        "host": "동덕여자대학교 홍보대사 동그라미",
+        "place": "운동장",
+        "date": "day2",
+        "time_day1": null,
+        "time_day2": "14:00 - 18:00",
+        "category": "체험",
+        "introduction": "DIY 비즈 키링 만들기 체험 및 솜솜 행운 룰렛 운영",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 29,
+    "fields": {
+        "name": "콩콩랜드",
+        "host": "중앙교육봉사동아리 콩콩",
+        "place": "운동장",
+        "date": "both",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": "14:00 - 18:00",
+        "category": "체험",
+        "introduction": "놀이공원 컨셉의 포토존과 미니게임.",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 30,
+    "fields": {
+        "name": "SYNERGY",
+        "host": "SYNERGY",
+        "place": "운동장",
+        "date": "day2",
+        "time_day1": null,
+        "time_day2": "14:00 - 18:00",
+        "category": "체험",
+        "introduction": "리프팅, 물병 맞추기 등의 축구 체험",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 31,
+    "fields": {
+        "name": "0-1ink",
+        "host": "패션디자인과 패션창업동아리 어튠아이즈",
+        "place": "운동장",
+        "date": "both",
+        "time_day1": "14:00 - 18:00",
+        "time_day2": "14:00 - 18:00",
+        "category": "체험/마켓",
+        "introduction": "0-1ink 브랜드 제품 판매\n남는 원단을 활용한 키링만들기 체험",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 32,
+    "fields": {
+        "name": "영어과 학생회",
+        "host": "영어과학생회",
+        "place": "운동장",
+        "date": "day2",
+        "time_day1": null,
+        "time_day2": "14:00 - 18:00",
+        "category": "체험/마켓",
+        "introduction": "미니게임 체험 및 음료 판매",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 33,
+    "fields": {
+        "name": "코튼마켓",
+        "host": "동덕여대 축제 운영 위원회",
+        "place": "운동장",
+        "date": "both",
+        "time_day1": "13:00 - 21:30",
+        "time_day2": "13:00 - 21:30",
+        "category": "마켓",
+        "introduction": null,
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 34,
+    "fields": {
+        "name": "동덕연화",
+        "host": "동덕여대 축제 운영 위원회",
+        "place": "운동장 구령대 맞은편",
+        "date": "both",
+        "time_day1": "12:00 - 22:00",
+        "time_day2": "12:00 - 20:00",
+        "category": "체험",
+        "introduction": "동덕연화(同德年華)\n동덕연화, 동덕에서의 아름다운 시절.\n’동덕연화‘ 부스에서 나만의 개성있는 불꽃을 만들어보세요! 내가 찍은 점이 불꽃의 중심이 되어 불꽃을 터트립니다. \n불꽃의 빛보다 더욱 반짝일 우리의 아름다운 시절,\n각자의 불꽃으로 간직해 볼까요?",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 35,
+    "fields": {
+        "name": "솜원을 말해봐",
+        "host": "동덕여대 축제 운영 위원회",
+        "place": "운동장 중앙",
+        "date": "both",
+        "time_day1": "상시운영",
+        "time_day2": "상시운영",
+        "category": "체험",
+        "introduction": "올해가 가기 전, 이루고픈 소원이 있나요? 마음껏 적어 날려보내세요!\n소원을 자유롭게 적어주시면\n오늘의 운세가 적힌 포춘쿠키를 드립니다 🥠🍪\n🥠 소원 적고 맛있는 포춘쿠키 받아가세요 🥠",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 36,
+    "fields": {
+        "name": "달 골짜기 타로 가게",
+        "host": "동덕여대 축제 운영 위원회",
+        "place": "운동장 구령대 맞은편",
+        "date": "day1",
+        "time_day1": "15:00 - 19:00",
+        "time_day2": null,
+        "category": "체험",
+        "introduction": "아무에게도 말하지 못한 고민이나 걱정거리가 있으신가요? 혹은 마음 속에 있는 두려움을 털어놓고 싶으신가요?\n🔮 🌕 달 골짜기에 있는 타로 가게로 오세요! 🌕 🔮\n 비밀스러운 타로 가게에서 당신의 이야기를 들어드립니다!\n\n*사전예약 방식으로 진행됩니다.",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 37,
+    "fields": {
+        "name": "솜솜어게인",
+        "host": "동덕여대 축제 운영 위원회",
+        "place": "백주년 기념관 야외계단 앞",
+        "date": "day1",
+        "time_day1": "19:00 - 21:00",
+        "time_day2": null,
+        "category": "체험",
+        "introduction": "무대에 설 기회가 없어 자신의 끼를 뽐내지 못했던 학우분들, \n이번 기회로 자신을 드러내고 싶은 모든 학우분들은 ‘솜솜어게인’을 꾸며주시길 바랍니다 ",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 38,
+    "fields": {
+        "name": "RGB Studio",
+        "host": "동덕여대 축제 운영 위원회",
+        "place": "민주광장",
+        "date": "both",
+        "time_day1": "상시운영",
+        "time_day2": "상시운영",
+        "category": "체험",
+        "introduction": "빛의 삼원색이 모여 하나의 색을 완성하는 것처럼\nRGB Studio에서 여러분들의 다채로움을 마음껏 표현해 보세요!\n일반적인 앵글은 물론, 다 함께 찍을 수 있는 하이앵글까지 준비되어 있어요 📸",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 39,
+    "fields": {
+        "name": "빛의 거리, 빛의 순간",
+        "host": "동덕여대 축제 운영 위원회",
+        "place": "약학관 뒤 연못, \n숭인관 건물 입구",
+        "date": "both",
+        "time_day1": "상시운영",
+        "time_day2": "상시운영",
+        "category": "체험",
+        "introduction": "야외에 설치된 포토존을 찾아보세요! 학교에서 거울샷을 찍을 수 있는 것은 물론이고 내가 직접 꾸미고 즐기는 참여형 포토존도 있답니다 :)\n포토존과 포토부스를 모두 체험하여 스탬프투어를 완성하고 선물도 받아가세요! 🍭🎉",
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 40,
+    "fields": {
+        "name": "굿스푼",
+        "host": null,
+        "place": "민주광장, 구령대 옆",
+        "date": "both",
+        "time_day1": "12:00 - 22:00",
+        "time_day2": "12:00 - 22:00",
+        "category": "푸드트럭",
+        "introduction": null,
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 41,
+    "fields": {
+        "name": "스위트퍼플",
+        "host": null,
+        "place": "민주광장, 구령대 옆",
+        "date": "both",
+        "time_day1": "12:00 - 22:00",
+        "time_day2": "12:00 - 22:00",
+        "category": "푸드트럭",
+        "introduction": null,
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 42,
+    "fields": {
+        "name": "용푸드카",
+        "host": null,
+        "place": "민주광장, 구령대 옆",
+        "date": "both",
+        "time_day1": "12:00 - 22:00",
+        "time_day2": "12:00 - 22:00",
+        "category": "푸드트럭",
+        "introduction": null,
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 43,
+    "fields": {
+        "name": "스타츄러스",
+        "host": null,
+        "place": "민주광장, 구령대 옆",
+        "date": "both",
+        "time_day1": "12:00 - 22:00",
+        "time_day2": "12:00 - 22:00",
+        "category": "푸드트럭",
+        "introduction": null,
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 44,
+    "fields": {
+        "name": "피자퀸",
+        "host": null,
+        "place": "민주광장, 구령대 옆",
+        "date": "both",
+        "time_day1": "12:00 - 22:00",
+        "time_day2": "12:00 - 22:00",
+        "category": "푸드트럭",
+        "introduction": null,
+        "image": ""
+    }
+},
+{
+    "model": "booths.booth",
+    "pk": 45,
+    "fields": {
+        "name": "에페스케밥",
+        "host": null,
+        "place": "민주광장, 구령대 옆",
+        "date": "both",
+        "time_day1": "12:00 - 22:00",
+        "time_day2": "12:00 - 22:00",
+        "category": "푸드트럭",
+        "introduction": null,
+        "image": ""
+    }
+}
+]

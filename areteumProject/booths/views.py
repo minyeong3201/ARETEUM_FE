@@ -18,7 +18,7 @@ class BoothDay1ListView(APIView):
         if selected_category is not None:
             q = Q(category=selected_category)
             if (selected_category == '체험' or selected_category == '마켓'):
-                q |= Q(category='체험+마켓')
+                q |= Q(category='체험/마켓')
             booths = booths.filter(q)
             
 
@@ -41,7 +41,7 @@ class BoothDay2ListView(APIView):
         if selected_category is not None:
             q = Q(category=selected_category)
             if (selected_category == '체험' or selected_category == '마켓'):
-                q |= Q(category='체험+마켓')
+                q |= Q(category='체험/마켓')
             booths = booths.filter(q)
 
         booths_count = booths.count()
@@ -57,36 +57,38 @@ class BoothDay2ListView(APIView):
 class BoothDetailView(APIView):
     def get(self, request, booth_id):
         booth = Booth.objects.get(id=booth_id)
-        booth_data = BoothSerializer(booth, context={'request':request}).data
-
-        menu_groups = MenuGroup.objects.filter(booth=booth_id)
-
-        food_list = []
-        for menu_group in menu_groups:
-            foods = Food.objects.filter(menu_group=menu_group)
-
-            food_data = [
-                    {
-                        "name": food.name,
-                        "price": food.price,
-                    }
-                    for food in foods
-                ]
-            food_list.append({
-                "menu_group": menu_group.name,
-                "menu_group_price": menu_group.price,
-                "food_list": food_data,
-            })
-
-        # 주점일 경우 메뉴 노출
-        if booth.category == '주점':
+        
+        if booth.category == '한잔하솜':
+            booth_data = FoodBoothSerializer(booth, context={'request':request}).data
+            menu_groups = MenuGroup.objects.filter(booth=booth_id)
+            food_list = []
+            for menu_group in menu_groups:
+                foods = Food.objects.filter(menu_group=menu_group)
+                food_data = FoodSerializer(foods, many=True, context={'request':request}).data
+                food_list.append({
+                    'menu_group': menu_group.name,
+                    'menu_group_price': menu_group.price,
+                    'food_list': food_data,
+                })
             return Response({
                 'booth': booth_data, 
                 'menu': food_list,
             }, status=status.HTTP_200_OK)
         
-        return Response(booth_data, status=status.HTTP_200_OK)
-    
+        elif booth.category == '푸드트럭':
+            booth_data = FoodTruckSerializer(booth, context={'request':request}).data
+            menu_group = MenuGroup.objects.get(booth=booth_id)
+            foods = Food.objects.filter(menu_group=menu_group)
+            food_list = FoodSerializer(foods, many=True, context={'request':request}).data
+            return Response({
+                'booth': booth_data, 
+                'menu': food_list,
+            }, status=status.HTTP_200_OK)
+
+        else: # 체험/마켓 등의 경우
+            booth_data = BoothSerializer(booth, context={'request':request}).data
+            return Response(booth_data, status=status.HTTP_200_OK)
+        
 # 부스 검색   
 class SearchBoothView(generics.ListAPIView):
     serializer_class = SearchBoothSerializer
@@ -110,5 +112,7 @@ class SearchBoothView(generics.ListAPIView):
     
 # 솜톡
 class SomTalkViewSet(ModelViewSet):
-    queryset = SomTalk.objects.all()
     serializer_class = SomTalkSerializer
+    
+    def get_queryset(self):
+        return SomTalk.objects.all().order_by('-time')[:20][::-1] #오름차순

@@ -3,7 +3,7 @@ from django.db import models
 
 class Booth(models.Model):
     name = models.CharField(verbose_name='부스명', max_length=50)
-    host = models.CharField(verbose_name='운영주체', max_length=50)
+    host = models.CharField(verbose_name='운영주체', max_length=50, blank=True, null=True)
     place = models.CharField(verbose_name='위치', max_length=50)
 
     DATES = [ 
@@ -17,9 +17,10 @@ class Booth(models.Model):
 
     CATEGORIES = [
         ('체험', '체험'),
-        ('주점', '주점'),
+        ('한잔하솜', '한잔하솜'),
         ('마켓', '마켓'),
-        ('체험+마켓', '체험+마켓'),
+        ('체험/마켓', '체험/마켓'),
+        ('푸드트럭', '푸드트럭'),
     ]
     category = models.CharField(verbose_name='카테고리', max_length=10, choices=CATEGORIES)
 
@@ -32,7 +33,7 @@ class Booth(models.Model):
 
 class MenuGroup(models.Model):
     name = models.CharField(verbose_name='메뉴그룹명', max_length=50)
-    price = models.PositiveIntegerField(verbose_name='가격', blank=True, null=True)
+    price = models.CharField(verbose_name='가격', max_length=20, blank=True, null=True)
     booth = models.ForeignKey(Booth, related_name='menu_group', on_delete=models.CASCADE, verbose_name='해당 부스')
 
     def __str__(self):
@@ -40,7 +41,7 @@ class MenuGroup(models.Model):
     
 class Food(models.Model):
     name = models.TextField(verbose_name='음식명', max_length=50)
-    price = models.PositiveIntegerField(verbose_name='가격', blank=True, null=True)
+    price = models.CharField(verbose_name='가격', max_length=20, blank=True, null=True)
     menu_group = models.ForeignKey(MenuGroup, related_name='inner_food', on_delete=models.CASCADE, verbose_name='해당 메뉴그룹')
 
     def __str__(self):
