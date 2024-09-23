@@ -9,7 +9,7 @@ const GeneralBooth = () => {
   const [content, setContent] = useState([]);
 
   const goback = () => {
-    navigate(`/`);
+    window.history.back();
   };
 
   useEffect(() => {

@@ -6,7 +6,7 @@ const TimeTable = () => {
   const navigate = useNavigate();
 
   const goback = () => {
-    navigate(`/`);
+    window.history.back();
   };
 
   // 이미지 상태 관리

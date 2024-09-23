@@ -10,16 +10,16 @@ export default function Main() {
     navigate("/timetable");
   }
   function GoBooth() {
-    navigate("/booth");
+    navigate("/boothlayout");
   }
   function GoIntro() {
-    navigate("/intro");
+    navigate("/keyword");
   }
   function GoTalk() {
     navigate("/talk");
   }
   function GoPeople() {
-    navigate("/people");
+    navigate("/introduce_areteum");
   }
 
   const floatingVariants1 = {
