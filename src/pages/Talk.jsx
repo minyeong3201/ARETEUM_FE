@@ -152,6 +152,10 @@ const Talk = () => {
               placeholder="내용을 입력하세요."
               type="text"
               onChange={(event) => setComment(event.target.value)}
+              onInvalid={(e) =>
+                e.target.setCustomValidity("내용을 입력해주세요")
+              }
+              onInput={(e) => e.target.setCustomValidity("")}
               required
             />
             <button type="submit">

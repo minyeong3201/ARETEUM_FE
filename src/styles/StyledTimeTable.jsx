@@ -20,7 +20,7 @@ export const Container = styled.div`
   margin-top: 0px;
   background: linear-gradient(180deg, #0c2456 0%, #0a759f 100%);
   min-height: 100vh;
-  padding: 0; /* 불필요한 패딩 제거 */
+  padding: 0; /* 불필요한 패딩 제거 d*/
   box-sizing: border-box;
 `;
 
