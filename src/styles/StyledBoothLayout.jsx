@@ -1,4 +1,16 @@
-import { styled } from "styled-components";
+import { styled, keyframes } from "styled-components";
+
+// 나타나는 애니메이션 정의
+const slideUpAndFadeIn = keyframes`
+  0% {
+    transform: translateY(50px); /* 아래에서 시작 */
+    opacity: 0; /* 투명하게 시작 */
+  }
+  100% {
+    transform: translateY(0); /* 제자리로 */
+    opacity: 1; /* 서서히 보이게 */
+  }
+`;
 
 export const Container = styled.div`
   position: relative;
@@ -155,6 +167,10 @@ export const Detail = styled.div`
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+
+    opacity: ${(props) => (props.isVisible ? 1 : 0)};
+    animation: ${(props) => (props.isVisible ? slideUpAndFadeIn : "none")} 2s
+      ease forwards;
   }
 `;
 
