@@ -12,7 +12,7 @@ const Introduce_Management = () => {
   }, []);
 
   const goback = () => {
-    window.history.back();
+    navigate(`/`);
   };
 
   const goIntroduce_ARETEUM = () => {

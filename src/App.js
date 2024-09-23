@@ -29,7 +29,7 @@ function App() {
         <Route path="/introduce_lion" element={<Introduce_Lion />} />
         <Route path="/timetable" element={<TimeTable />} />
         <Route path="/boothlayout" element={<BoothLayout />} />
-        <Route path="/main" element={<Main />} />
+        <Route path="/" element={<Main />} />
         <Route path="/generalbooth" element={<GeneralBooth />} />
         <Route path="/foodbooth" element={<FoodBooth />} />
       </Routes>

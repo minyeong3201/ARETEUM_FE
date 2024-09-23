@@ -17,7 +17,7 @@ const Talk = () => {
   }, []);
 
   const goback = () => {
-    window.history.back();
+    navigate(`/`);
   };
   const handleSubmit = async (event) => {
     // event.preventDefault(); // 페이지 새로고침 방지
