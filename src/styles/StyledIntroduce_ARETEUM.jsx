@@ -166,6 +166,7 @@ export const Insta = styled.div`
   height: 14px;
   margin-top: 5px;
   margin-left: 200px;
+
   #text2 {
     color: #f6d1b1;
     font-family: "Pretendard Variable";
@@ -185,6 +186,7 @@ export const Insta = styled.div`
     font-weight: 500;
     line-height: normal;
     margin-left: 3px;
+    z-index: 99;
   }
 `;
 
