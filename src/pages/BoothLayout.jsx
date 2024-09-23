@@ -6,7 +6,7 @@ const BoothLayout = () => {
   const navigate = useNavigate();
 
   const goback = () => {
-    navigate(`/`);
+    window.history.back();
   };
 
   return (
