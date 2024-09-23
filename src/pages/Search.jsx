@@ -76,6 +76,11 @@ const Search = () => {
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
+        alt="R1Star"
+        style={{ position: "absolute", top: "143px", left: "107px", width: "50px" }}
+      />
+      <object
+        data={`${process.env.PUBLIC_URL}/images/E.svg`}
         alt="Under3Star"
         style={{ position: "absolute", top: "300px", left: "0px" }}
       />
@@ -89,7 +94,7 @@ const Search = () => {
         <object
           data={`${process.env.PUBLIC_URL}/images/Som.svg`}
           alt="Som"
-          style={{ position: "absolute", top: "370px", left: "60px" }}
+          style={{ position: "absolute", top: "380px", left: "60px" }}
         />
       ) : null}
         <object
