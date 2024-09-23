@@ -7,7 +7,7 @@ const Introduce_Lion = () => {
   const navigate = useNavigate();
 
   const goback = () => {
-    window.history.back();
+    navigate(`/`);
   };
 
   useEffect(() => {
