@@ -146,17 +146,21 @@ const Search = () => {
           onClick={handleSearch}
         />
       </S.InputBlank>
+
       <S.List>
         <S.ResultCount>
           {totalResults > 0 ? `총 ${totalResults}개의 부스` : ""}
         </S.ResultCount>
 
         {totalResults > 0 ? (
-          //검색 결과가 있을 때
+          // 검색 결과가 있을 때
           <S.List2>
             {list2Items.map((item) => {
               const isTargetId = item.id === 10; // 특정 아이디 확인(에꿀라또 부스) -> 폰트 사이즈 수정
               const isTargetId27 = item.id === 27; // 특정 아이디 확인(에코) -> width 수정
+              const isTargetId35Or38Or39 =
+                item.id === 35 || item.id === 38 || item.id === 39; // 특정 아이디(상시운영) 운영시간 수정
+
               return (
                 <S.Booth key={item.id}>
                   <S.Bname
@@ -166,8 +170,11 @@ const Search = () => {
                         : item.name.length > 15
                         ? "13px"
                         : "17px", // 아이디가 10일 때 글자 크기 지정(영어포함 부스)
-                      marginTop: item.name.length > 15 ? "6px" : "3.3px",
-                      marginTop: isTargetId ? "1px" : (item.name.length > 15 ? "6px" : "3.3px"),
+                      marginTop: isTargetId
+                        ? "1px"
+                        : item.name.length > 15
+                        ? "6px"
+                        : "3.3px",
                       width: isTargetId27 ? "205px" : "215px",
                       marginLeft: isTargetId27 ? "-82px" : "-75px",
                     }}
@@ -177,8 +184,14 @@ const Search = () => {
                   <S.Time>운영시간</S.Time>
                   <S.Blocation>{item.place}</S.Blocation>
                   <br />
-                  <S.Btime>{item.timeDay1 || ""}</S.Btime>
-                  {item.timeDay2 ? (
+                  <S.Btime
+                    style={{
+                      left: isTargetId35Or38Or39 ? "207px" : "223px",
+                    }}
+                  >
+                    {item.timeDay1 || ""}
+                  </S.Btime>
+                  {isTargetId35Or38Or39 ? null : item.timeDay2 ? (
                     <S.Btime2
                       style={{ marginTop: item.timeDay1 ? "0" : "-15px" }}
                     >
@@ -200,6 +213,7 @@ const Search = () => {
           )
         )}
       </S.List>
+
       <S.Footer>
         <object
           data={`${process.env.PUBLIC_URL}/images/Footer.svg`}

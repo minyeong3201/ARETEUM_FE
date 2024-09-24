@@ -112,7 +112,7 @@ const Keyword = () => {
       <object
         data={`${process.env.PUBLIC_URL}/images/G.svg`}
         alt="PBouble"
-        style={{ position: "absolute", top: "170px", left: "0px"}}
+        style={{ position: "absolute", top: "170px", left: "0px" }}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
@@ -122,12 +122,22 @@ const Keyword = () => {
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
         alt="Up2Star"
-        style={{ position: "absolute", top: "110px", left: "30px", width: "40px" }}
+        style={{
+          position: "absolute",
+          top: "110px",
+          left: "30px",
+          width: "40px",
+        }}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
         alt="Up1Star"
-        style={{ position: "absolute", top: "78px", left: "0px", width: "65px" }}
+        style={{
+          position: "absolute",
+          top: "78px",
+          left: "0px",
+          width: "65px",
+        }}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
@@ -142,19 +152,30 @@ const Keyword = () => {
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
         alt="Under1Star"
-        style={{ position: "absolute", top: "260px", right: "50px", width: "50px" }}
+        style={{
+          position: "absolute",
+          top: "260px",
+          right: "50px",
+          width: "50px",
+        }}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/A.svg`}
         alt="YBouble"
-        style={{ position: "absolute", top: "90px", right: "0px", width: "70px" }}
+        style={{
+          position: "absolute",
+          top: "90px",
+          right: "0px",
+          width: "70px",
+        }}
       />
       <K.Box>
         <K.Box2>
           <K.Keywordd>
             <K.SmallBox5
               onClick={handleDate1Click}
-              $isClicked={isDate1Clicked ? 1 : 0}>
+              $isClicked={isDate1Clicked ? 1 : 0}
+            >
               <img
                 src={`${process.env.PUBLIC_URL}/images/${
                   isDate1Clicked ? "date11.svg" : "date1.svg"
@@ -202,44 +223,57 @@ const Keyword = () => {
         <K.ResultCount>
           {totalResults > 0 ? `총 ${totalResults}개의 부스` : ""}
         </K.ResultCount>
-        <K.List2>
-            {list2Items.map((item) => {
-              const isTargetId = item.id === 10; // 특정 아이디 확인(에꿀라또 부스) -> 폰트 사이즈 수정
-              const isTargetId27 = item.id === 27; // 특정 아이디 확인(에코) -> width 수정
-              return (
-                <K.Booth key={item.id}>
-                  <K.Bname
-                    style={{
-                      fontSize: isTargetId
-                        ? "17px"
-                        : item.name.length > 15
-                        ? "13px"
-                        : "17px", // 아이디가 10일 때 글자 크기 지정(영어포함 부스)
-                      marginTop: item.name.length > 15 ? "6px" : "3.3px",
-                      marginTop: isTargetId ? "1px" : (item.name.length > 15 ? "6px" : "3.3px"),
-                      width: isTargetId27 ? "205px" : "215px",
-                      marginLeft: isTargetId27 ? "-82px" : "-75px",
-                    }}
-                  >
-                    {item.name}
-                  </K.Bname>
-                  <K.Time>운영시간</K.Time>
-                  <K.Blocation>{item.place}</K.Blocation>
-                  <br />
-                  <K.Btime>{item.timeDay1 || ""}</K.Btime>
-                  {item.timeDay2 ? (
-                    <K.Btime2
-                      style={{ marginTop: item.timeDay1 ? "0" : "-15px" }}
-                    >
-                      {item.timeDay2}
-                    </K.Btime2>
-                  ) : null}
-                </K.Booth>
-              );
-            })}
-          </K.List2>
-      </K.List>
 
+        <K.List2>
+          {list2Items.map((item) => {
+            const isTargetId = item.id === 10; // 특정 아이디 확인(에꿀라또 부스) -> 폰트 사이즈 수정
+            const isTargetId27 = item.id === 27; // 특정 아이디 확인(에코) -> width 수정
+            const isTargetId35Or38Or39 =
+              item.id === 35 || item.id === 38 || item.id === 39; // 특정 아이디(상시운영) 운영시간 수정
+
+            return (
+              <K.Booth key={item.id}>
+                <K.Bname
+                  style={{
+                    fontSize: isTargetId
+                      ? "17px"
+                      : item.name.length > 15
+                      ? "13px"
+                      : "17px", // 아이디가 10일 때 글자 크기 지정(영어포함 부스)
+                    marginTop: isTargetId
+                      ? "1px"
+                      : item.name.length > 15
+                      ? "6px"
+                      : "3.3px",
+                    width: isTargetId27 ? "205px" : "215px",
+                    marginLeft: isTargetId27 ? "-82px" : "-75px",
+                  }}
+                >
+                  {item.name}
+                </K.Bname>
+                <K.Time>운영시간</K.Time>
+                <K.Blocation>{item.place}</K.Blocation>
+                <br />
+                <K.Btime
+                  style={{
+                    left: isTargetId35Or38Or39 ? "207px" : "223px",
+                  }}
+                >
+                  {item.timeDay1 || ""}
+                </K.Btime>
+                {isTargetId35Or38Or39 ? null : item.timeDay2 ? (
+                  <K.Btime2
+                    style={{ marginTop: item.timeDay1 ? "0" : "-15px" }}
+                  >
+                    {item.timeDay2}
+                  </K.Btime2>
+                ) : null}
+              </K.Booth>
+            );
+          })}
+        </K.List2>
+      </K.List>
+      
       <K.Footer>
         <object
           data={`${process.env.PUBLIC_URL}/images/Footer.svg`}

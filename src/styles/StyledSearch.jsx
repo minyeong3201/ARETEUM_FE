@@ -207,7 +207,7 @@ export const Blocation = styled.div`
   top: 24px;
   left: 233px;
   width: 80.422px;
-  height: 18px;
+  height: 20px;
   flex-shrink: 0;
   border-radius: 50px;
   border: 1px solid var(--, #0c2557);

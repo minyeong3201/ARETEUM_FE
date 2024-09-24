@@ -253,7 +253,7 @@ export const Blocation = styled.div`
   top: 24px;
   left: 233px;
   width: 80.422px;
-  height: 18px;
+  height: 20px;
   flex-shrink: 0;
   border-radius: 50px;
   border: 1px solid var(--, #0c2557);
@@ -273,7 +273,7 @@ export const Btime = styled.div`
   position: absolute;
   display: flex;
   width: 90px;
-  top: 67px;
+  top: 60px;
   left: 223px;
   background: none;
   display: flex;
@@ -293,7 +293,7 @@ export const Btime2 = styled.div`
   position: absolute;
   display: flex;
   width: 90px;
-  top: 82px;
+  top: 75px;
   left: 223px;
   background: none;
   display: flex;
