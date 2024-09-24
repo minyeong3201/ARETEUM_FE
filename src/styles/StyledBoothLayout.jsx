@@ -86,10 +86,36 @@ export const Date = styled.div`
 export const BoothImg = styled.div`
   position: relative;
   display: flex;
+  flex-direction: column;
+  gap: 5px;
   justify-content: center;
   align-items: center;
   z-index: 2;
   margin-top: 26px;
+  overflow: hidden; /* 스와이프 시 이미지가 벗어나지 않도록 */
+
+  color: #fffdf0;
+  text-align: center;
+  font-family: "Pretendard Variable";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+`;
+export const BoothImgback = styled.div`
+  z-index: 3;
+  display: flex;
+  width: 334px;
+  height: 253px;
+  padding: 24px 24px 24px 24px;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #136 0%, #cfd6e0 100%);
+  border-radius: 15px;
+  img {
+    width: 340px;
+    height: 225px;
+  }
 `;
 export const Buttons = styled.div`
   position: relative;
@@ -100,25 +126,43 @@ export const Buttons = styled.div`
 
   gap: 8.5px;
   margin-top: 18px;
+`;
+export const DayButton = styled.button`
+  cursor: pointer;
+  width: 60px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background: ${(props) => {
+    if (props.active) {
+      switch (props.id) {
+        case "day1":
+          return "#D7D0B8;"; // 첫 번째 버튼 색상
+        case "day2":
+          return "#BFCFC2"; // 두 번째 버튼 색상
+        case "day3":
+          return "#CDA7BB"; // 세 번째 버튼 색상
+        case "day4":
+          return "#969AD2"; // 네 번째 버튼 색상
+        case "day5":
+          return "#7FA7E1"; // 다섯 번째 버튼 색상
+        default:
+          return "#fffdf0"; // 기본 버튼 색상
+      }
+    } else {
+      return "#fffdf0"; // 클릭되지 않았을 때의 기본 배경색
+    }
+  }};
+  border: none;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
-  button {
-    cursor: pointer;
-    width: 60px;
-    height: 40px;
-    flex-shrink: 0;
-    border-radius: 30px;
-    background: #fffdf0;
-    border: none;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-
-    color: #0c2557;
-    text-align: center;
-    font-family: "Pretendard Variable";
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-  }
+  color: #0c2557;
+  text-align: center;
+  font-family: "Pretendard Variable";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 `;
 export const BoothInfo = styled.div`
   position: relative;
@@ -131,63 +175,30 @@ export const BoothInfo = styled.div`
 export const Box = styled.div`
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: 15px;
   width: 334px;
   max-height: 298px;
-  overflow-y: auto;
-  flex-shrink: 0;
+
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.7);
 
-  margin-top: 29px;
+  margin-top: 20px;
   margin-bottom: 30px;
 
   padding-top: 17px;
   padding-left: 25px;
   padding-right: 25px;
   padding-bottom: 17px;
-
-  /* 스크롤바 스타일 (선택사항) */
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2); /* 스크롤바의 색상 */
-    border-radius: 4px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: transparent; /* 스크롤 트랙 색상 */
-  }
 `;
-export const DAY1 = styled.div`
-  position: relative;
+export const DAY = styled.div`
+  position: sticky; /* 고정된 위치로 설정 */
+  top: 0; /* 상단에 고정 */
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
   z-index: 2;
-
-  width: 135px;
-  gap: 10px;
-
-  color: #0c2557;
-  font-family: "Pretendard Variable";
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-`;
-export const DAY2 = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  z-index: 2;
-
-  width: 135px;
-  gap: 10px;
 
   color: #0c2557;
   font-family: "Pretendard Variable";
@@ -200,11 +211,14 @@ export const Booths = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  justify-content: center;
+  justify-content: start;
+  overflow-y: auto; /* 스크롤 가능하도록 설정 */
+  max-height: 200px; /* 스크롤 영역의 높이 설정 */
+
   #one {
     display: flex;
     gap: 6px;
-    justify-content: center;
+    align-items: flex-start;
   }
   #wrap {
     position: relative;
@@ -227,6 +241,21 @@ export const Booths = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.375px;
+    white-space: pre-line;
+  }
+
+  /* 스크롤바 스타일 */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(1, 1, 1, 0.2);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
   }
 `;
 export const Detail = styled.div`
