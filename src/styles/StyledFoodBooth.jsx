@@ -110,7 +110,7 @@ export const BoothTitle = styled.div`
   position: absolute;
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   left: 50%;
-  top: 17.5%;
+  top: 17.2%;
   z-index: 1; /* 텍스트가 블러보다 위에 위치 */
   color: #0c2557;
   text-align: center;
@@ -119,7 +119,7 @@ export const BoothTitle = styled.div`
   font-style: normal;
   font-weight: 800;
   line-height: normal;
-  white-space: nowrap; /* 텍스트가 한 줄로 유지되도록 설정 */
+  width: 80%;
 `;
 
 // 부스 운영 주체
