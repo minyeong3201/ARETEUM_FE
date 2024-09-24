@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import * as F from "../styles/StyledFoodBooth";
 import axios from "axios";
 
 const FoodBooth = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
   const [boothData, setBoothData] = useState(null); // 부스 데이터를 저장할 state
 
@@ -20,7 +21,7 @@ const FoodBooth = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8000/booth-detail/6/`
+          `http://127.0.0.1:8000/booth-detail/${id}/`
         );
         setBoothData(response.data); // API에서 받아온 데이터를 상태에 저장
       } catch (error) {
@@ -83,35 +84,53 @@ const FoodBooth = () => {
       <F.FoodContainer>
         <span className="menutext">🔴 메뉴</span>
         {menu && menu.length > 0 ? (
-          menu.map((group, index) => (
-            <div key={index} className="menu-group">
-              <span
-                className="menuclass"
-                dangerouslySetInnerHTML={{
-                  __html: `&lt;${group.menuGroup}&gt;`,
-                }}
-              ></span>{" "}
-              {group.menuGroupPrice && (
-                <span className="group-price">
-                  {group.menuGroupPrice.toLocaleString()}원
-                </span>
-              )}
-              {group.foodList.map((food, idx) => (
-                <div key={idx} className="name-price">
-                  <span className="menuname">
-                    • {convertNewlinesToBreaks(food.name)}
+          Array.isArray(menu[0].foodList) ? (
+            // 주점 데이터 처리
+            menu.map((group, index) => (
+              <div key={index} className="menu-group">
+                {group.menuGroup !== "default" && (
+                  <span
+                    className="menuclass"
+                    dangerouslySetInnerHTML={{
+                      __html: `&lt;${group.menuGroup}&gt;`,
+                    }}
+                  ></span>
+                )}
+                {group.menuGroupPrice && (
+                  <span className="group-price" style={{ float: "right" }}>
+                    {group.menuGroupPrice &&
+                      group.menuGroupPrice.toLocaleString()}
                   </span>
-                  {food.price && (
-                    <span className="price">
-                      {food.price.toLocaleString()}원
+                )}
+                {group.foodList.map((food, idx) => (
+                  <div key={idx} className="name-price">
+                    <span className="menuname">
+                      • {convertNewlinesToBreaks(food.name)}
                     </span>
-                  )}
-                </div>
-              ))}
-            </div>
-          ))
+                    {food.price && (
+                      <span className="price">
+                        {food.price.toLocaleString()}
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ))
+          ) : (
+            // 푸드트럭 데이터 처리
+            menu.map((food, index) => (
+              <div key={index} className="name-price">
+                <span className="menuname">
+                  • {convertNewlinesToBreaks(food.name)}
+                </span>
+                {food.price && (
+                  <span className="price">{food.price.toLocaleString()}</span>
+                )}
+              </div>
+            ))
+          )
         ) : (
-          <div>메뉴가 없습니다.</div>
+          <div>메뉴가 없습니다.</div> // 메뉴가 없을 경우 처리
         )}
       </F.FoodContainer>
 

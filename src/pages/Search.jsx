@@ -55,6 +55,15 @@ const Search = () => {
   const handleSearchInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
+
+  const handleBoothClick = (id) => {
+    if ((id >= 1 && id <= 8) || (id >= 40 && id <= 45)) {
+      navigate(`/foodbooth/${id}`);
+    } else {
+      navigate(`/generalbooth/${id}`);
+    }
+  };
+
   return (
     <S.Container>
       <S.Header>
@@ -162,7 +171,10 @@ const Search = () => {
                 item.id === 35 || item.id === 38 || item.id === 39; // 특정 아이디(상시운영) 운영시간 수정
 
               return (
-                <S.Booth key={item.id}>
+                <S.Booth
+                  key={item.id}
+                  onClick={() => handleBoothClick(item.id)}
+                >
                   <S.Bname
                     style={{
                       fontSize: isTargetId

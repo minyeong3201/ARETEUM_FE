@@ -71,6 +71,14 @@ const Keyword = () => {
     }
   }, [category, isDate1Clicked, isDate2Clicked]);
 
+  const handleBoothClick = (id) => {
+    if ((id >= 1 && id <= 8) || (id >= 40 && id <= 45)) {
+      navigate(`/foodbooth/${id}`);
+    } else {
+      navigate(`/generalbooth/${id}`);
+    }
+  };
+
   return (
     <K.Container>
       <K.Header>
@@ -234,7 +242,7 @@ const Keyword = () => {
               item.id === 35 || item.id === 38 || item.id === 39; // 특정 아이디(상시운영) 운영시간 수정
 
             return (
-              <K.Booth key={item.id}>
+              <K.Booth key={item.id} onClick={() => handleBoothClick(item.id)}>
                 <K.Bname
                   style={{
                     fontSize: isTargetId
