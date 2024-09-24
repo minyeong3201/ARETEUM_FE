@@ -175,6 +175,7 @@ const Keyword = () => {
             <K.SmallBox5
               onClick={handleDate1Click}
               $isClicked={isDate1Clicked ? 1 : 0}
+              style={{ marginLeft: isDate1Clicked ? "-25px" : "-25px" }}
             >
               <img
                 src={`${process.env.PUBLIC_URL}/images/${
@@ -189,6 +190,7 @@ const Keyword = () => {
             <K.SmallBox5
               onClick={handleDate2Click}
               $isClicked={isDate2Clicked ? 1 : 0}
+              style={{ marginLeft: isDate1Clicked ? "-10px" : "-10px" }}
             >
               <img
                 src={`${process.env.PUBLIC_URL}/images/${
@@ -273,7 +275,7 @@ const Keyword = () => {
           })}
         </K.List2>
       </K.List>
-      
+
       <K.Footer>
         <object
           data={`${process.env.PUBLIC_URL}/images/Footer.svg`}

@@ -130,6 +130,7 @@ export const SmallBox5 = styled.div`
   flex-direction: row;
   width: 90px;
   cursor: pointer;
+  margin-left: 0px;
 `;
 
 export const SmallBox6 = styled.div`
