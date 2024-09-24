@@ -5,6 +5,7 @@ import axios from "axios";
 
 const FoodBooth = () => {
   const { id } = useParams();
+  const [fontSize, setFontSize] = useState("25px"); // 기본 폰트 크기 상태 추가
   const navigate = useNavigate();
   const [boothData, setBoothData] = useState(null); // 부스 데이터를 저장할 state
 
@@ -24,6 +25,15 @@ const FoodBooth = () => {
           `http://127.0.0.1:8000/booth-detail/${id}/`
         );
         setBoothData(response.data); // API에서 받아온 데이터를 상태에 저장
+
+        // booth 객체가 존재하는지 확인하고 name의 길이를 체크
+        if (response.data.booth && response.data.booth.name) {
+          if (response.data.booth.name.length > 15) {
+            setFontSize("20px");
+          } else {
+            setFontSize("25px");
+          }
+        }
       } catch (error) {
         console.error("데이터 가져오기 실패:", error);
       }
@@ -62,7 +72,7 @@ const FoodBooth = () => {
       </F.Header>
       <F.BoothContainer />
       <F.BoothTag>{booth.category}</F.BoothTag>
-      <F.BoothTitle>{booth.name}</F.BoothTitle>
+      <F.BoothTitle style={{ fontSize }}>{booth.name}</F.BoothTitle>{" "}
       <F.BoothHost>{booth.host}</F.BoothHost>
       <F.BoothInfo>📣 부스 운영 정보</F.BoothInfo>
       <F.LocationIcon />
@@ -80,7 +90,6 @@ const FoodBooth = () => {
           </>
         )}
       </F.BoothDate>
-
       <F.FoodContainer>
         <span className="menutext">🔴 메뉴</span>
         {menu && menu.length > 0 ? (
@@ -133,7 +142,6 @@ const FoodBooth = () => {
           <div>메뉴가 없습니다.</div> // 메뉴가 없을 경우 처리
         )}
       </F.FoodContainer>
-
       <F.FooterTextLogo>
         <object
           data={`${process.env.PUBLIC_URL}/images/FooterTextLogo.svg`}

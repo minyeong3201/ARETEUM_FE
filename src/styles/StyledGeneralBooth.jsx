@@ -140,14 +140,14 @@ export const BoothTitle = styled.div`
 
 // 부스 이미지
 export const BoothImage = styled.div`
-  width: 316px;
-  height: 195px;
+  width: 300px;
+  height: 227px;
   flex-shrink: 0;
   position: absolute;
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   left: 50%;
   z-index: 1; /* Background보다 위에 배치 */
-  top: 29.5%;
+  top: 30%;
 
   img {
     width: 100%;
