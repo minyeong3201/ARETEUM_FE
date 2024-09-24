@@ -154,8 +154,7 @@ const Keyword = () => {
           <K.Keywordd>
             <K.SmallBox5
               onClick={handleDate1Click}
-              $isClicked={isDate1Clicked ? 1 : 0}
-            >
+              $isClicked={isDate1Clicked ? 1 : 0}>
               <img
                 src={`${process.env.PUBLIC_URL}/images/${
                   isDate1Clicked ? "date11.svg" : "date1.svg"
@@ -204,34 +203,41 @@ const Keyword = () => {
           {totalResults > 0 ? `총 ${totalResults}개의 부스` : ""}
         </K.ResultCount>
         <K.List2>
-          {list2Items && list2Items.length > 0 ? (
-            list2Items.map((item) => (
-              <K.Booth key={item.id}>
-                <K.Bname
-                  style={{
-                    fontSize: item.name.length > 17 ? "13px" : "17px",
-                    marginTop: item.name.length > 17 ? "6px" : "3.3px",
-                  }}
-                >
-                  {item.name}
-                </K.Bname>
-                <K.Time>운영시간</K.Time>
-                <K.Blocation>{item.place}</K.Blocation>
-                <br />
-                <K.Btime>{item.timeDay1 || ""}</K.Btime>
-                {item.timeDay2 ? (
-                  <K.Btime2
-                    style={{ marginTop: item.timeDay1 ? "0" : "-15px" }}
+            {list2Items.map((item) => {
+              const isTargetId = item.id === 10; // 특정 아이디 확인(에꿀라또 부스) -> 폰트 사이즈 수정
+              const isTargetId27 = item.id === 27; // 특정 아이디 확인(에코) -> width 수정
+              return (
+                <K.Booth key={item.id}>
+                  <K.Bname
+                    style={{
+                      fontSize: isTargetId
+                        ? "17px"
+                        : item.name.length > 15
+                        ? "13px"
+                        : "17px", // 아이디가 10일 때 글자 크기 지정(영어포함 부스)
+                      marginTop: item.name.length > 15 ? "6px" : "3.3px",
+                      marginTop: isTargetId ? "1px" : (item.name.length > 15 ? "6px" : "3.3px"),
+                      width: isTargetId27 ? "205px" : "215px",
+                      marginLeft: isTargetId27 ? "-82px" : "-75px",
+                    }}
                   >
-                    {item.timeDay2}
-                  </K.Btime2>
-                ) : null}
-              </K.Booth>
-            ))
-          ) : (
-            <div></div>
-          )}
-        </K.List2>
+                    {item.name}
+                  </K.Bname>
+                  <K.Time>운영시간</K.Time>
+                  <K.Blocation>{item.place}</K.Blocation>
+                  <br />
+                  <K.Btime>{item.timeDay1 || ""}</K.Btime>
+                  {item.timeDay2 ? (
+                    <K.Btime2
+                      style={{ marginTop: item.timeDay1 ? "0" : "-15px" }}
+                    >
+                      {item.timeDay2}
+                    </K.Btime2>
+                  ) : null}
+                </K.Booth>
+              );
+            })}
+          </K.List2>
       </K.List>
 
       <K.Footer>

@@ -129,6 +129,7 @@ export const SmallBox5 = styled.div`
   justify-content: center;
   flex-direction: row;
   width: 90px;
+  cursor: pointer;
 `;
 
 export const SmallBox6 = styled.div`
@@ -207,13 +208,14 @@ export const Booth = styled.div`
   border-radius: 20px;
   background-color: #fff;
   justify-content: center;
+  cursor: pointer;
 `;
 
 export const Bname = styled.div`
   display: flex;
   height: 105px;
-  width: 200px;
-  margin-left: -90px;
+  width: 215px;
+  margin-left: -75px;
   padding-top: 18px;
   flex-shrink: 0;
   background: none;
@@ -235,7 +237,7 @@ export const Time = styled.div`
   width: 112.129px;
   background: none;
   margin-left: -176px;
-  margin-top: 67px;
+  margin-top: 60px;
   flex-shrink: 0;
   color: var(--, #0c2557);
   font-family: "Pretendard Variable";
@@ -249,7 +251,7 @@ export const Blocation = styled.div`
   position: absolute;
   display: flex;
   top: 24px;
-  left: 230px;
+  left: 233px;
   width: 80.422px;
   height: 18px;
   flex-shrink: 0;

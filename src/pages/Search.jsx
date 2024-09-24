@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as S from "../styles/StyledSearch";
@@ -13,7 +13,7 @@ const Search = () => {
   const [list2Items, setList2Items] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [totalResults, setTotalResults] = useState(0);
-  const [searchPerformed, setSearchPerformed] = useState(false); 
+  const [searchPerformed, setSearchPerformed] = useState(false);
 
   const axiosInstance = axios.create({
     baseURL: "http://127.0.0.1:8000/",
@@ -22,15 +22,31 @@ const Search = () => {
     },
   });
 
+  useEffect(() => {
+    // 초기 데이터 로드
+    const fetchAllBooths = async () => {
+      try {
+        const response = await axiosInstance.get("/booth-search/");
+        console.log("초기 데이터 응답:", response.data);
+        setList2Items(response.data.results);
+        setTotalResults(response.data.count);
+      } catch (error) {
+        console.error("초기 데이터 로드 중 오류 발생:", error.message);
+      }
+    };
+
+    fetchAllBooths();
+  }, []); // 빈 배열을 의존성으로 설정해 한 번만 실행
+
   const handleSearch = async () => {
-    setSearchPerformed(true); 
+    setSearchPerformed(true);
     try {
       const response = await axiosInstance.get("/booth-search/", {
         params: { search: searchQuery },
       });
-      console.log("서버 응답:", response.data); 
-      setList2Items(response.data.results); // results 배열로 설정
-      setTotalResults(response.data.count); // 총 결과 수 설정
+      console.log("서버 응답:", response.data);
+      setList2Items(response.data.results);
+      setTotalResults(response.data.count);
     } catch (error) {
       console.error("검색 중 오류 발생:", error.message);
     }
@@ -39,7 +55,6 @@ const Search = () => {
   const handleSearchInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
-
   return (
     <S.Container>
       <S.Header>
@@ -62,7 +77,12 @@ const Search = () => {
       <object
         data={`${process.env.PUBLIC_URL}/images/C.svg`}
         alt="LCloud"
-        style={{ position: "absolute", top: "120px", left: "0px", width: "270px" }}
+        style={{
+          position: "absolute",
+          top: "120px",
+          left: "0px",
+          width: "270px",
+        }}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/G.svg`}
@@ -77,7 +97,12 @@ const Search = () => {
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
         alt="R1Star"
-        style={{ position: "absolute", top: "143px", left: "107px", width: "50px" }}
+        style={{
+          position: "absolute",
+          top: "143px",
+          left: "107px",
+          width: "50px",
+        }}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
@@ -87,9 +112,14 @@ const Search = () => {
       <object
         data={`${process.env.PUBLIC_URL}/images/J.svg`}
         alt="OBouble"
-        style={{ position: "absolute", top: "570px", left: " 0px", width: "150px" }}
+        style={{
+          position: "absolute",
+          top: "570px",
+          left: " 0px",
+          width: "150px",
+        }}
       />
-      {!searchPerformed || totalResults > 0 ? (  
+      {!searchPerformed || totalResults > 0 ? (
         //검색 결과가 없을 때만 Som.svg를 숨기고, 그 외에는 항상 보여줌
         <object
           data={`${process.env.PUBLIC_URL}/images/Som.svg`}
@@ -97,11 +127,11 @@ const Search = () => {
           style={{ position: "absolute", top: "380px", left: "60px" }}
         />
       ) : null}
-        <object
-            data={`${process.env.PUBLIC_URL}/images/E.svg`}
-            alt="E"
-            style={{ position: "absolute", top: "200px", right: "20px" }}
-        />
+      <object
+        data={`${process.env.PUBLIC_URL}/images/E.svg`}
+        alt="E"
+        style={{ position: "absolute", top: "200px", right: "20px" }}
+      />
       <S.InputBlank>
         <input
           type="text"
@@ -124,28 +154,40 @@ const Search = () => {
         {totalResults > 0 ? (
           //검색 결과가 있을 때
           <S.List2>
-            {list2Items.map((item) => (
-              <S.Booth key={item.id}>
-                <S.Bname
-                  style={{
-                    fontSize: item.name.length > 17 ? "13px" : "17px",
-                    marginTop: item.name.length > 17 ? "6px" : "3.3px",
-                  }}
-                >
-                  {item.name}
-                </S.Bname>
-                <S.Time>운영시간</S.Time>
-                <S.Blocation>{item.place}</S.Blocation>
-                <br />
-                <S.Btime>{item.timeDay1 || ""}</S.Btime>
-                {item.timeDay2 ? (
-                  <S.Btime2
-                    style={{ marginTop: item.timeDay1 ? "0" : "-15px" }}>
-                    {item.timeDay2}
-                  </S.Btime2>
-                ) : null}
-              </S.Booth>
-            ))}
+            {list2Items.map((item) => {
+              const isTargetId = item.id === 10; // 특정 아이디 확인(에꿀라또 부스) -> 폰트 사이즈 수정
+              const isTargetId27 = item.id === 27; // 특정 아이디 확인(에코) -> width 수정
+              return (
+                <S.Booth key={item.id}>
+                  <S.Bname
+                    style={{
+                      fontSize: isTargetId
+                        ? "17px"
+                        : item.name.length > 15
+                        ? "13px"
+                        : "17px", // 아이디가 10일 때 글자 크기 지정(영어포함 부스)
+                      marginTop: item.name.length > 15 ? "6px" : "3.3px",
+                      marginTop: isTargetId ? "1px" : (item.name.length > 15 ? "6px" : "3.3px"),
+                      width: isTargetId27 ? "205px" : "215px",
+                      marginLeft: isTargetId27 ? "-82px" : "-75px",
+                    }}
+                  >
+                    {item.name}
+                  </S.Bname>
+                  <S.Time>운영시간</S.Time>
+                  <S.Blocation>{item.place}</S.Blocation>
+                  <br />
+                  <S.Btime>{item.timeDay1 || ""}</S.Btime>
+                  {item.timeDay2 ? (
+                    <S.Btime2
+                      style={{ marginTop: item.timeDay1 ? "0" : "-15px" }}
+                    >
+                      {item.timeDay2}
+                    </S.Btime2>
+                  ) : null}
+                </S.Booth>
+              );
+            })}
           </S.List2>
         ) : (
           searchPerformed && (
