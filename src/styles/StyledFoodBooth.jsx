@@ -161,7 +161,7 @@ export const LocationIcon = styled.div`
   left: 15.5%;
   z-index: 1; /* Background보다 위에 배치 */
   top: 27.5%;
-  background-image: url("./images/LocationIcon.svg");
+  background-image: url("/images/LocationIcon.svg");
   width: 13.993px;
   height: 17px;
   flex-shrink: 0;
@@ -190,7 +190,7 @@ export const ClockIcon = styled.div`
   left: 15.5%;
   z-index: 1; /* Background보다 위에 배치 */
   top: 29.5%;
-  background-image: url("./images/ClockIcon.svg");
+  background-image: url("/images/ClockIcon.svg");
   width: 14.587px;
   height: 14.587px;
   flex-shrink: 0;
@@ -286,6 +286,17 @@ export const FoodContainer = styled.div`
   }
 
   .price {
+    color: #0c2557;
+    text-align: right;
+    font-family: "Pretendard Variable";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 20px; /* 166.667% */
+    padding-right: 10px;
+  }
+
+  .group-price {
     color: #0c2557;
     text-align: right;
     font-family: "Pretendard Variable";

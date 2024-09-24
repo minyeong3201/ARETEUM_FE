@@ -119,7 +119,7 @@ export const BoothTitle = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  white-space: nowrap; /* 텍스트가 한 줄로 유지되도록 설정 */
+  width: 80%; /* 부모 요소의 너비 설정 */
 
   /* 블러 효과 추가 (텍스트에는 미적용) */
   &::before {
@@ -128,7 +128,7 @@ export const BoothTitle = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
+    width: 40%;
     height: 50%;
     padding: 10px 20px; /* 블러 영역 확장 */
     background-color: #fff4b9;

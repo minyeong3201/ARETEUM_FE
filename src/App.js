@@ -30,8 +30,8 @@ function App() {
         <Route path="/timetable" element={<TimeTable />} />
         <Route path="/boothlayout" element={<BoothLayout />} />
         <Route path="/" element={<Main />} />
-        <Route path="/generalbooth" element={<GeneralBooth />} />
-        <Route path="/foodbooth" element={<FoodBooth />} />
+        <Route path="/generalbooth/:id" element={<GeneralBooth />} />
+        <Route path="/foodbooth/:id" element={<FoodBooth />} />
       </Routes>
     </BrowserRouter>
   );
