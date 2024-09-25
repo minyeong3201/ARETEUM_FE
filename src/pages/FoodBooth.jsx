@@ -89,6 +89,13 @@ const FoodBooth = () => {
             10/2 (수) <span className="time">{booth.timeDay2}</span>
           </>
         )}
+        {booth.date === "both" && (
+          <>
+            10/1 (화) <span className="time">{booth.timeDay1}</span>
+            <br />
+            10/2 (수) <span className="time">{booth.timeDay2}</span>
+          </>
+        )}
       </F.BoothDate>
       <F.FoodContainer>
         <span className="menutext">🔴 메뉴</span>
@@ -113,9 +120,7 @@ const FoodBooth = () => {
                 )}
                 {group.foodList.map((food, idx) => (
                   <div key={idx} className="name-price">
-                    <span className="menuname">
-                      • {convertNewlinesToBreaks(food.name)}
-                    </span>
+                    <span className="menuname">• {food.name}</span>
                     {food.price && (
                       <span className="price">
                         {food.price.toLocaleString()}
