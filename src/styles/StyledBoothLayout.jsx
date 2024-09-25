@@ -80,7 +80,11 @@ export const Date = styled.div`
   margin-top: 16px;
   gap: 90px;
   img {
-    cursor: pointer;
+    transition: filter 0.3s ease;
+    &.active {
+      filter: drop-shadow(0px 0px 20px #fff);
+    }
+    cursor: pointer; //
   }
 `;
 export const BoothImg = styled.div`

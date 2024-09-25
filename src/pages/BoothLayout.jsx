@@ -152,6 +152,7 @@ const BoothLayout = () => {
           }`}
           alt="1001"
           onClick={handleClick1001}
+          className={isClicked1001 ? "active" : ""}
         />
         <img
           id="1002"
@@ -160,6 +161,7 @@ const BoothLayout = () => {
           }`}
           alt="1002"
           onClick={handleClick1002}
+          className={isClicked1002 ? "active" : ""}
         />
       </BL.Date>
       <BL.BoothImg
