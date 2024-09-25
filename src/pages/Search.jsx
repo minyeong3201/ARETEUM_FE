@@ -7,7 +7,7 @@ const Search = () => {
   const navigate = useNavigate();
 
   const goback = () => {
-    window.history.back();
+    navigate(-1);
   };
 
   const [list2Items, setList2Items] = useState([]);
@@ -23,9 +23,20 @@ const Search = () => {
   });
 
   useEffect(() => {
-    // 컴포넌트가 마운트되면 상단으로 스크롤
-    window.scrollTo(0, 0);
-  }, []);
+    // 초기 데이터 로드
+    const fetchAllBooths = async () => {
+      try {
+        const response = await axiosInstance.get("/booth-search/");
+        console.log("초기 데이터 응답:", response.data);
+        setList2Items(response.data.results);
+        setTotalResults(response.data.count);
+      } catch (error) {
+        console.error("초기 데이터 로드 중 오류 발생:", error.message);
+      }
+    };
+
+    fetchAllBooths();
+  }, []); // 빈 배열을 의존성으로 설정해 한 번만 실행
 
   const handleSearch = async () => {
     setSearchPerformed(true);
@@ -34,8 +45,8 @@ const Search = () => {
         params: { search: searchQuery },
       });
       console.log("서버 응답:", response.data);
-      setList2Items(response.data.results); // results 배열로 설정
-      setTotalResults(response.data.count); // 총 결과 수 설정
+      setList2Items(response.data.results);
+      setTotalResults(response.data.count);
     } catch (error) {
       console.error("검색 중 오류 발생:", error.message);
     }
@@ -43,6 +54,14 @@ const Search = () => {
 
   const handleSearchInputChange = (event) => {
     setSearchQuery(event.target.value);
+  };
+
+  const handleBoothClick = (id) => {
+    if ((id >= 1 && id <= 8) || (id >= 40 && id <= 45)) {
+      navigate(`/foodbooth/${id}`);
+    } else {
+      navigate(`/generalbooth/${id}`);
+    }
   };
 
   return (
@@ -77,12 +96,22 @@ const Search = () => {
       <object
         data={`${process.env.PUBLIC_URL}/images/G.svg`}
         alt="PBouble"
-        style={{ position: "absolute", top: "280px", left: "0px" }}
+        style={{ position: "absolute", top: "280px", right: "0px" }}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
         alt="R1Star"
         style={{ position: "absolute", top: "50px", right: "80px" }}
+      />
+      <object
+        data={`${process.env.PUBLIC_URL}/images/E.svg`}
+        alt="R1Star"
+        style={{
+          position: "absolute",
+          top: "143px",
+          left: "107px",
+          width: "50px",
+        }}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
@@ -95,7 +124,7 @@ const Search = () => {
         style={{
           position: "absolute",
           top: "570px",
-          right: " 0px",
+          left: " 0px",
           width: "150px",
         }}
       />
@@ -104,7 +133,7 @@ const Search = () => {
         <object
           data={`${process.env.PUBLIC_URL}/images/Som.svg`}
           alt="Som"
-          style={{ position: "absolute", top: "370px", left: "60px" }}
+          style={{ position: "absolute", top: "380px", left: "60px" }}
         />
       ) : null}
       <object
@@ -126,37 +155,64 @@ const Search = () => {
           onClick={handleSearch}
         />
       </S.InputBlank>
+
       <S.List>
         <S.ResultCount>
           {totalResults > 0 ? `총 ${totalResults}개의 부스` : ""}
         </S.ResultCount>
 
         {totalResults > 0 ? (
-          //검색 결과가 있을 때
+          // 검색 결과가 있을 때
           <S.List2>
-            {list2Items.map((item) => (
-              <S.Booth key={item.id}>
-                <S.Bname
-                  style={{
-                    fontSize: item.name.length > 17 ? "13px" : "17px",
-                    marginTop: item.name.length > 17 ? "6px" : "3.3px",
-                  }}
+            {list2Items.map((item) => {
+              const isTargetId = item.id === 10; // 특정 아이디 확인(에꿀라또 부스) -> 폰트 사이즈 수정
+              const isTargetId27 = item.id === 27; // 특정 아이디 확인(에코) -> width 수정
+              const isTargetId35Or38Or39 =
+                item.id === 35 || item.id === 38 || item.id === 39; // 특정 아이디(상시운영) 운영시간 수정
+
+              return (
+                <S.Booth
+                  key={item.id}
+                  onClick={() => handleBoothClick(item.id)}
                 >
-                  {item.name}
-                </S.Bname>
-                <S.Time>운영시간</S.Time>
-                <S.Blocation>{item.place}</S.Blocation>
-                <br />
-                <S.Btime>{item.timeDay1 || ""}</S.Btime>
-                {item.timeDay2 ? (
-                  <S.Btime2
-                    style={{ marginTop: item.timeDay1 ? "0" : "-15px" }}
+                  <S.Bname
+                    style={{
+                      fontSize: isTargetId
+                        ? "17px"
+                        : item.name.length > 15
+                        ? "13px"
+                        : "17px", // 아이디가 10일 때 글자 크기 지정(영어포함 부스)
+                      marginTop: isTargetId
+                        ? "1px"
+                        : item.name.length > 15
+                        ? "6px"
+                        : "3.3px",
+                      width: isTargetId27 ? "205px" : "215px",
+                      marginLeft: isTargetId27 ? "-82px" : "-75px",
+                    }}
                   >
-                    {item.timeDay2}
-                  </S.Btime2>
-                ) : null}
-              </S.Booth>
-            ))}
+                    {item.name}
+                  </S.Bname>
+                  <S.Time>운영시간</S.Time>
+                  <S.Blocation>{item.place}</S.Blocation>
+                  <br />
+                  <S.Btime
+                    style={{
+                      left: isTargetId35Or38Or39 ? "207px" : "223px",
+                    }}
+                  >
+                    {item.timeDay1 || ""}
+                  </S.Btime>
+                  {isTargetId35Or38Or39 ? null : item.timeDay2 ? (
+                    <S.Btime2
+                      style={{ marginTop: item.timeDay1 ? "0" : "-15px" }}
+                    >
+                      {item.timeDay2}
+                    </S.Btime2>
+                  ) : null}
+                </S.Booth>
+              );
+            })}
           </S.List2>
         ) : (
           searchPerformed && (
@@ -169,6 +225,7 @@ const Search = () => {
           )
         )}
       </S.List>
+
       <S.Footer>
         <object
           data={`${process.env.PUBLIC_URL}/images/Footer.svg`}
