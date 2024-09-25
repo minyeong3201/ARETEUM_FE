@@ -12,13 +12,8 @@ const Keyword = () => {
   const [category, setCategory] = useState(null);
   const [totalResults, setTotalResults] = useState(0);
 
-  useEffect(() => {
-    // 컴포넌트가 마운트되면 상단으로 스크롤
-    window.scrollTo(0, 0);
-  }, []);
-
   const goback = () => {
-    window.history.back();
+    navigate(`/`);
   };
 
   const gosearch = () => {
@@ -76,6 +71,14 @@ const Keyword = () => {
     }
   }, [category, isDate1Clicked, isDate2Clicked]);
 
+  const handleBoothClick = (id) => {
+    if ((id >= 1 && id <= 8) || (id >= 40 && id <= 45)) {
+      navigate(`/foodbooth/${id}`);
+    } else {
+      navigate(`/generalbooth/${id}`);
+    }
+  };
+
   return (
     <K.Container>
       <K.Header>
@@ -117,7 +120,7 @@ const Keyword = () => {
       <object
         data={`${process.env.PUBLIC_URL}/images/G.svg`}
         alt="PBouble"
-        style={{ position: "absolute", top: "280px", left: "0px" }}
+        style={{ position: "absolute", top: "170px", left: "0px" }}
       />
       <object
         data={`${process.env.PUBLIC_URL}/images/E.svg`}
@@ -141,7 +144,7 @@ const Keyword = () => {
           position: "absolute",
           top: "78px",
           left: "0px",
-          width: "70px",
+          width: "65px",
         }}
       />
       <object
@@ -180,6 +183,7 @@ const Keyword = () => {
             <K.SmallBox5
               onClick={handleDate1Click}
               $isClicked={isDate1Clicked ? 1 : 0}
+              style={{ marginLeft: isDate1Clicked ? "-25px" : "-25px" }}
             >
               <img
                 src={`${process.env.PUBLIC_URL}/images/${
@@ -194,6 +198,7 @@ const Keyword = () => {
             <K.SmallBox5
               onClick={handleDate2Click}
               $isClicked={isDate2Clicked ? 1 : 0}
+              style={{ marginLeft: isDate1Clicked ? "-10px" : "-10px" }}
             >
               <img
                 src={`${process.env.PUBLIC_URL}/images/${
@@ -205,10 +210,9 @@ const Keyword = () => {
           </K.Keywordd>
         </K.Box2>
       </K.Box>
-
       <K.Box3>
         <K.Box2>
-          {["체험", "주점", "마켓"].map((category, index) => (
+          {["체험", "마켓", "한잔하솜", "푸드트럭"].map((category, index) => (
             <K.Keywordd key={index}>
               <K.SmallBox6
                 onClick={() => handleCategoryBoxClick(index, category)}
@@ -229,14 +233,30 @@ const Keyword = () => {
         <K.ResultCount>
           {totalResults > 0 ? `총 ${totalResults}개의 부스` : ""}
         </K.ResultCount>
+
         <K.List2>
-          {list2Items && list2Items.length > 0 ? (
-            list2Items.map((item) => (
-              <K.Booth key={item.id}>
+          {list2Items.map((item) => {
+            const isTargetId = item.id === 10; // 특정 아이디 확인(에꿀라또 부스) -> 폰트 사이즈 수정
+            const isTargetId27 = item.id === 27; // 특정 아이디 확인(에코) -> width 수정
+            const isTargetId35Or38Or39 =
+              item.id === 35 || item.id === 38 || item.id === 39; // 특정 아이디(상시운영) 운영시간 수정
+
+            return (
+              <K.Booth key={item.id} onClick={() => handleBoothClick(item.id)}>
                 <K.Bname
                   style={{
-                    fontSize: item.name.length > 17 ? "13px" : "17px",
-                    marginTop: item.name.length > 17 ? "6px" : "3.3px",
+                    fontSize: isTargetId
+                      ? "17px"
+                      : item.name.length > 15
+                      ? "13px"
+                      : "17px", // 아이디가 10일 때 글자 크기 지정(영어포함 부스)
+                    marginTop: isTargetId
+                      ? "1px"
+                      : item.name.length > 15
+                      ? "6px"
+                      : "3.3px",
+                    width: isTargetId27 ? "205px" : "215px",
+                    marginLeft: isTargetId27 ? "-82px" : "-75px",
                   }}
                 >
                   {item.name}
@@ -244,8 +264,14 @@ const Keyword = () => {
                 <K.Time>운영시간</K.Time>
                 <K.Blocation>{item.place}</K.Blocation>
                 <br />
-                <K.Btime>{item.timeDay1 || ""}</K.Btime>
-                {item.timeDay2 ? (
+                <K.Btime
+                  style={{
+                    left: isTargetId35Or38Or39 ? "207px" : "223px",
+                  }}
+                >
+                  {item.timeDay1 || ""}
+                </K.Btime>
+                {isTargetId35Or38Or39 ? null : item.timeDay2 ? (
                   <K.Btime2
                     style={{ marginTop: item.timeDay1 ? "0" : "-15px" }}
                   >
@@ -253,10 +279,8 @@ const Keyword = () => {
                   </K.Btime2>
                 ) : null}
               </K.Booth>
-            ))
-          ) : (
-            <div></div>
-          )}
+            );
+          })}
         </K.List2>
       </K.List>
 

@@ -5,8 +5,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const GeneralBooth = () => {
+  const { id } = useParams(); // URL에서 부스 ID를 가져옴
   const navigate = useNavigate();
   const [content, setContent] = useState([]);
+  const [fontSize, setFontSize] = useState("25px"); // 기본 폰트 크기 상태 추가
 
   useEffect(() => {
     // 컴포넌트가 마운트되면 상단으로 스크롤
@@ -21,9 +23,16 @@ const GeneralBooth = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8000/booth-detail/9/`
+          `http://127.0.0.1:8000/booth-detail/${id}/`
         );
         setContent([response.data]); // 데이터 설정
+
+        // BoothTitle의 글자 수에 따라 폰트 크기 결정
+        if (response.data.name.length > 15) {
+          setFontSize("20px");
+        } else {
+          setFontSize("25px");
+        }
       } catch (error) {
         console.error("데이터 가져오기 실패:", error);
       }
@@ -31,6 +40,15 @@ const GeneralBooth = () => {
 
     fetchData();
   }, []);
+
+  const convertNewlinesToBreaks = (text) => {
+    return text.split("\n").map((line, index) => (
+      <span key={index}>
+        {line}
+        <br />
+      </span>
+    ));
+  };
 
   return (
     <G.Container>
@@ -49,7 +67,8 @@ const GeneralBooth = () => {
         <G.BoothBox key={e.id}>
           <G.BoothContainer />
           <G.BoothTag>{e.category}</G.BoothTag>
-          <G.BoothTitle>{e.name}</G.BoothTitle>
+          <G.BoothTitle style={{ fontSize }}>{e.name}</G.BoothTitle>{" "}
+          {/* 동적 fontSize 적용 */}
           <G.BoothImage>
             <img src={e.image} alt="booth image" />
           </G.BoothImage>
@@ -76,9 +95,10 @@ const GeneralBooth = () => {
               e.date
             )}
           </G.BoothDate>
-
           <G.BoothIntro>부스 소개</G.BoothIntro>
-          <G.BoothIntroContent>{e.introduction}</G.BoothIntroContent>
+          <G.BoothIntroContent>
+            {convertNewlinesToBreaks(e.introduction)}
+          </G.BoothIntroContent>
         </G.BoothBox>
       ))}
       <G.FooterTextLogo>

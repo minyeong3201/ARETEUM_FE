@@ -44,13 +44,6 @@ export const Back = styled.div`
   flex-shrink: 0;
 `;
 
-export const Search = styled.div`
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  flex-shrink: 0;
-`;
-
 export const Title = styled.div`
   margin-top: 20px;
   color: #fff;
@@ -112,6 +105,9 @@ export const InputBlank = styled.div`
     font-weight: 300;
     line-height: normal;
   }
+  #search{
+  cursor: pointer;
+  }
 `;
 
 export const ResultCount = styled.div`
@@ -166,13 +162,14 @@ export const Booth = styled.div`
   border-radius: 20px;
   background-color: #fff;
   justify-content: center;
+  cursor: pointer;
 `;
 
 export const Bname = styled.div`
   display: flex;
   height: 105px;
-  width: 200px;
-  margin-left: -90px;
+  width: 215px;
+  margin-left: -75px;
   padding-top: 18px;
   flex-shrink: 0;
   background: none;
@@ -208,9 +205,9 @@ export const Blocation = styled.div`
   position: absolute;
   display: flex;
   top: 24px;
-  left: 230px;
+  left: 233px;
   width: 80.422px;
-  height: 18px;
+  height: 20px;
   flex-shrink: 0;
   border-radius: 50px;
   border: 1px solid var(--, #0c2557);

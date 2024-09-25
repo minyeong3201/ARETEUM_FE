@@ -119,7 +119,7 @@ export const BoothTitle = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  white-space: nowrap; /* 텍스트가 한 줄로 유지되도록 설정 */
+  width: 80%; /* 부모 요소의 너비 설정 */
 
   /* 블러 효과 추가 (텍스트에는 미적용) */
   &::before {
@@ -128,7 +128,7 @@ export const BoothTitle = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
+    width: 40%;
     height: 50%;
     padding: 10px 20px; /* 블러 영역 확장 */
     background-color: #fff4b9;
@@ -140,14 +140,14 @@ export const BoothTitle = styled.div`
 
 // 부스 이미지
 export const BoothImage = styled.div`
-  width: 316px;
-  height: 195px;
+  width: 300px;
+  height: 227px;
   flex-shrink: 0;
   position: absolute;
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   left: 50%;
   z-index: 1; /* Background보다 위에 배치 */
-  top: 29.5%;
+  top: 30%;
 
   img {
     width: 100%;

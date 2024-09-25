@@ -22,6 +22,7 @@ export const Container = styled.div`
   min-height: 100vh;
   padding: 0; /* 불필요한 패딩 제거 d*/
   box-sizing: border-box;
+  overflow: hidden;
 `;
 
 export const Background = styled.div`
@@ -33,7 +34,7 @@ export const Background = styled.div`
   z-index: 0; /* 다른 요소들 뒤에 배치 */
 
   object {
-    //width: 100%;
+    width: 100%;
     //height: 100%;
     object-fit: cover; /* 배경 이미지가 화면에 맞게 늘어나도록 설정 */
   }

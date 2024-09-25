@@ -192,7 +192,22 @@ function App() {
   return (
     <BrowserRouter>
       <GlobalStyle />
-      <AnimatedRoutes />
+      <Routes>
+        <Route path="/talk" element={<Talk />} />
+        <Route path="/introduce_areteum" element={<Introduce_ARETEUM />} />
+        <Route
+          path="/introduce_management"
+          element={<Introduce_Management />}
+        />
+        <Route path="/keyword" element={<Keyword />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/introduce_lion" element={<Introduce_Lion />} />
+        <Route path="/timetable" element={<TimeTable />} />
+        <Route path="/boothlayout" element={<BoothLayout />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/generalbooth/:id" element={<GeneralBooth />} />
+        <Route path="/foodbooth/:id" element={<FoodBooth />} />
+      </Routes>
     </BrowserRouter>
   );
 }
