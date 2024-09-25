@@ -84,7 +84,7 @@ export const Date = styled.div`
     &.active {
       filter: drop-shadow(0px 0px 20px #fff);
     }
-    cursor: pointer;
+    cursor: pointer; //
   }
 `;
 export const BoothImg = styled.div`
