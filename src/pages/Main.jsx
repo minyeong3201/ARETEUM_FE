@@ -102,7 +102,7 @@ export default function Main() {
               style={{ position: "relative", zIndex: 10 }}
             >
               <object
-                data={`${process.env.PUBLIC_URL}/images/Main/Timetable-illur.svg`}
+                data={`${process.env.PUBLIC_URL}/images/Main/TimeTable-illur.svg`}
                 alt="illur"
                 className="object-container"
                 style={{ pointerEvents: "none" }}
