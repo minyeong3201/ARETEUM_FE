@@ -120,7 +120,10 @@ const FoodBooth = () => {
                 )}
                 {group.foodList.map((food, idx) => (
                   <div key={idx} className="name-price">
-                    <span className="menuname">• {food.name}</span>
+                    <span className="menuname">
+                      {" "}
+                      • {convertNewlinesToBreaks(food.name)}
+                    </span>
                     {food.price && (
                       <span className="price">
                         {food.price.toLocaleString()}
