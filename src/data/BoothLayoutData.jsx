@@ -204,12 +204,6 @@ export const boothData = [
   },
   // 코튼마켓
   {
-    name: "(위치 변동 가능성 有)",
-    num: "3",
-    date1: "1001",
-    date2: "1002",
-  },
-  {
     name: "캔캔",
     num: "3",
     date1: "1001",
@@ -301,12 +295,6 @@ export const boothData = [
   },
 
   // 제휴부스 : num = 4
-  {
-    name: "(위치 변동 가능성 有)",
-    num: "4",
-    date1: "1001",
-    date2: "1002",
-  },
   {
     name: "탄다캠퍼스_제휴부스",
     num: "4",
