@@ -116,14 +116,14 @@ export default function Main() {
               style={{ position: "relative", zIndex: 10 }}
             >
               <object
-                data={`${process.env.PUBLIC_URL}/images/Main/Timetable-btn.svg`}
+                data={`${process.env.PUBLIC_URL}/images/Main/TimeTable-btn.svg`}
                 alt="btn"
                 className="object-container"
                 style={{ pointerEvents: "none" }}
               />
             </motion.div>
             <motion.object
-              data={`${process.env.PUBLIC_URL}/images/Main/Timetable-som.svg`}
+              data={`${process.env.PUBLIC_URL}/images/Main/TimeTable-som.svg`}
               alt="som"
               className="timetable-som"
               initial={{ rotate: 0 }}
