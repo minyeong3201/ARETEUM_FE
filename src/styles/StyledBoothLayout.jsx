@@ -80,7 +80,9 @@ export const Date = styled.div`
   margin-top: 16px;
   gap: 90px;
   img {
+    z-index: 4;
     transition: filter 0.3s ease;
+    will-change: filter;
     &.active {
       filter: drop-shadow(0px 0px 20px #fff);
     }

@@ -90,13 +90,13 @@ export const Date = styled.div`
   display: flex;
   margin-top: 85px;
   width: 226px;
-  white-spase: pre-wrap;
+  white-space: pre-wrap;
   justify-content: space-between;
   z-index: 1;
 
-  /* 이미지가 클릭된 상태일 때 그림자 추가 */
   img {
     transition: filter 0.3s ease;
+    will-change: filter; /* 성능 최적화를 위한 will-change 추가 */
     &.active {
       filter: drop-shadow(0px 0px 20px #fff);
     }

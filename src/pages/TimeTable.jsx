@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import * as TT from "../styles/StyledTimeTable";
 import boothData from "../data/TimeTableData";
@@ -6,50 +6,52 @@ import boothData from "../data/TimeTableData";
 const TimeTable = () => {
   const navigate = useNavigate();
 
-  const goback = () => {
+  const goback = useCallback(() => {
     window.history.back();
-  };
+  }, []);
 
   useEffect(() => {
-    // 컴포넌트가 마운트되면 상단으로 스크롤
     window.scrollTo(0, 0);
   }, []);
 
-  // 이미지 상태 관리
   const [isClicked1001, setIsClicked1001] = useState(true);
   const [isClicked1002, setIsClicked1002] = useState(false);
-  // 배경 이미지 상태 관리
   const [backgroundImage, setBackgroundImage] = useState(
     `${process.env.PUBLIC_URL}/images/TimeTable/TTBack.svg`
   );
-  // 애니메이션 트리거 상태 관리
   const [animateBooths, setAnimateBooths] = useState(false);
-  const [showBooths, setShowBooths] = useState(true); // 부스 보여주기 상태
-
-  // 날짜 상태 관리
+  const [showBooths, setShowBooths] = useState(true);
   const [activeDate, setActiveDate] = useState("1001");
 
-  // Boothlist의 top 값을 관리하기 위한 상태
+  const [boothText, setBoothText] = useState(`
+    솜원을 말해봐 / 동덕연화 <br /> 
+    포토존 빛의 거리 빛의 순간 <br />
+    포토부스 RGB 스튜디오 / 놀러와요 도담이네
+    <br /> 오늘 밤은 여기 ‘로타’ / 불꽃피움
+    <br />
+    나란 돌쇠의 마님 환영회 / 화학과 주점
+    <br />
+    밤하늘을 쏘다 / 국경 없는 바(BAR)
+    <br />
+    헤어지자고? 링크 주점 이제 시작인데?
+  `);
+
   const [boothTop, setBoothTop] = useState("370px");
-  // Center height 상태 관리
   const [centerHeight, setCenterHeight] = useState("370px");
   const [backSize, setBackSize] = useState("1000px");
-  // Footer padding-top과 SomSom top 상태 관리
   const [footerPaddingTop, setFooterPaddingTop] = useState("50px");
   const [somSomTop, setSomSomTop] = useState("550px");
 
-  // 부스를 숨긴 뒤 일정 시간 후 다시 나타내는 함수
-  const triggerAnimation = () => {
-    setShowBooths(false); // 부스 먼저 숨기기
+  const triggerAnimation = useCallback(() => {
+    setShowBooths(false);
     setAnimateBooths(false);
     setTimeout(() => {
-      setShowBooths(true); // 부스 다시 나타내기
-      setAnimateBooths(true); // 애니메이션 트리거
-    }, 200); // 부스를 숨긴 뒤에 다시 나타나게 200ms 후 설정
-  };
+      setShowBooths(true);
+      setAnimateBooths(true);
+    }, 200);
+  }, []);
 
-  // 이미지 클릭 핸들러
-  const handleClick1001 = () => {
+  const handleClick1001 = useCallback(() => {
     setActiveDate("1001");
     setIsClicked1001(true);
     setIsClicked1002(false);
@@ -58,11 +60,24 @@ const TimeTable = () => {
     setCenterHeight("370px");
     setFooterPaddingTop("50px");
     setSomSomTop("550px");
-    triggerAnimation(); // 애니메이션 트리거
+    triggerAnimation();
     setBackSize("1000px");
-  };
 
-  const handleClick1002 = () => {
+    setBoothText(`
+      솜원을 말해봐 / 동덕연화 <br /> 
+      포토존 빛의 거리 빛의 순간 <br />
+      포토부스 RGB 스튜디오 / 놀러와요 도담이네
+      <br /> 오늘 밤은 여기 ‘로타’ / 불꽃피움
+      <br />
+      나란 돌쇠의 마님 환영회 / 화학과 주점
+      <br />
+      밤하늘을 쏘다 / 국경 없는 바(BAR)
+      <br />
+      헤어지자고? 링크 주점 이제 시작인데?
+    `);
+  }, [triggerAnimation]);
+
+  const handleClick1002 = useCallback(() => {
     setActiveDate("1002");
     setIsClicked1001(false);
     setIsClicked1002(true);
@@ -73,12 +88,27 @@ const TimeTable = () => {
     setCenterHeight("640px");
     setFooterPaddingTop("500px");
     setSomSomTop("820px");
-    triggerAnimation(); // 애니메이션 트리거
+    triggerAnimation();
     setBackSize("1270px");
-  };
 
-  // 현재 선택된 날짜에 맞는 부스 필터링
-  const filteredBooths = boothData.filter((booth) => booth.date === activeDate);
+    setBoothText(`
+      솜원을 말해봐 / 동덕연화 (~20시) <br /> 
+      포토존 빛의 거리 빛의 순간 <br />
+      포토부스 RGB 스튜디오 / 놀러와요 도담이네
+      <br /> 오늘 밤은 여기 ‘로타’ / 불꽃피움
+      <br />
+      나란 돌쇠의 마님 환영회 / 화학과 주점
+      <br />
+      밤하늘을 쏘다 / 국경 없는 바(BAR)
+      <br />
+      헤어지자고? 링크 주점 이제 시작인데?
+    `);
+  }, [triggerAnimation]);
+
+  const filteredBooths = useMemo(
+    () => boothData.filter((booth) => booth.date === activeDate),
+    [activeDate]
+  );
 
   return (
     <TT.Container style={{ height: backSize }}>
@@ -190,18 +220,7 @@ const TimeTable = () => {
         </TT.SomSom>
         <TT.TextBox>
           <p id="title">12:00 - 22:00 상시 운영 부스</p>
-          <p id="booth">
-            솜원을 말해봐 / 동덕연화(2일 ~ 20시) <br />
-            포토존 빛의 거리 빛의 순간 <br />
-            포토부스 RGB 스튜디오 / 놀러와요 도담이네
-            <br /> 오늘 밤은 여기 ‘로타’ / 불꽃피움
-            <br />
-            나란 돌쇠의 마님 환영회 / 화학과 주점
-            <br />
-            밤하늘을 쏘다 / 국경 없는 바(BAR)
-            <br />
-            헤어지자고? 링크 주점 이제 시작인데?
-          </p>
+          <p id="booth" dangerouslySetInnerHTML={{ __html: boothText }} />
         </TT.TextBox>
       </TT.Wrap>
 
@@ -214,4 +233,5 @@ const TimeTable = () => {
     </TT.Container>
   );
 };
+
 export default TimeTable;
