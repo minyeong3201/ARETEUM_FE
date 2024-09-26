@@ -106,7 +106,6 @@ const Introduce_ARETEUM = () => {
           <br />
           오늘 밤 나와 함께하지 않을래?
         </div>
-        <br /> <br />
       </I.Content>
       <I.Content2>
         <div id="text7">

@@ -245,7 +245,7 @@ export const Content = styled.div`
   align-items: center;
   flex-direction: column;
   // margin-left: 63px;
-  #wrap1 {
+  #wrap {
     display: flex;
     align-items: center;
   }

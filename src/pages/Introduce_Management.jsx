@@ -88,16 +88,24 @@ const Introduce_Management = () => {
         </div>
       </I.Insta>
       <I.Content>
-        <div id="text4">축제운영위원회</div>
-        <div id="text5">는 전 재학생의 복지 증진과</div>
+        <div id="wrap">
+          <div id="text4">축제운영위원회</div>
+          <div id="text5">는 전 재학생의 복지 증진과</div>
+        </div>
+
         <div id="text6">단합을 위해 설립된 정식 기구로,</div>
-        <div id="text7">대동제를 비롯한</div>
-        <div id="text8">문화사업 운영 업무를 총괄</div>
-        <div id="text9">하고 있습니다.</div>
+        <div id="wrap">
+          <div id="text7">대동제를 비롯한</div>
+          <div id="text8">문화사업 운영 업무를 총괄</div>
+          <div id="text9">하고 있습니다.</div>
+        </div>
+
         <br />
-        <div id="text10">2024년의 경우, 4월</div>
-        <div id="text11">오솜도솜데이</div>
-        <div id="text12">로</div>
+        <div id="wrap">
+          <div id="text10">2024년의 경우, 4월</div>
+          <div id="text11">오솜도솜데이</div>
+          <div id="text12">로</div>
+        </div>
         <div id="text13">
           {" "}
           &lt;찰칵찰칵 새학기 대작전! 친해지길 바라~&gt; 를
@@ -107,10 +115,13 @@ const Introduce_Management = () => {
         </div>
         <div id="text15">레모네이드지!&gt; 를 진행하였습니다. </div>
         <br />
-        <div id="text16">
-          위원장단, 기획국, 무대국, 사무국, 행사국, 제작홍보국
+        <div id="wrap">
+          <div id="text16">
+            위원장단, 기획국, 무대국, 사무국, 행사국, 제작홍보국
+          </div>
+          <div id="text17">으로</div>
         </div>
-        <div id="text17">으로</div>
+
         <div id="text18">이루어진 축제운영위원회는 5개의 국서가 </div>
         <div id="text19">상호 보완, 협력을 바탕으로 활동하고 있습니다. </div>
         <div id="text20">

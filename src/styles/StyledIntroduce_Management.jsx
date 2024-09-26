@@ -214,10 +214,20 @@ export const Insta = styled.div`
 
 // 축운위 설명
 export const Content = styled.div`
-  width: 363px;
+  // width: 363px;
   height: 275px;
   margin-top: 50px;
-  margin-left: 70px;
+  // margin-left: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  #wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   #text4 {
     color: #f6d1b1;
@@ -236,8 +246,8 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: 94px;
-    margin-top: -19px;
+    // margin-left: 94px;
+    // margin-top: -19px;
   }
   #text6 {
     color: #fff;
@@ -247,7 +257,7 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: 32px;
+    // margin-left: 32px;
   }
 
   #text7 {
@@ -258,7 +268,7 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: -45px;
+    // margin-left: -45px;
   }
 
   #text8 {
@@ -269,8 +279,8 @@ export const Content = styled.div`
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin-left: 55px;
-    margin-top: -18px;
+    // margin-left: 55px;
+    // margin-top: -18px;
   }
 
   #text9 {
@@ -281,8 +291,8 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: 215px;
-    margin-top: -19px;
+    // margin-left: 215px;
+    // margin-top: -19px;
   }
 
   #text10 {
@@ -293,7 +303,7 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: 18px;
+    // margin-left: 18px;
   }
 
   #text11 {
@@ -304,8 +314,8 @@ export const Content = styled.div`
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin-left: 145px;
-    margin-top: -19px;
+    // margin-left: 145px;
+    // margin-top: -19px;
   }
 
   #text12 {
@@ -316,8 +326,8 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: 226px;
-    margin-top: -19px;
+    // margin-left: 226px;
+    // margin-top: -19px;
   }
 
   #text13 {
@@ -328,7 +338,7 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: -10px;
+    // margin-left: -10px;
   }
 
   #text14 {
@@ -339,7 +349,7 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: -37px;
+    // margin-left: -37px;
   }
 
   #text15 {
@@ -350,7 +360,7 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: 24px;
+    // margin-left: 24px;
   }
 
   #text16 {
@@ -361,7 +371,7 @@ export const Content = styled.div`
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin-left: -48px;
+    // margin-left: -48px;
   }
 
   #text17 {
@@ -372,8 +382,8 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: 274.5px;
-    margin-top: -19px;
+    // margin-left: 274.5px;
+    // margin-top: -19px;
   }
 
   #text18 {
@@ -384,7 +394,7 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: 5px;
+    // margin-left: 5px;
   }
 
   #text19 {
@@ -395,7 +405,7 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: -10px;
+    // margin-left: -10px;
   }
 
   #text20 {
@@ -406,7 +416,7 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: -45px;
+    // margin-left: -45px;
   }
 
   #text21 {
@@ -417,7 +427,7 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: 33px;
+    // margin-left: 33px;
   }
 `;
 
