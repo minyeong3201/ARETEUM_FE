@@ -80,7 +80,13 @@ export const Date = styled.div`
   margin-top: 16px;
   gap: 90px;
   img {
-    cursor: pointer;
+    z-index: 4;
+    transition: filter 0.3s ease;
+    will-change: filter;
+    &.active {
+      filter: drop-shadow(0px 0px 20px #fff);
+    }
+    cursor: pointer; //
   }
 `;
 export const BoothImg = styled.div`
@@ -102,6 +108,7 @@ export const BoothImg = styled.div`
   font-weight: 600;
   line-height: normal;
 `;
+
 export const BoothImgback = styled.div`
   z-index: 3;
   display: flex;
@@ -116,6 +123,13 @@ export const BoothImgback = styled.div`
     width: 340px;
     height: 225px;
   }
+`;
+export const Location = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+  gap: 8px;
 `;
 export const Buttons = styled.div`
   position: relative;
@@ -227,6 +241,9 @@ export const Booths = styled.div`
     align-items: center;
   }
   img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   #num {
     position: absolute;

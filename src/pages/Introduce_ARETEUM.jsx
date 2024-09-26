@@ -53,7 +53,7 @@ const Introduce_ARETEUM = () => {
       </I.Menu>
       <I.UnderBar>
         <img
-          src={`${process.env.PUBLIC_URL}/images/Underbar.svg`}
+          src={`${process.env.PUBLIC_URL}/images/UnderBar.svg`}
           alt="underbar"
         />
       </I.UnderBar>
@@ -106,7 +106,6 @@ const Introduce_ARETEUM = () => {
           <br />
           오늘 밤 나와 함께하지 않을래?
         </div>
-        <br /> <br />
       </I.Content>
       <I.Content2>
         <div id="text7">
