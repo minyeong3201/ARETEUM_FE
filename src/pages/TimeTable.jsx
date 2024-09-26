@@ -25,7 +25,7 @@ const TimeTable = () => {
 
   const [boothText, setBoothText] = useState(`
     솜원을 말해봐 / 동덕연화 <br /> 
-    포토존 빛의 거리 빛의 순간 <br />
+    포토존 '빛의 거리, 빛의 순간' <br />
     포토부스 RGB 스튜디오 / 놀러와요 도담이네
     <br /> 오늘 밤은 여기 ‘로타’ / 불꽃피움
     <br />
@@ -57,7 +57,7 @@ const TimeTable = () => {
     setIsClicked1002(false);
     setBoothTop("370px");
     setBackgroundImage(`${process.env.PUBLIC_URL}/images/TimeTable/TTBack.svg`);
-    setCenterHeight("370px");
+    setCenterHeight("360px");
     setFooterPaddingTop("50px");
     setSomSomTop("550px");
     triggerAnimation();
@@ -65,7 +65,7 @@ const TimeTable = () => {
 
     setBoothText(`
       솜원을 말해봐 / 동덕연화 <br /> 
-      포토존 빛의 거리 빛의 순간 <br />
+      포토존 '빛의 거리, 빛의 순간' <br />
       포토부스 RGB 스튜디오 / 놀러와요 도담이네
       <br /> 오늘 밤은 여기 ‘로타’ / 불꽃피움
       <br />
@@ -81,19 +81,19 @@ const TimeTable = () => {
     setActiveDate("1002");
     setIsClicked1001(false);
     setIsClicked1002(true);
-    setBoothTop("515px");
+    setBoothTop("440px");
     setBackgroundImage(
       `${process.env.PUBLIC_URL}/images/TimeTable/TT1002Back.svg`
     );
-    setCenterHeight("640px");
-    setFooterPaddingTop("500px");
-    setSomSomTop("820px");
+    setCenterHeight("520px");
+    setFooterPaddingTop("580px");
+    setSomSomTop("700px");
     triggerAnimation();
-    setBackSize("1270px");
+    setBackSize("1150px");
 
     setBoothText(`
       솜원을 말해봐 / 동덕연화 (~20시) <br /> 
-      포토존 빛의 거리 빛의 순간 <br />
+      포토존 '빛의 거리, 빛의 순간' <br />
       포토부스 RGB 스튜디오 / 놀러와요 도담이네
       <br /> 오늘 밤은 여기 ‘로타’ / 불꽃피움
       <br />
