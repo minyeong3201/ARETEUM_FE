@@ -53,7 +53,7 @@ const Introduce_ARETEUM = () => {
       </I.Menu>
       <I.UnderBar>
         <img
-          src={`${process.env.PUBLIC_URL}/images/Underbar.svg`}
+          src={`${process.env.PUBLIC_URL}/images/UnderBar.svg`}
           alt="underbar"
         />
       </I.UnderBar>

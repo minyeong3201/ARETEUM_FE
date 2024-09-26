@@ -187,7 +187,7 @@ const Keyword = () => {
             >
               <img
                 src={`${process.env.PUBLIC_URL}/images/${
-                  isDate1Clicked ? "date11.svg" : "date1.svg"
+                  isDate1Clicked ? "Date11.svg" : "Date1.svg"
                 }`}
                 alt="Date 1"
               />
@@ -202,7 +202,7 @@ const Keyword = () => {
             >
               <img
                 src={`${process.env.PUBLIC_URL}/images/${
-                  isDate2Clicked ? "date22.svg" : "date2.svg"
+                  isDate2Clicked ? "Date22.svg" : "Date2.svg"
                 }`}
                 alt="Date 2"
               />
