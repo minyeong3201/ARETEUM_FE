@@ -1,5 +1,4 @@
-import {
-  React,
+import React, {
   useEffect,
   useState,
   useRef,
@@ -36,8 +35,6 @@ const BoothLayout = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [activeButton, setActiveButton] = useState("");
 
-  // 이미지 배열 및 상태
-  const [currentImage, setCurrentImage] = useState(0);
   const images = useMemo(
     () => [
       `${process.env.PUBLIC_URL}/images/BoothLayout/BoothImg1.svg`,
@@ -46,26 +43,26 @@ const BoothLayout = () => {
     []
   );
 
+  const [currentImage, setCurrentImage] = useState(0);
   const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
 
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
   };
 
-  const handleTouchMove = (e) => {
-    touchEndX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = useCallback(() => {
-    if (touchStartX.current - touchEndX.current > 50) {
-      setCurrentImage((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-      setIsLocationReversed(!isLocationReversed);
-    } else if (touchStartX.current - touchEndX.current < -50) {
-      setCurrentImage((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-      setIsLocationReversed(!isLocationReversed);
-    }
-  }, [images.length, isLocationReversed]);
+  const handleTouchEnd = useCallback(
+    (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      if (touchStartX.current - touchEndX > 50) {
+        setCurrentImage((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+        setIsLocationReversed(!isLocationReversed);
+      } else if (touchStartX.current - touchEndX < -50) {
+        setCurrentImage((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+        setIsLocationReversed(!isLocationReversed);
+      }
+    },
+    [images.length, isLocationReversed]
+  );
 
   const handleClick1001 = useCallback(() => {
     setIsClicked1001(true);
@@ -173,11 +170,7 @@ const BoothLayout = () => {
         />
       </BL.Date>
 
-      <BL.BoothImg
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
+      <BL.BoothImg onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
         <BL.BoothImgback>
           <img src={images[currentImage]} alt="boothimg" />
         </BL.BoothImgback>
@@ -236,6 +229,7 @@ const BoothLayout = () => {
                         : `${process.env.PUBLIC_URL}/images/BoothLayout/Number.svg`
                     }`}
                     alt="num"
+                    className={`num-${booth.num}`}
                     style={{
                       marginTop:
                         booth.num === "3" || booth.num === "4" ? "4px" : "0px",
