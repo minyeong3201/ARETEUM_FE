@@ -142,7 +142,7 @@ function AnimatedRoutes() {
           }
         />
         <Route
-          path="/generalbooth"
+          path="/generalbooth/:id"
           element={
             <motion.div
               initial="initial"
@@ -156,7 +156,7 @@ function AnimatedRoutes() {
           }
         />
         <Route
-          path="/foodbooth"
+          path="/foodbooth/:id"
           element={
             <motion.div
               initial="initial"
