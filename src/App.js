@@ -188,12 +188,10 @@ function AnimatedRoutes() {
   );
 }
 
-// App 컴포넌트에서 AnimatedRoutes로 감쌈
 function App() {
   return (
     <BrowserRouter>
       <GlobalStyle />
-      {/* Routes 대신 AnimatedRoutes를 사용 */}
       <AnimatedRoutes />
     </BrowserRouter>
   );
