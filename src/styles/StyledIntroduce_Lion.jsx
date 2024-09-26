@@ -237,10 +237,18 @@ export const Insta = styled.div`
 
 // 멋사 설명
 export const Content = styled.div`
-  width: 350px;
+  // width: 350px;
   height: 228px;
   margin-top: 30px;
-  margin-left: 63px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  // margin-left: 63px;
+  #wrap1 {
+    display: flex;
+    align-items: center;
+  }
 
   #text4 {
     color: #fff;
@@ -250,6 +258,7 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
+    margin-right: 3px;
   }
   #text5 {
     color: #f6d1b1;
@@ -259,8 +268,8 @@ export const Content = styled.div`
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin-left: 70px;
-    margin-top: -20.7px;
+    // margin-left: 70px;
+    // margin-top: -20.7px;
   }
 
   #text6 {
@@ -271,8 +280,8 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: 164px;
-    margin-top: -20.3px;
+    // margin-left: 164px;
+    // margin-top: -20.3px;
   }
 
   #text7 {
@@ -283,7 +292,7 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: 34px;
+    // margin-left: 34px;
   }
 
   #text8 {
@@ -294,7 +303,7 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: 42px;
+    // margin-left: 42px;
   }
 
   #text9 {
@@ -305,7 +314,7 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: 7px;
+    // margin-left: 7px;
   }
 
   #text10 {
@@ -316,8 +325,9 @@ export const Content = styled.div`
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin-left: -31px;
-    margin-top: 2px;
+    margin-right: 3px;
+    // margin-left: -31px;
+    // margin-top: 2px;
   }
 
   #text11 {
@@ -328,8 +338,8 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-top: -20px;
-    margin-left: -1px;
+    // margin-top: -20px;
+    // margin-left: -1px;
   }
 
   #text12 {
@@ -340,7 +350,8 @@ export const Content = styled.div`
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin-left: -20px;
+    margin-right: 1.5px;
+    // margin-left: -20px;
   }
 
   #text13 {
@@ -351,8 +362,8 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: 200px;
-    margin-top: -20px;
+    // margin-left: 200px;
+    // margin-top: -20px;
   }
 
   #text14 {
@@ -363,7 +374,7 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: 35px;
+    // margin-left: 35px;
   }
 
   #text15 {
@@ -374,7 +385,7 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: 62px;
+    // margin-left: 62px;
   }
 
   #text16 {
@@ -385,7 +396,7 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.393px;
-    margin-left: 35px;
+    // margin-left: 35px;
   }
 `;
 
