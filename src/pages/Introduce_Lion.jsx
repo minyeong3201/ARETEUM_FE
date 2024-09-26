@@ -93,18 +93,28 @@ const Introduce_Lion = () => {
         </div>
       </I.Insta>
       <I.Content>
-        <div id="text4">연합동아리</div>
-        <div id="text5">멋쟁이사자처럼</div>
-        <div id="text6">은 현재 국내에서</div>
+        <div id="wrap1">
+          <div id="text4">연합동아리 </div>
+          <div id="text5">멋쟁이사자처럼</div>
+          <div id="text6">은 현재 국내에서</div>
+        </div>
+
         <div id="text7">가장 많은 학생들이 활동하고 있는</div>
         <div id="text8">프로그래밍 교육 동아리입니다.</div>
         <br />
         <div id="text9">전국의 대학이 함께하는 연합 코딩동아리로</div>
-        <div id="text10">각종</div>
-        <div id="text11">스터디를 통해 여러 아이디어의 실현에 도전합니다.</div>
-        <br />
-        <div id="text12">"내 아이디어를 내 손으로 실현한다"</div>
-        <div id="text13">라는 가치 아래</div>
+        <div id="wrap1">
+          <div id="text10">각종</div>
+          <div id="text11">
+            스터디를 통해 여러 아이디어의 실현에 도전합니다.
+          </div>
+          <br />
+        </div>
+        <div id="wrap1">
+          <div id="text12">"내 아이디어를 내 손으로 실현한다"</div>
+          <div id="text13">라는 가치 아래</div>
+        </div>
+
         <div id="text14">창업과 서비스 개발 등 아이디어를</div>
         <div id="text15">내 손으로 실현할 수 있는</div>
         <div id="text16">다양한 교육과 기회를 제공합니다.</div>
