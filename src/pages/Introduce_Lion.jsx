@@ -93,7 +93,7 @@ const Introduce_Lion = () => {
         </div>
       </I.Insta>
       <I.Content>
-        <div id="wrap1">
+        <div id="wrap">
           <div id="text4">연합동아리 </div>
           <div id="text5">멋쟁이사자처럼</div>
           <div id="text6">은 현재 국내에서</div>
@@ -103,14 +103,14 @@ const Introduce_Lion = () => {
         <div id="text8">프로그래밍 교육 동아리입니다.</div>
         <br />
         <div id="text9">전국의 대학이 함께하는 연합 코딩동아리로</div>
-        <div id="wrap1">
+        <div id="wrap">
           <div id="text10">각종</div>
           <div id="text11">
             스터디를 통해 여러 아이디어의 실현에 도전합니다.
           </div>
           <br />
         </div>
-        <div id="wrap1">
+        <div id="wrap">
           <div id="text12">"내 아이디어를 내 손으로 실현한다"</div>
           <div id="text13">라는 가치 아래</div>
         </div>

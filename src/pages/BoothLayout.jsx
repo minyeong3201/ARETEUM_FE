@@ -20,6 +20,10 @@ const BoothLayout = () => {
   // 이미지 상태 관리
   const [isClicked1001, setIsClicked1001] = useState(false);
   const [isClicked1002, setIsClicked1002] = useState(false);
+
+  // Location 이미지 순서를 관리하는 상태
+  const [isLocationReversed, setIsLocationReversed] = useState(false);
+
   // 요소가 화면에 보였는지 감지하는 상태
   const [isVisible, setIsVisible] = useState(false);
   const detailRef = useRef(null); // 요소에 대한 참조 생성
@@ -119,9 +123,11 @@ const BoothLayout = () => {
     if (touchStartX.current - touchEndX.current > 50) {
       // 스와이프 왼쪽(다음 이미지)
       setCurrentImage((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+      setIsLocationReversed(!isLocationReversed); // 이미지 변경 시 Location 순서도 변경
     } else if (touchStartX.current - touchEndX.current < -50) {
       // 스와이프 오른쪽(이전 이미지)
       setCurrentImage((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+      setIsLocationReversed(!isLocationReversed); // 이미지 변경 시 Location 순서도 변경
     }
   };
 
@@ -172,8 +178,33 @@ const BoothLayout = () => {
         <BL.BoothImgback>
           <img src={images[currentImage]} alt="boothimg" />
         </BL.BoothImgback>
-        스와이프로 부스배치도를 확인하세요!
+        <BL.Location>
+          {!isLocationReversed ? (
+            <>
+              <img
+                src={`${process.env.PUBLIC_URL}/images/BoothLayout/Location1.svg`}
+                alt="location1"
+              />
+              <img
+                src={`${process.env.PUBLIC_URL}/images/BoothLayout/Location2.svg`}
+                alt="location2"
+              />
+            </>
+          ) : (
+            <>
+              <img
+                src={`${process.env.PUBLIC_URL}/images/BoothLayout/Location2.svg`}
+                alt="location2"
+              />
+              <img
+                src={`${process.env.PUBLIC_URL}/images/BoothLayout/Location1.svg`}
+                alt="location1"
+              />
+            </>
+          )}
+        </BL.Location>
       </BL.BoothImg>
+
       <BL.Buttons>
         <BL.DayButton
           id="day1"
@@ -218,12 +249,22 @@ const BoothLayout = () => {
             {filteredData.map((booth, index) => (
               <div id="one" key={index}>
                 <div id="wrap">
-                  {booth.name !== "(위치 변동 가능성 有)" && (
-                    <img
-                      src={`${process.env.PUBLIC_URL}/images/BoothLayout/Number.svg`}
-                      alt="num"
-                    />
-                  )}
+                  <img
+                    src={`${
+                      booth.num === "3" || booth.num === "4"
+                        ? `${process.env.PUBLIC_URL}/images/BoothLayout/NumberSmall.svg`
+                        : `${process.env.PUBLIC_URL}/images/BoothLayout/Number.svg`
+                    }`}
+                    alt="num"
+                    style={{
+                      marginTop:
+                        booth.num === "3" || booth.num === "4" ? "4px" : "0px",
+                      marginLeft:
+                        booth.num === "3" || booth.num === "4" ? "6px" : "0px",
+                      marginRight:
+                        booth.num === "3" || booth.num === "4" ? "5px" : "0px",
+                    }} // 조건부로 margin-top 적용
+                  />
                   {booth.num !== "3" && booth.num !== "4" && (
                     <div id="num">{index + 1}</div>
                   )}

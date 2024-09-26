@@ -27,7 +27,7 @@ export const Container = styled.div`
 
 export const Background = styled.div`
   position: absolute;
-  margin-top: 55px; /* Header의 높이만큼 띄워줍니다. */
+  margin-top: 70px; /* Header의 높이만큼 띄워줍니다. */
   width: 393px;
   height: 737px;
   flex-shrink: 0;
@@ -249,7 +249,7 @@ export const SomSom = styled.div`
 export const TextBox = styled.div`
   display: flex;
   width: 295px;
-  height: 138px;
+  height: 165.75px;
   padding: 13px 19px;
   flex-direction: column;
   justify-content: center;

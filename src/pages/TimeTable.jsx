@@ -33,9 +33,9 @@ const TimeTable = () => {
   const [boothTop, setBoothTop] = useState("370px");
   // Center height 상태 관리
   const [centerHeight, setCenterHeight] = useState("370px");
-  const [backSize, setBackSize] = useState("974px");
+  const [backSize, setBackSize] = useState("1000px");
   // Footer padding-top과 SomSom top 상태 관리
-  const [footerPaddingTop, setFooterPaddingTop] = useState("30px");
+  const [footerPaddingTop, setFooterPaddingTop] = useState("50px");
   const [somSomTop, setSomSomTop] = useState("550px");
 
   // 부스를 숨긴 뒤 일정 시간 후 다시 나타내는 함수
@@ -56,10 +56,10 @@ const TimeTable = () => {
     setBoothTop("370px");
     setBackgroundImage(`${process.env.PUBLIC_URL}/images/TimeTable/TTBack.svg`);
     setCenterHeight("370px");
-    setFooterPaddingTop("30px");
+    setFooterPaddingTop("50px");
     setSomSomTop("550px");
     triggerAnimation(); // 애니메이션 트리거
-    setBackSize("974px");
+    setBackSize("1000px");
   };
 
   const handleClick1002 = () => {
@@ -74,7 +74,7 @@ const TimeTable = () => {
     setFooterPaddingTop("500px");
     setSomSomTop("820px");
     triggerAnimation(); // 애니메이션 트리거
-    setBackSize("1254px");
+    setBackSize("1270px");
   };
 
   // 현재 선택된 날짜에 맞는 부스 필터링
@@ -191,7 +191,9 @@ const TimeTable = () => {
         <TT.TextBox>
           <p id="title">12:00 - 22:00 상시 운영 부스</p>
           <p id="booth">
-            놀러와요 도담이네( ~ 22시)
+            솜원을 말해봐 / 동덕연화(2일 ~ 20시) <br />
+            포토존 빛의 거리 빛의 순간 <br />
+            포토부스 RGB 스튜디오 / 놀러와요 도담이네
             <br /> 오늘 밤은 여기 ‘로타’ / 불꽃피움
             <br />
             나란 돌쇠의 마님 환영회 / 화학과 주점
