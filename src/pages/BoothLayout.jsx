@@ -35,6 +35,7 @@ const BoothLayout = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [activeButton, setActiveButton] = useState("");
 
+  // 이미지 최적화: lazy loading 추가
   const images = useMemo(
     () => [
       `${process.env.PUBLIC_URL}/images/BoothLayout/BoothImg1.svg`,
@@ -172,7 +173,7 @@ const BoothLayout = () => {
 
       <BL.BoothImg onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
         <BL.BoothImgback>
-          <img src={images[currentImage]} alt="boothimg" />
+          <img src={images[currentImage]} alt="boothimg" loading="lazy" />
         </BL.BoothImgback>
 
         <BL.Location>

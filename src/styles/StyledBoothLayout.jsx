@@ -227,7 +227,9 @@ export const Booths = styled.div`
   gap: 10px;
   justify-content: start;
   overflow-y: auto; /* 스크롤 가능하도록 설정 */
-  max-height: 200px; /* 스크롤 영역의 높이 설정 */
+  max-height: 500px; /* 스크롤 영역의 높이 설정 */
+  scroll-behavior: smooth; /* 스크롤 부드럽게 */
+  will-change: transform; /* 브라우저 최적화 */
 
   #one {
     display: flex;
