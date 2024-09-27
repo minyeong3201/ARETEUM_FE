@@ -499,7 +499,7 @@
     "pk": 56,
     "fields": {
         "name": "화채",
-        "price": "7000",
+        "price": "7,000원",
         "menu_group": 15
     }
 },

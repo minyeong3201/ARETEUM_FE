@@ -16,7 +16,7 @@ class FoodBoothSerializer(serializers.ModelSerializer):
 class FoodTruckSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booth
-        fields = ['id', 'name', 'place', 'time_day1', 'category']
+        fields = ['id', 'name', 'place', 'date', 'time_day1', 'time_day2', 'category']
 
 class Day1BoothSerializer(serializers.ModelSerializer):
     class Meta:
