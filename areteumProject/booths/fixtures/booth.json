@@ -108,7 +108,7 @@
     "model": "booths.booth",
     "pk": 8,
     "fields": {
-        "name": "헤어지자고? 링크 주점 이제 시작인데?",
+        "name": "헤어지자고?링크주점이제시작인데?",
         "host": "인문대학 학생회 LINK",
         "place": "운동장",
         "date": "day2",
