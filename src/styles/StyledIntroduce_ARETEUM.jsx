@@ -192,10 +192,20 @@ export const Insta = styled.div`
 
 // 축제 설명
 export const Content = styled.div`
-  width: 328px;
-  height: 228px;
+  // width: 328px;
+  // height: 228px;
   margin-top: 24px;
-  margin-left: 35px;
+  // margin-left: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  #wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   #text4 {
     color: #fff;
@@ -235,10 +245,12 @@ export const Content = styled.div`
 
 // 축제 설명2
 export const Content2 = styled.div`
-  width: 200px;
+  // width: 200px;
   height: 44px;
   margin-top: 39px;
-  margin-left: 98px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   #text7 {
     color: #f6d1b1;

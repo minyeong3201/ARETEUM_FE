@@ -27,7 +27,7 @@ export const Container = styled.div`
 
 export const Background = styled.div`
   position: absolute;
-  margin-top: 55px; /* Header의 높이만큼 띄워줍니다. */
+  margin-top: 70px; /* Header의 높이만큼 띄워줍니다. */
   width: 393px;
   height: 737px;
   flex-shrink: 0;
@@ -90,13 +90,13 @@ export const Date = styled.div`
   display: flex;
   margin-top: 85px;
   width: 226px;
-  white-spase: pre-wrap;
+  white-space: pre-wrap;
   justify-content: space-between;
   z-index: 1;
 
-  /* 이미지가 클릭된 상태일 때 그림자 추가 */
   img {
     transition: filter 0.3s ease;
+    will-change: filter; /* 성능 최적화를 위한 will-change 추가 */
     &.active {
       filter: drop-shadow(0px 0px 20px #fff);
     }
@@ -249,7 +249,7 @@ export const SomSom = styled.div`
 export const TextBox = styled.div`
   display: flex;
   width: 295px;
-  height: 138px;
+  height: 165.75px;
   padding: 13px 19px;
   flex-direction: column;
   justify-content: center;

@@ -80,7 +80,9 @@ export const Date = styled.div`
   margin-top: 16px;
   gap: 90px;
   img {
+    z-index: 4;
     transition: filter 0.3s ease;
+    will-change: filter;
     &.active {
       filter: drop-shadow(0px 0px 20px #fff);
     }
@@ -106,6 +108,7 @@ export const BoothImg = styled.div`
   font-weight: 600;
   line-height: normal;
 `;
+
 export const BoothImgback = styled.div`
   z-index: 3;
   display: flex;
@@ -120,6 +123,13 @@ export const BoothImgback = styled.div`
     width: 340px;
     height: 225px;
   }
+`;
+export const Location = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+  gap: 8px;
 `;
 export const Buttons = styled.div`
   position: relative;
@@ -217,7 +227,9 @@ export const Booths = styled.div`
   gap: 10px;
   justify-content: start;
   overflow-y: auto; /* 스크롤 가능하도록 설정 */
-  max-height: 200px; /* 스크롤 영역의 높이 설정 */
+  max-height: 500px; /* 스크롤 영역의 높이 설정 */
+  scroll-behavior: smooth; /* 스크롤 부드럽게 */
+  will-change: transform; /* 브라우저 최적화 */
 
   #one {
     display: flex;
@@ -231,6 +243,9 @@ export const Booths = styled.div`
     align-items: center;
   }
   img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   #num {
     position: absolute;

@@ -1,76 +1,108 @@
-import { React, useEffect, useState, useRef } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  useCallback,
+  useMemo,
+} from "react";
+import { useNavigate } from "react-router-dom";
 import * as BL from "../styles/StyledBoothLayout";
 import boothData from "../data/BoothLayoutData";
 
 const BoothLayout = () => {
   const navigate = useNavigate();
 
-  const goback = () => {
+  const goback = useCallback(() => {
     window.history.back();
-  };
-  const goDetail = () => {
+  }, []);
+
+  const goDetail = useCallback(() => {
     navigate(`/keyword`);
-  };
+  }, [navigate]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // 이미지 상태 관리
   const [isClicked1001, setIsClicked1001] = useState(false);
   const [isClicked1002, setIsClicked1002] = useState(false);
-  // 요소가 화면에 보였는지 감지하는 상태
+  const [isLocationReversed, setIsLocationReversed] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const detailRef = useRef(null); // 요소에 대한 참조 생성
-  // 데이터 필터링
+  const detailRef = useRef(null);
   const [currentDay, setCurrentDay] =
     useState("날짜 선택 후, 구역을 선택하세요");
   const [selectedDay, setSelectedDay] = useState("");
   const [filteredData, setFilteredData] = useState([]);
-  const [activeButton, setActiveButton] = useState(""); // 클릭된 버튼 상태 관리
+  const [activeButton, setActiveButton] = useState("");
 
-  const handleClick1001 = () => {
+  // 이미지 최적화: lazy loading 추가
+  const images = useMemo(
+    () => [
+      `${process.env.PUBLIC_URL}/images/BoothLayout/BoothImg1.svg`,
+      `${process.env.PUBLIC_URL}/images/BoothLayout/BoothImg2.svg`,
+    ],
+    []
+  );
+
+  const [currentImage, setCurrentImage] = useState(0);
+  const touchStartX = useRef(0);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = useCallback(
+    (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      if (touchStartX.current - touchEndX > 50) {
+        setCurrentImage((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+        setIsLocationReversed(!isLocationReversed);
+      } else if (touchStartX.current - touchEndX < -50) {
+        setCurrentImage((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+        setIsLocationReversed(!isLocationReversed);
+      }
+    },
+    [images.length, isLocationReversed]
+  );
+
+  const handleClick1001 = useCallback(() => {
     setIsClicked1001(true);
     setIsClicked1002(false);
-    setCurrentDay("DAY 1"); // DAY 1 설정
-    filterData("1001", selectedDay); // day 버튼에 따른 필터링
-    resetAnimation(); // 클릭 시 애니메이션 재실행
-  };
-  const handleClick1002 = () => {
+    setCurrentDay("DAY 1");
+    filterData("1001", selectedDay);
+    resetAnimation();
+  }, [selectedDay]);
+
+  const handleClick1002 = useCallback(() => {
     setIsClicked1002(true);
     setIsClicked1001(false);
-    setCurrentDay("DAY 2"); // DAY 2 설정
-    filterData("1002", selectedDay); // day 버튼에 따른 필터링
-    resetAnimation(); // 클릭 시 애니메이션 재실행
-  };
+    setCurrentDay("DAY 2");
+    filterData("1002", selectedDay);
+    resetAnimation();
+  }, [selectedDay]);
 
-  const handleDayClick = (day) => {
-    setSelectedDay(day);
-    setActiveButton(day); // 클릭된 버튼 추적
-    const date = isClicked1001 ? "1001" : "1002";
-    filterData(date, day); // 클릭한 date와 day에 맞춰 필터링
-  };
+  const handleDayClick = useCallback(
+    (day) => {
+      setSelectedDay(day);
+      setActiveButton(day);
+      const date = isClicked1001 ? "1001" : "1002";
+      filterData(date, day);
+    },
+    [isClicked1001, isClicked1002]
+  );
 
-  const filterData = (date, day) => {
+  const filterData = useCallback((date, day) => {
     const filtered = boothData.filter(
       (booth) =>
         booth[`date${date === "1001" ? "1" : "2"}`] === date &&
         booth.num === day
     );
     setFilteredData(filtered);
-  };
+  }, []);
 
-  // 클릭 시 애니메이션 재실행을 위해 상태 리셋
-  const resetAnimation = () => {
+  const resetAnimation = useCallback(() => {
     setIsVisible(false);
-    setTimeout(() => {
-      setIsVisible(true); // 100ms 후 다시 true로 설정해 애니메이션 실행
-    }, 100);
-  };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
+    setTimeout(() => setIsVisible(true), 100);
   }, []);
 
   useEffect(() => {
@@ -78,12 +110,12 @@ const BoothLayout = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(true); // 요소가 보일 때 애니메이션 실행
-            observer.unobserve(entry.target); // 한 번 보이면 더 이상 관찰하지 않음
+            setIsVisible(true);
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1 } // 요소가 10% 이상 보이면 실행
+      { threshold: 0.1 }
     );
 
     if (detailRef.current) {
@@ -96,34 +128,6 @@ const BoothLayout = () => {
       }
     };
   }, []);
-
-  //부스 이미지 스와이프기능
-
-  const [currentImage, setCurrentImage] = useState(0); // 0번 이미지부터 시작
-  const images = [
-    `${process.env.PUBLIC_URL}/images/BoothLayout/BoothImg1.svg`,
-    `${process.env.PUBLIC_URL}/images/BoothLayout/BoothImg2.svg`,
-  ]; // 이미지 배열
-  const touchStartX = useRef(0); // 터치 시작 X 좌표
-  const touchEndX = useRef(0); // 터치 끝 X 좌표
-
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX; // 터치 시작 위치 저장
-  };
-
-  const handleTouchMove = (e) => {
-    touchEndX.current = e.touches[0].clientX; // 터치 중 위치 저장
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStartX.current - touchEndX.current > 50) {
-      // 스와이프 왼쪽(다음 이미지)
-      setCurrentImage((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    } else if (touchStartX.current - touchEndX.current < -50) {
-      // 스와이프 오른쪽(이전 이미지)
-      setCurrentImage((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-    }
-  };
 
   return (
     <BL.Container>
@@ -138,12 +142,14 @@ const BoothLayout = () => {
         </BL.Back>
         <BL.Title>부스배치도</BL.Title>
       </BL.Header>
+
       <BL.Background>
         <object
           data={`${process.env.PUBLIC_URL}/images/BoothLayout/BLBack.svg`}
           alt="background"
         />
       </BL.Background>
+
       <BL.Date>
         <img
           id="1001"
@@ -164,53 +170,52 @@ const BoothLayout = () => {
           className={isClicked1002 ? "active" : ""}
         />
       </BL.Date>
-      <BL.BoothImg
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
+
+      <BL.BoothImg onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
         <BL.BoothImgback>
-          <img src={images[currentImage]} alt="boothimg" />
+          <img src={images[currentImage]} alt="boothimg" loading="lazy" />
         </BL.BoothImgback>
-        스와이프로 부스배치도를 확인하세요!
+
+        <BL.Location>
+          {!isLocationReversed ? (
+            <>
+              <img
+                src={`${process.env.PUBLIC_URL}/images/BoothLayout/Location1.svg`}
+                alt="location1"
+              />
+              <img
+                src={`${process.env.PUBLIC_URL}/images/BoothLayout/Location2.svg`}
+                alt="location2"
+              />
+            </>
+          ) : (
+            <>
+              <img
+                src={`${process.env.PUBLIC_URL}/images/BoothLayout/Location2.svg`}
+                alt="location2"
+              />
+              <img
+                src={`${process.env.PUBLIC_URL}/images/BoothLayout/Location1.svg`}
+                alt="location1"
+              />
+            </>
+          )}
+        </BL.Location>
       </BL.BoothImg>
+
       <BL.Buttons>
-        <BL.DayButton
-          id="day1"
-          active={activeButton === "1"}
-          onClick={() => handleDayClick("1")}
-        >
-          축운위
-        </BL.DayButton>
-        <BL.DayButton
-          id="day2"
-          active={activeButton === "2"}
-          onClick={() => handleDayClick("2")}
-        >
-          한잔하솜
-        </BL.DayButton>
-        <BL.DayButton
-          id="day3"
-          active={activeButton === "3"}
-          onClick={() => handleDayClick("3")}
-        >
-          코튼마켓
-        </BL.DayButton>
-        <BL.DayButton
-          id="day4"
-          active={activeButton === "4"}
-          onClick={() => handleDayClick("4")}
-        >
-          제휴/푸드
-        </BL.DayButton>
-        <BL.DayButton
-          id="day5"
-          active={activeButton === "5"}
-          onClick={() => handleDayClick("5")}
-        >
-          일반
-        </BL.DayButton>
+        {["1", "2", "3", "4", "5"].map((day) => (
+          <BL.DayButton
+            key={day}
+            id={`day${day}`}
+            active={activeButton === day}
+            onClick={() => handleDayClick(day)}
+          >
+            {["축운위", "한잔하솜", "코튼마켓", "제휴/푸드", "일반"][day - 1]}
+          </BL.DayButton>
+        ))}
       </BL.Buttons>
+
       <BL.BoothInfo>
         <BL.Box>
           <BL.DAY>{currentDay}</BL.DAY>
@@ -218,23 +223,34 @@ const BoothLayout = () => {
             {filteredData.map((booth, index) => (
               <div id="one" key={index}>
                 <div id="wrap">
-                  {booth.name !== "(위치 변동 가능성 有)" && (
-                    <img
-                      src={`${process.env.PUBLIC_URL}/images/BoothLayout/Number.svg`}
-                      alt="num"
-                    />
-                  )}
+                  <img
+                    src={`${
+                      booth.num === "3" || booth.num === "4"
+                        ? `${process.env.PUBLIC_URL}/images/BoothLayout/NumberSmall.svg`
+                        : `${process.env.PUBLIC_URL}/images/BoothLayout/Number.svg`
+                    }`}
+                    alt="num"
+                    className={`num-${booth.num}`}
+                    style={{
+                      marginTop:
+                        booth.num === "3" || booth.num === "4" ? "4px" : "0px",
+                      marginLeft:
+                        booth.num === "3" || booth.num === "4" ? "6px" : "0px",
+                      marginRight:
+                        booth.num === "3" || booth.num === "4" ? "5px" : "0px",
+                    }}
+                  />
                   {booth.num !== "3" && booth.num !== "4" && (
                     <div id="num">{index + 1}</div>
                   )}
                 </div>
                 <div id="name">{booth.name}</div>
-                {/* 부스 이름 출력 */}
               </div>
             ))}
           </BL.Booths>
         </BL.Box>
       </BL.BoothInfo>
+
       <BL.Detail ref={detailRef} isVisible={isVisible}>
         <div id="detail" onClick={goDetail}>
           부스 상세정보
