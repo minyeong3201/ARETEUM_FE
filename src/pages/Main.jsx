@@ -251,7 +251,7 @@ export default function Main() {
               variants={floatingVariants4}
               onClick={() => GoTalk()}
               className="clickable-wrapper talk-illur"
-              style={{ position: "relative", zIndex: 10 }}
+              style={{ position: "relative", zIndex: 0 }}
             >
               <object
                 data={`${process.env.PUBLIC_URL}/images/Main/Talk-illur.svg`}
